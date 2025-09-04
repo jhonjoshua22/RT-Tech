@@ -1,20 +1,20 @@
 @font-face {
   font-family: "Orbitron Bold";
-  src: url("/fonts/orbitron-bold.woff2") format("woff2");
+  src: url("../fonts/orbitron-bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Monument Bold";
-  src: url("/fonts/monument-bold.woff2") format("woff2");
+  src: url("../fonts/monument-bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Monument";
-  src: url("/fonts/monument.woff2") format("woff2");
+  src: url("../fonts/monument.woff2") format("woff2");
   font-weight: regular;
   font-style: normal;
 }
