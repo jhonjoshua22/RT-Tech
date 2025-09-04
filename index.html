@@ -37,12 +37,15 @@
 
           <!-- Products with Mega Menu -->
           <li class="nav-item position-relative" id="productsMenu">
-            <a href="#" class="nav-link text-success" style="margin: 0 1vw">Products ▼</a>
-            <div class="dropdown-mega" id="megaMenu">
+            <a href="#" class="nav-link text-success" style="margin: 0 1vw">Products ⮟</a>
+            <div class="dropdown-mega border" id="megaMenu">
               <div class="left">
-                <ul><span class="text-success" style="font-size: 25px">PRODUCTS</span>
+                <ul><span class="text-success" style="font-size: 16px">PRODUCTS</span>
                   <li data-category="peripherals">Peripherals</li>
+                  <li data-category="laptops">Laptops</li>
                   <li data-category="pc">PC Parts</li>
+                  <li data-category="workstation">Workstation</li>
+                  <li data-category="accessories">Accessories</li>
                   <li data-category="networking">Networking</li>
                 </ul>
               </div>
@@ -236,22 +239,22 @@
   </div>
 
   <!-- Top Sellers -->
-  <div class="container-fluid bg-light">
-    <div class="container bg-light" style="height: 55vh; padding: 7vh 0">
+  <div class="container-fluid" style="background: white">
+    <div class="container" style="height: 55vh; padding: 7vh 0; background: white">
       <h2 style="text-align: center; font-weight: bold">TOP SELLERS</h2>
     </div>
   </div>
 
   <!-- New Arrival -->
-  <div class="container-fluid bg-white">
-    <div class="container bg-white" style="height: 55vh; padding: 7vh 0">
+  <div class="container-fluid" style="background: rgb(240, 240, 240)">
+    <div class="container" style="background: rgb(240, 240, 240); height: 55vh; padding: 7vh 0">
       <h2 style="text-align: center; font-weight: bold">NEW ARRIVAL</h2>
     </div>
   </div>
 
   <!-- RT Tech's Top Pick -->
-  <div class="container-fluid bg-light">
-    <div class="container bg-light" style="height: 55vh; padding: 7vh 0">
+  <div class="container-fluid" style="background: white">
+    <div class="container" style="background: white; height: 55vh; padding: 7vh 0">
       <h2 style="text-align: center; font-weight: bold">RT Tech's Best Picks</h2>
     </div>
   </div>
@@ -320,9 +323,40 @@
   <!-- About US -->
   <div class="container-fluid">
     <div class="container">
-      <h2 class="mt-5" style="font-weight: bold">Get to Know Us</h2>
+    <h2 class="mt-5" style="font-weight: bold">Get to Know Us</h2>
+    
+    <div class="text-content collapsed" id="aboutText">
       <p>Mission... Vision.. etc</p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Deleniti quam ad quibusdam velit dolore expedita tempore possimus 
+        distinctio sit accusamus aut consequatur praesentium suscipit, 
+        atque laborum ipsum quos perspiciatis vel.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Odio veritatis neque rerum voluptatem? Harum commodi cumque fuga 
+        fugiat eveniet animi pariatur omnis, repellat consectetur provident 
+        labore saepe ullam illum quaerat.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, a! 
+        Dolorem ullam repellendus quaerat laboriosam iste nam odio, mollitia 
+        possimus architecto omnis velit excepturi numquam ratione odit 
+        voluptas aperiam optio.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dolores 
+        sunt commodi libero, animi voluptatum debitis iusto quae sequi dolorum 
+        fuga molestias dolorem eligendi cum sint quas dolor dicta repudiandae. 
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex doloribus 
+        ipsa molestias optio? Pariatur illum et consequuntur laudantium magni 
+        corporis hic eius enim quidem minus ipsum rerum harum, quibusdam 
+        necessitatibus.
+      </p>
     </div>
+
+    <button id="toggleBtn" class="btn btn-link p-0 mt-2">Show more</button>
+  </div>
+
   </div>
 
   <!-- Contact Us etc -->
@@ -342,9 +376,37 @@
 
     // Categories + items
     const items = {
-      peripherals: ["Keyboard", "Mouse", "Headset", "Speaker"],
-      pc: ["Processor", "Motherboard", "Graphics Card", "Memory", "Power Supply"],
-      networking: ["Router", "Switch", "Access Point"]
+      peripherals: [
+        { name: "Keyboard", link: "/peripherals/keyboard" },
+        { name: "Mouse", link: "/peripherals/mouse" },
+        { name: "Headset", link: "/peripherals/headset" },
+        { name: "Speaker", link: "/peripherals/speaker" }
+      ],
+      pc: [
+        { name: "Processor", link: "/pc/processor" },
+        { name: "Motherboard", link: "/pc/motherboard" },
+        { name: "Graphics Card", link: "/pc/graphics-card" },
+        { name: "Memory", link: "/pc/memory" },
+        { name: "Power Supply", link: "/pc/power-supply" }
+      ],
+      networking: [
+        { name: "Router", link: "/networking/router" },
+        { name: "Switch", link: "/networking/switch" },
+        { name: "Cables", link: "/networking/cables" }
+      ],
+      laptops: [
+        { name: "Asus", link: "/laptops/asus" },
+
+      ],
+      workstation: [
+        { name: "Table", link: "/workstation/table" },
+        { name: "Printer", link: "/workstation/printer" },
+        { name: "Chair", link: "/workstation/chair" },
+      ],
+      accessories: [
+        { name: "Earphones", link: "/accessories/earphones" },
+        { name: "Powerbank", link: "/accessories/powerbank" },
+      ]
     };
 
     // Desktop hover
@@ -377,12 +439,24 @@
     });
 
     function loadCategory(cat) {
-      megaContent.innerHTML = `<h6 class="fw-bold text-success" style="font-size: 25px">${cat.toUpperCase()}</h6><ul>`;
+      megaContent.innerHTML = `
+        <h6 class="fw-bold text-success" style="font-size: 16px">
+          ${cat.toUpperCase()}
+        </h6>
+        <ul>
+      `;
       items[cat].forEach(it => {
-        megaContent.innerHTML += `<li style="font-size: 16px; margin: 1vh 0">${it}</li>`;
+        megaContent.innerHTML += `
+          <li style="text-decoration: underline;font-size: 14px; margin: 1vh 0">
+            <a href="${it.link}" class="text-dark text-decoration-none">
+              ${it.name}
+            </a>
+          </li>
+        `;
       });
       megaContent.innerHTML += `</ul>`;
     }
+
 
     const leftItems = document.querySelectorAll('.left li');
     const rightPanel = document.getElementById('megaContent');
@@ -440,8 +514,24 @@
         left: scrollAmount,
         behavior: "smooth"
       });
-    }, 2000); // 2s interval
+    }, 1600); // 2s interval
   });
+  </script>
+
+  <!-- About Us -->
+  <script>
+  const toggleBtn = document.getElementById("toggleBtn");
+  const aboutText = document.getElementById("aboutText");
+
+  toggleBtn.addEventListener("click", () => {
+    aboutText.classList.toggle("expanded");
+    if (aboutText.classList.contains("expanded")) {
+      toggleBtn.textContent = "Show less";
+    } else {
+      toggleBtn.textContent = "Show more";
+    }
+  });
+
   </script>
 
 </body>

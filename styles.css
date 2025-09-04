@@ -29,7 +29,7 @@ ul {
 }
 
 .left li {
-  font-size: 16px;
+  font-size: 14px;
   padding: 0.5vh 0;
   background: transparent;
   transition: background 0.2s;
@@ -62,7 +62,7 @@ ul {
   transform: translateX(-50%);
   width: 80vw;                 /* 80% of screen width */
   height: 400px;               /* fixed height */
-  background: #fff;
+  background: white;
   border-radius: 0 0 8px 8px;
   padding: 2rem;
   z-index: 1050;
@@ -226,7 +226,37 @@ img {
   max-width: calc(33.333% - 1rem);
 }
 
+@media (max-width: 768px) { /* mobile & tablets */
+  .rcontainer .card {
+    flex: 0 0 50%;   /* show 1 card */
+    max-width: 50%;
+  }
+}
+
 .container a {
   text-decoration: none;
 }
+
+.text-content {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* show only 5 lines */
+  -webkit-box-orient: vertical;
+}
+
+.text-content.expanded {
+  -webkit-line-clamp: unset;
+  display: block;
+}
+
+#toggleBtn {
+  background: none;
+  border: none;
+  margin-bottom: 2vh;
+  color: #198754; /* Bootstrap green */
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 
