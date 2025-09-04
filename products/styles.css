@@ -1,20 +1,20 @@
 @font-face {
   font-family: "Orbitron Bold";
-  src: url("fonts/orbitron-bold.woff2") format("woff2");
+  src: url("/fonts/orbitron-bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Monument Bold";
-  src: url("fonts/monument-bold.woff2") format("woff2");
+  src: url("/fonts/monument-bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Monument";
-  src: url("fonts/monument.woff2") format("woff2");
+  src: url("/fonts/monument.woff2") format("woff2");
   font-weight: regular;
   font-style: normal;
 }
@@ -176,24 +176,6 @@ ul {
   }
 }
 
-.tcontainer {
-  display: flex;
-  overflow-x: auto;
-  overflow-y: hidden;
-  gap: 1rem;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; /* smooth touch scrolling */
-  scroll-behavior: smooth;           /* smooth scroll when snapping */
-  padding-bottom: 10px;
-  cursor: grab;      
-}
-
-.tcontainer .card {
-  flex: 0 0 calc(25% - 1rem); /* show 3 per row */
-  max-width: calc(25% - 1rem);
-  height: 40vh;
-}
-
 .card:hover {
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.6)
 }
@@ -222,11 +204,11 @@ img {
   cursor: grabbing;
 }
 
-.tcontainer::-webkit-scrollbar, .rcontainer::-webkit-scrollbar, .pcontainer::-webkit-scrollbar {
+.rcontainer::-webkit-scrollbar, .pcontainer::-webkit-scrollbar {
   height: 20px;
 }
 
-.tcontainer::-webkit-scrollbar-thumb, .rcontainer::-webkit-scrollbar-thumb, .pcontainer::-webkit-scrollbar-thumb {
+.rcontainer::-webkit-scrollbar-thumb, .pcontainer::-webkit-scrollbar-thumb {
   background: #28a745;
   border-radius: 10px;
 }
@@ -246,11 +228,6 @@ img {
 
 @media (max-width: 768px) { /* mobile & tablets */
   .rcontainer .card {
-    flex: 0 0 50%;   /* show 1 card */
-    max-width: 50%;
-  }
-
-  .tcontainer .card {
     flex: 0 0 50%;   /* show 1 card */
     max-width: 50%;
   }
@@ -282,9 +259,4 @@ img {
   text-decoration: none;
 }
 
-.emailus, .facebook{
-  bottom: 3vh;
-  right: 2vw;
-  position: fixed;
-  height: 40px;
-}
+

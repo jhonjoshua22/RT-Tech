@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RT Tech Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link href="styles.css" rel="stylesheet">
+  <style>
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg shadow fixed-top" style="background: white">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center gap-2 text-success fw-bold" href="#">
+        <img src="/images/logo.png" alt="Logo" class="img-fluid" style="height: 7vh;">
+        <h1 class="mb-0 mt-1" style="font-size: 4vh; font-family: Monument;">RT TECH</h1>
+      </a>
+
+
+      <!-- Toggler for mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <form class="d-flex ms-auto my-2 my-lg-0" role="search" style="width: 30vw; max-width: 30vw;">
+          <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
+
+        <ul class="navbar-nav ms-auto fw-bold" style="font-size: 2vh">
+          <li class="nav-item"><a href="../index.html#home" class="nav-link text-success" style="margin: 0 1vw">Home</a></li>
+
+          <!-- Products with Mega Menu -->
+          <li class="nav-item position-relative" id="productsMenu">
+            <a href="#" class="nav-link text-success" style="margin: 0 1vw">Products ⮟</a>
+            <div class="dropdown-mega border" id="megaMenu">
+              <div class="left">
+                <ul><span class="text-success" style="font-size: 16px">PRODUCTS</span>
+                  <li data-category="peripherals">Peripherals</li>
+                  <li data-category="laptops">Laptops</li>
+                  <li data-category="pc">PC Parts</li>
+                  <li data-category="workstation">Workstation</li>
+                  <li data-category="accessories">Accessories</li>
+                  <li data-category="networking">Networking</li>
+                </ul>
+              </div>
+              <div class="right" id="megaContent">
+                <p class="text-muted">Hover or tap a category to see items.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="#contacts" class="nav-link text-success" style="margin: 0 1vw">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Laptops -->
+  <div class="container-fluid" style="height: 100vh; padding: 12vh 0 5vh">
+    <div class="container">
+        <h5 style="padding: 8vh 0">Laptops</h5>
+    </div>
+  </div>
+
+  <!-- Contact Us etc -->
+  <div class="container-fluid bg-success" style="height: 50vh">
+    <div class="container">
+      <h1 id="contacts" style="color: transparent; user-select: none;">Contact Us</h1>
+    </div>
+  </div>
+
+  <!-- !!!Scripts!!!-->
+  <!-- Products Dropdown-->
+  <script>
+    const productsMenu = document.getElementById("productsMenu");
+    const megaMenu = document.getElementById("megaMenu");
+    const megaContent = document.getElementById("megaContent");
+    let hideTimeout;
+
+    // Categories + items
+    const items = {
+      peripherals: [
+        { name: "Keyboard", link: "/peripherals/keyboard" },
+        { name: "Mouse", link: "/peripherals/mouse" },
+        { name: "Headset", link: "/peripherals/headset" },
+        { name: "Speaker", link: "/peripherals/speaker" }
+      ],
+      pc: [
+        { name: "Processor", link: "/pc/processor" },
+        { name: "Motherboard", link: "/pc/motherboard" },
+        { name: "Graphics Card", link: "/pc/graphics-card" },
+        { name: "Memory", link: "/pc/memory" },
+        { name: "Power Supply", link: "/pc/power-supply" }
+      ],
+      networking: [
+        { name: "Router", link: "/networking/router" },
+        { name: "Switch", link: "/networking/switch" },
+        { name: "Cables", link: "/networking/cables" }
+      ],
+      laptops: [
+        { name: "Laptops", link: "laptops.html" },
+
+      ],
+      workstation: [
+        { name: "Table", link: "/workstation/table" },
+        { name: "Printer", link: "/workstation/printer" },
+        { name: "Chair", link: "/workstation/chair" },
+      ],
+      accessories: [
+        { name: "Earphones", link: "/accessories/earphones" },
+        { name: "Powerbank", link: "/accessories/powerbank" },
+      ]
+    };
+
+    // Desktop hover
+    if (window.innerWidth > 991) {
+      productsMenu.addEventListener("mouseenter", () => {
+        clearTimeout(hideTimeout);
+        megaMenu.classList.add("show");
+      });
+      productsMenu.addEventListener("mouseleave", () => {
+        hideTimeout = setTimeout(() => megaMenu.classList.remove("show"), 200);
+      });
+    }
+
+    // Mobile toggle
+    productsMenu.querySelector("a").addEventListener("click", e => {
+      if (window.innerWidth <= 991) {
+        e.preventDefault();
+        megaMenu.classList.toggle("show");
+      }
+    });
+
+    // Load right-side content
+    megaMenu.querySelectorAll(".left li").forEach(li => {
+      li.addEventListener("mouseenter", () => {
+        if (window.innerWidth > 991) loadCategory(li.dataset.category);
+      });
+      li.addEventListener("click", () => {
+        if (window.innerWidth <= 991) loadCategory(li.dataset.category);
+      });
+    });
+
+    function loadCategory(cat) {
+      megaContent.innerHTML = `
+        <h6 class="fw-bold text-success" style="font-size: 16px">
+          ${cat.toUpperCase()}
+        </h6>
+        <ul>
+      `;
+      items[cat].forEach(it => {
+        megaContent.innerHTML += `
+          <li style="text-decoration: underline;font-size: 14px; margin: 1vh 0">
+            <a href="${it.link}" class="text-dark text-decoration-none">
+              ${it.name}
+            </a>
+          </li>
+        `;
+      });
+      megaContent.innerHTML += `</ul>`;
+    }
+
+
+    const leftItems = document.querySelectorAll('.left li');
+    const rightPanel = document.getElementById('megaContent');
+    let activeItem = null;
+
+    leftItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        // Clear any previous active
+        if (activeItem) activeItem.classList.remove('active');
+        // Set new active
+        item.classList.add('active');
+        activeItem = item;
+      });
+    });
+
+    // Remove highlight only when leaving dropdown entirely
+    document.getElementById('megaMenu').addEventListener('mouseleave', () => {
+      if (activeItem) activeItem.classList.remove('active');
+      activeItem = null;
+    });
+
+  </script>
+
+  <!-- About Us -->
+  <script>
+  const toggleBtn = document.getElementById("toggleBtn");
+  const aboutText = document.getElementById("aboutText");
+
+  toggleBtn.addEventListener("click", () => {
+    aboutText.classList.toggle("expanded");
+    if (aboutText.classList.contains("expanded")) {
+      toggleBtn.textContent = "Show less";
+    } else {
+      toggleBtn.textContent = "Show more";
+    }
+  });
+
+  </script>
+
+</body>
+</html>
