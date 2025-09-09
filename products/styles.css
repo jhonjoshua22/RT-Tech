@@ -1,0 +1,280 @@
+@font-face {
+  font-family: "Orbitron Bold";
+  src: url("../fonts/orbitron-bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Monument Bold";
+  src: url("../fonts/monument-bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Monument";
+  src: url("../fonts/monument.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.form-select:focus, .form-control:focus {
+  border-color: green !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25) !important;
+}
+
+ul {
+  list-style: none;
+}
+
+.left li {
+  font-size: 14px;
+  padding: 0.5vh 0;
+  background: transparent;
+  transition: background 0.2s;
+}
+
+/* Highlight when hovering li */
+.left li:hover,
+.left li:focus,
+.left li.active {
+  background: rgba(240, 240, 255, 0.9);
+}
+
+/* Keep the li highlighted when hovering over the right panel */
+.left li:hover ~ .right,
+.right:hover {
+  /* This alone won’t keep the li highlighted —
+     so we’ll need JS to add a class */
+}
+
+.left li.active {
+  background: rgba(240, 240, 255, 0.9);
+}
+
+
+.dropdown-mega {
+  display: none;
+  position: fixed;             /* ✅ fixed to viewport */
+  top: 11vh;                  /* adjust so it sits just under the navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;                 /* 80% of screen width */
+  height: 400px;               /* fixed height */
+  background: white;
+  border-radius: 0 0 8px 8px;
+  padding: 2rem;
+  z-index: 1050;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Show when hovering nav item */
+.nav-item:hover .dropdown-mega {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Left categories */
+.dropdown-mega .left {
+  flex: 1;
+  border-right: 1px solid #e5e5e5;
+  padding-right: 1.5rem;
+  overflow-y: auto;
+}
+
+/* Right products */
+.dropdown-mega .right {
+  flex: 3;
+  padding-left: 1.5rem;
+  overflow-y: auto;
+}
+
+
+/* --- Mobile override --- */
+@media (max-width: 991px) {
+  .dropdown-mega {
+    position: static;
+    transform: none;
+    width: 100%;
+    height: auto;              /* let it grow naturally on mobile */
+    flex-direction: column;
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    padding: 1rem;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .dropdown-mega .left {
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0 0 1rem 0;
+  }
+
+  .dropdown-mega .right {
+    padding: 1rem 0 0;
+  }
+}
+
+/* Carousel arrow icons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none;
+  font-size: 2.5rem; /* default size */
+  color: #28a745;
+}
+
+.carousel-control-prev:focus, .carousel-control-next:focus { 
+  opacity: 0; outline: none; box-shadow: none;
+}
+
+    /* Hide until hover */
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+  opacity: 1;
+}
+
+    /* Mobile adjustments */
+@media (max-width: 768px) {
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    font-size: 1.5rem; /* smaller arrows on mobile */
+  }
+  .carousel {
+    min-height: 35vh; /* smaller carousel */
+  }
+}
+
+@media (min-width: 992px) {  /* lg and up */
+  .navbar .container-fluid {
+    padding-left: 12vw !important;
+    padding-right: 12vw !important;
+  }
+}
+
+@media (max-width: 991px) {  /* md and below */
+  .navbar .container-fluid {
+    padding-left: 4vw !important;
+    padding-right: 4vw !important;
+  }
+}
+
+.card:hover {
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.6)
+}
+
+.rcontainer::-webkit-scrollbar-thumb:hover, .pcontainer::-webkit-scrollbar-thumb:hover {
+  background-color: #218838; /* darker green on hover */
+}
+
+.rcontainer, .pcontainer {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* smooth touch scrolling */
+  scroll-behavior: smooth;           /* smooth scroll when snapping */
+  padding-bottom: 10px;
+  cursor: grab;                       /* shows draggable cursor */
+}
+img {
+  user-select: none;
+}
+
+/* optional: change cursor while dragging */
+.rcontainer:active, .pcontainer:active {
+  cursor: grabbing;
+}
+
+.rcontainer::-webkit-scrollbar, .pcontainer::-webkit-scrollbar {
+  height: 20px;
+}
+
+.rcontainer::-webkit-scrollbar-thumb, .pcontainer::-webkit-scrollbar-thumb {
+  background: #28a745;
+  border-radius: 10px;
+}
+
+.pcontainer::-webkit-scrollbar-track {
+  background: #e9ecef;
+}
+
+.pcontainer .card {
+  flex: 0 0 auto; /* prevents shrinking */
+}
+
+.rcontainer .card {
+  flex: 0 0 calc(33.333% - 1rem); /* show 3 per row */
+  max-width: calc(33.333% - 1rem);
+}
+
+@media (max-width: 768px) { /* mobile & tablets */
+  .rcontainer .card {
+    flex: 0 0 50%;   /* show 1 card */
+    max-width: 50%;
+  }
+}
+
+.container a {
+  text-decoration: none;
+}
+
+.text-content {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* show only 5 lines */
+  -webkit-box-orient: vertical;
+}
+
+.text-content.expanded {
+  -webkit-line-clamp: unset;
+  display: block;
+}
+
+#toggleBtn {
+  background: none;
+  border: none;
+  margin-bottom: 2vh;
+  color: #198754; /* Bootstrap green */
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.emailus, .facebook{
+  bottom: 3vh;
+  right: 2vw;
+  position: fixed;
+  height: 40px;
+}
+
+.contacts a{
+  margin: 5px 0;
+}
+
+.contacts a:hover {
+  text-decoration: underline !important;
+}
+
+.contacts {
+  padding-top: 15px;
+  user-select: none;
+}
