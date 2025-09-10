@@ -278,3 +278,35 @@ img {
   padding-top: 15px;
   user-select: none;
 }
+
+#cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.products {
+    flex: 1 1 calc(25% - 1rem); /* 4 per row */
+    max-width: calc(25% - 1rem);
+    box-sizing: border-box;
+  }
+
+  .products img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .products {
+      flex: 1 1 calc(50% - 1rem); /* 2 per row on tablets */
+      max-width: calc(50% - 1rem);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .products {
+      flex: 1 1 100%; /* full width on mobile */
+      max-width: 100%;
+    }
+  }

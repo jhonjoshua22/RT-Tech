@@ -76,40 +76,40 @@
     </div>
   </nav>
 
-  <!-- Monitor -->
-  <div class="container-fluid" style="height: 100vh; padding: 12vh 0 5vh">
+  <div class="container-fluid" style="min-height: 140vh; padding: 12vh 0 5vh">
     <div class="container">
-        <h5 style="padding: 8vh 0 1vh">Monitor</h5>
+      <h5 style="padding: 8vh 0 1vh">Monitors</h5>
     </div>
-    
+
+    <!-- Filters -->
     <div class="container border border-gray py-3" style="border-radius: 10px;">
       <div class="d-flex justify-content-between align-items-center text-center">
-      
+
         <!-- Price -->
         <div class="flex-fill px-2">
           <h6 style="text-align: left;">Price</h6>
           <div class="d-flex" style="gap: .5rem;">
-            <input type="number" class="form-control" placeholder="Min" step="1000" min="0">
-            <input type="number" class="form-control" placeholder="Max" step="1000" min="0">
+            <input id="minPrice" type="number" class="form-control" placeholder="Min" step="1000" min="0">
+            <input id="maxPrice" type="number" class="form-control" placeholder="Max" step="1000" min="0">
           </div>
         </div>
 
         <!-- Brand -->
         <div class="flex-fill px-2">
           <h6 style="text-align: left;">Brand</h6>
-          <select class="form-select form-select-sm">
+          <select id="brandFilter" class="form-select form-select-sm">
             <option value="">All Brands</option>
-            <option value="asus">Asus</option>
-            <option value="acer">Acer</option>
-            <option value="msi">MSI</option>
-            <option value="lenovo">Lenovo</option>
+            <option value="Asus">Asus</option>
+            <option value="Acer">Acer</option>
+            <option value="MSI">MSI</option>
+            <option value="Lenovo">Lenovo</option>
           </select>
         </div>
 
         <!-- Ratings -->
         <div class="flex-fill px-2">
           <h6 style="text-align: left;">Ratings</h6>
-          <select class="form-select form-select-sm">
+          <select id="ratingFilter" class="form-select form-select-sm">
             <option value="">Any</option>
             <option value="5">⭐⭐⭐⭐⭐ (5 Stars)</option>
             <option value="4">⭐⭐⭐⭐ (4 Stars & up)</option>
@@ -128,10 +128,76 @@
       </div>
     </div>
 
+    <!-- Cards -->
+    <div id="cards-container" class="container mt-4"></div>
   </div>
 
+  <script>
+  // Laptop Products
+    const monitor = [
+    
+    ];
+
+    const container = document.getElementById("cards-container");
+    const minPrice = document.getElementById("minPrice");
+    const maxPrice = document.getElementById("maxPrice");
+    const brandFilter = document.getElementById("brandFilter");
+    const ratingFilter = document.getElementById("ratingFilter");
+
+    function createCard(item) {
+      const card = document.createElement("div");
+      card.className = "card p-3 products";
+
+      card.innerHTML = `
+        <div class="card-subtitle" style="font-weight: bold">${item.brand}</div>
+        <div class="card-subtitle" style="font-weight: bold; font-size: 12px">${item.rating}</div>
+        <img class="card-img-top" src="${item.image}">
+        <div class="card-subtitle" style="font-weight: bold; font-size: 16px">₱${item.price.toLocaleString()}</div>
+        <div class="card-title" style="font-size: 12px; font-weight: bold">${item.title}</div>
+        <button class="border border-black" style="border-radius: 5px">${item.buttonText}</button>
+      `;
+      return card;
+    }
+
+    function renderCards(items) {
+      container.innerHTML = "";
+      if (items.length === 0) {
+        container.innerHTML = "<p class='text-center'>No item found</p>";
+        return;
+      }
+      items.forEach(item => container.appendChild(createCard(item)));
+    }
+
+    function filterProducts() {
+      let filtered = monitor;
+
+      const min = parseInt(minPrice.value) || 0;
+      const max = parseInt(maxPrice.value) || Infinity;
+      const brand = brandFilter.value;
+      const rating = parseFloat(ratingFilter.value) || 0;
+
+      filtered = filtered.filter(laptop => {
+        const matchesPrice = laptop.price >= min && laptop.price <= max;
+        const matchesBrand = !brand || laptop.brand === brand;
+        const matchesRating = laptop.rating >= rating;
+        return matchesPrice && matchesBrand && matchesRating;
+      });
+
+      renderCards(filtered);
+    }
+
+    // Event listeners
+    minPrice.addEventListener("input", filterProducts);
+    maxPrice.addEventListener("input", filterProducts);
+    brandFilter.addEventListener("change", filterProducts);
+    ratingFilter.addEventListener("change", filterProducts);
+
+    // Initial render
+    renderCards(monitor);
+  </script>
+
   <!-- Contact Us etc -->
-  <img class="emailus" src="/images/email.png" alt="" data-bs-toggle="modal" data-bs-target="#emailModal" style="cursor: pointer">
+  <img class="emailus" src="../images/email.png" alt="" data-bs-toggle="modal" data-bs-target="#emailModal" style="cursor: pointer">
 
   <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -163,7 +229,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <a href="https://www.facebook.com/RTtechshop" target="_blank" ><img class="facebook" src="/images/facebook.png" alt="" style="bottom: 11vh"></a>
+  <a href="https://www.facebook.com/RTtechshop" target="_blank" ><img class="facebook" src="../images/facebook.png" alt="" style="bottom: 11vh"></a>
 
   <!-- Contact Us etc -->
   <div class="container-fluid bg-success" style="height: auto; padding: 5vh 5vw">
