@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RT Tech | Cables</title>
+  <title>RT Tech | Customer Service</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="icon" type="image/png" href="images/favicon.png">
   <link href="styles.css" rel="stylesheet">
   <style>
   </style>
@@ -16,7 +16,7 @@
   <nav class="navbar navbar-expand-lg shadow fixed-top" style="background: white">
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center gap-2 text-success fw-bold" href="#">
-        <img src="../images/logo.png" alt="Logo" class="img-fluid" style="height: 7vh;">
+        <img src="images/logo.png" alt="Logo" class="img-fluid" style="height: 7vh;">
         <h1 class="mb-0 mt-1" style="font-size: 4vh; font-family: Monument;">RT TECH</h1>
       </a>
 
@@ -48,7 +48,7 @@
         </form>
 
         <ul class="navbar-nav ms-auto fw-bold" style="font-size: 2vh">
-          <li class="nav-item"><a href="../index.html#home" class="nav-link text-success" style="margin: 0 1vw">Home</a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link text-success" style="margin: 0 1vw">Home</a></li>
 
           <!-- Products with Mega Menu -->
           <li class="nav-item position-relative" id="productsMenu">
@@ -76,128 +76,71 @@
     </div>
   </nav>
 
-  <div class="container-fluid" style="min-height: 140vh; padding: 12vh 0 5vh">
+  <div id="ourcompany" class="container-fluid" style="padding: 20vh 0 2vh">
     <div class="container">
-      <h5 style="padding: 8vh 0 1vh">Cables</h5>
+        <h2 style="font-weight: bold">Our Company</h2><hr>
+        <p>At RT Tech Shop, we are more than just a store—we are your trusted partner in all things tech. We offer a wide range of products, including computers, laptops, phones, printers, networking devices, cables, and accessories, as well as reliable repair services for damaged gadgets. Our goal is to make technology accessible, reliable, and affordable for everyone, while ensuring every customer enjoys a smooth and worry-free experience. With flexible payment options such as Cash, GCash, PayMaya, Bank Transfer, and Home Credit, plus a convenient store location in Kapasigan, Pasig City, we make shopping simple, secure, and hassle-free. Guided by our mission to provide dependable solutions and our vision to become a trusted leader in tech services in the Philippines, we are committed to delivering exceptional customer support and building lasting relationships with the community we serve.</p>
     </div>
-
-    <!-- Filters -->
-    <div class="container border border-gray py-3" style="border-radius: 10px;">
-      <div class="d-flex justify-content-between align-items-center text-center">
-
-        <!-- Price -->
-        <div class="flex-fill px-2">
-          <h6 style="text-align: left;">Price</h6>
-          <div class="d-flex" style="gap: .5rem;">
-            <input id="minPrice" type="number" class="form-control" placeholder="Min" step="1000" min="0">
-            <input id="maxPrice" type="number" class="form-control" placeholder="Max" step="1000" min="0">
-          </div>
-        </div>
-
-        <!-- Brand -->
-        <div class="flex-fill px-2">
-          <h6 style="text-align: left;">Brand</h6>
-          <select id="brandFilter" class="form-select form-select-sm">
-            <option value="">All Brands</option>
-            <option value="Asus">Asus</option>
-            <option value="Acer">Acer</option>
-            <option value="MSI">MSI</option>
-            <option value="Lenovo">Lenovo</option>
-          </select>
-        </div>
-
-        <!-- Ratings -->
-        <div class="flex-fill px-2">
-          <h6 style="text-align: left;">Ratings</h6>
-          <select id="ratingFilter" class="form-select form-select-sm">
-            <option value="">Any</option>
-            <option value="5">⭐⭐⭐⭐⭐ (5 Stars)</option>
-            <option value="4">⭐⭐⭐⭐ (4 Stars & up)</option>
-            <option value="3">⭐⭐⭐ (3 Stars & up)</option>
-            <option value="2">⭐⭐ (2 Stars & up)</option>
-            <option value="1">⭐ (1 Star & up)</option>
-          </select>
-        </div>
-
-        <!-- Availability -->
-        <div class="flex-fill px-2">
-          <h6 style="text-align: left;">Availability</h6>
-          <p class="mb-0" style="text-align: left;">120 in stock</p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Cards -->
-    <div id="cards-container" class="container mt-4"></div>
   </div>
 
-  <script>
-  // Laptop Products
-    const cables = [
-      
-    ];
+  <div id="FAQs" class="container-fluid" style="padding: 4vh 0 0">
+    <div class="container">
+        <h2 style="font-weight: bold">Frequently Asked Questions (FAQs)</h2><hr>
+        <h4>🛒 Orders & Shipping</h4><br>
+        <p><span style="font-weight: bold">Q: Do you offer cash on delivery (COD)? </span><br>
+        A: Yes, we offer cash on delivery for selected areas. Please contact us to confirm availability in your location.</p>
+        <p><span style="font-weight: bold">Q: Can I reserve or pre-order items? </span><br>
+        A: Yes, you may contact us to reserve or pre-order specific items that are currently out of stock or arriving soon.</p>
+        <hr>
+        <h4>💳 Payments & Financing</h4><br>
+        <p><span style="font-weight: bold">Q: What payment methods do you accept?</span><br>
+        A: We accept Cash, GCash, Bank Transfer, and Home Credit for installment plans.</p>
+        <p><span style="font-weight: bold">Q: Is it safe to pay online or digitally? </span><br>
+        A: Absolutely. We prioritize secure transactions and ensure that all digital payments are processed safely and securely.</p>
+        <hr>
+        <h4>🛍 Products & Services</h4><br>
+        <p><span style="font-weight: bold">Q: Do you offer gadget repair services?</span><br>
+        A: Yes! We provide reliable repair services for damaged laptops, phones, and other gadgets. You can bring your device directly to our shop for assessment.</p>
+        <p><span style="font-weight: bold">Q: Do you offer warranties on your products? </span><br>
+        A: Yes, most of our products come with a warranty. Warranty coverage may vary depending on the brand or item purchased, so feel free to ask our staff for specific details.</p>
+        <hr>
+    </div>
+  </div>
+  
 
-    const container = document.getElementById("cards-container");
-    const minPrice = document.getElementById("minPrice");
-    const maxPrice = document.getElementById("maxPrice");
-    const brandFilter = document.getElementById("brandFilter");
-    const ratingFilter = document.getElementById("ratingFilter");
+  <div class="container" style="padding: 4vh 0 4vh; overflow: hidden">
+    <div class="container d-flex">
 
-    function createCard(item) {
-      const card = document.createElement("div");
-      card.className = "card p-3 products";
+        <div class="d-flex justify-content-start" style="width: 65%">
+            <img id="storelocation" src="images/storelocation.png" alt="" style="width: 100%; display: block;">
+        </div>
 
-      card.innerHTML = `
-        <div class="card-subtitle" style="font-weight: bold">${item.brand}</div>
-        <div class="card-subtitle" style="font-weight: bold; font-size: 12px">${item.rating}</div>
-        <img class="card-img-top" src="${item.image}">
-        <div class="card-subtitle" style="font-weight: bold; font-size: 16px">₱${item.price.toLocaleString()}</div>
-        <div class="card-title" style="font-size: 12px; font-weight: bold">${item.title}</div>
-        <button class="border border-black" style="border-radius: 5px">${item.buttonText}</button>
-      `;
-      return card;
-    }
+        <div class="d-flex flex-column justify-content-start align-items-center justify-content-center" style="width: 35%">
+            <h2>Store Location</h2><br>
+            
+            <p>44 Dr. Sixto Antonio Ave. Kapasigan, Pasig City</p>
+            
+            <a href="#">View on Google Maps</a>
+        </div>
+    </div><br>
+    <hr>
+  </div>
 
-    function renderCards(items) {
-      container.innerHTML = "";
-      if (items.length === 0) {
-        container.innerHTML = "<p class='text-center'>No item found</p>";
-        return;
-      }
-      items.forEach(item => container.appendChild(createCard(item)));
-    }
+  <div class="container-fluid" style="padding: 5vh 0; margin-bottom: 5vh">
+  <div class="container text-center">
+    <h2 id="careers">Careers at RT Tech</h2>
+    <p class="mt-3 text-muted" style="font-size: 1.1rem;">
+      There are currently no job openings at RT Tech Shop.  
+      Please check back soon or follow us on our social media pages for updates.
+    </p>
+  </div>
+</div>
 
-    function filterProducts() {
-      let filtered = cables;
 
-      const min = parseInt(minPrice.value) || 0;
-      const max = parseInt(maxPrice.value) || Infinity;
-      const brand = brandFilter.value;
-      const rating = parseFloat(ratingFilter.value) || 0;
 
-      filtered = filtered.filter(laptop => {
-        const matchesPrice = laptop.price >= min && laptop.price <= max;
-        const matchesBrand = !brand || laptop.brand === brand;
-        const matchesRating = laptop.rating >= rating;
-        return matchesPrice && matchesBrand && matchesRating;
-      });
-
-      renderCards(filtered);
-    }
-
-    // Event listeners
-    minPrice.addEventListener("input", filterProducts);
-    maxPrice.addEventListener("input", filterProducts);
-    brandFilter.addEventListener("change", filterProducts);
-    ratingFilter.addEventListener("change", filterProducts);
-
-    // Initial render
-    renderCards(cables);
-  </script>
 
   <!-- Contact Us etc -->
-  <img class="emailus" src="../images/email.png" alt="" data-bs-toggle="modal" data-bs-target="#emailModal" style="cursor: pointer">
+  <img class="emailus" src="images/email.png" alt="" data-bs-toggle="modal" data-bs-target="#emailModal" style="cursor: pointer">
 
   <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -227,10 +170,7 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <a href="https://www.facebook.com/RTtechshop" target="_blank" ><img class="facebook" src="../images/facebook.png" alt="" style="bottom: 11vh"></a>
-
+  <a href="https://www.facebook.com/RTtechshop" target="_blank" ><img class="facebook" src="images/facebook.png" alt="" style="bottom: 11vh"></a>
 
   <!-- Contact Us etc -->
   <div class="container-fluid bg-success" style="height: auto; padding: 5vh 5vw">
@@ -238,22 +178,22 @@
       <h1 id="contacts" style="font-size: 1vh; color: transparent; user-select: none;">Contact Us</h1>
 
       <div class="container-fluid" style="margin: 0 auto; width: 40%">
-          <img src="../images/logo-light.png" alt="" style="height: 50vh">
+          <img src="images/logo-light.png" alt="" style="height: 50vh">
       </div>
 
       <div class="container-fluid contacts" style="width: 20%">
           <h1 style="font-size: 16px">RT TECH</h1><br>
           <h3 style="font-size: 16px">Contact Us</h3>
-          <img src="../images/facebook-light.png" alt="" style="height: 35px">
+          <img src="images/facebook-light.png" alt="" style="height: 35px">
+          
       </div>
 
       <div class="container-fluid contacts" style="width: 20%">
           <h5 style="font-size: 16px">COMPANY</h5><br>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Our Company</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">FAQs</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">About Us</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Store Locations</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Careers</a>
+          <a href="#ourcompany" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Our Company</a>
+          <a href="#FAQs" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">FAQs</a>
+          <a href="#storelocation" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Store Locations</a>
+          <a href="#careers" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Careers</a>
       </div>
 
       <div class="container-fluid contacts" style="width: 20%">
@@ -274,6 +214,7 @@
   </div>
 
   <!-- !!!Scripts!!!-->
+
   <!-- Products Dropdown-->
   <script>
     const productsMenu = document.getElementById("productsMenu");
@@ -284,37 +225,37 @@
     // Categories + items
     const items = {
       peripherals: [
-        { name: "Keyboard", link: "keyboards.html" },
-        { name: "Mouse", link: "mouse.html" },
-        { name: "Headset", link: "headset.html" },
-        { name: "Monitor", link: "monitor.html" },
-        { name: "Speaker", link: "speaker.html" }
+        { name: "Keyboard", link: "products/keyboards.html" },
+        { name: "Mouse", link: "products/mouse.html" },
+        { name: "Headset", link: "products/headset.html" },
+        { name: "Monitor", link: "products/monitor.html" },
+        { name: "Speaker", link: "products/speaker.html" }
       ],
       pc: [
-        { name: "Processor", link: "processor.html" },
-        { name: "Motherboard", link: "motherboard.html" },
-        { name: "PC Case", link: "pccase.html" },
-        { name: "Graphics Card", link: "graphics-card.html" },
-        { name: "Memory", link: "memory.html" },
-        { name: "Power Supply", link: "power-supply.html" }
+        { name: "Processor", link: "products/processor.html" },
+        { name: "Motherboard", link: "products/motherboard.html" },
+        { name: "PC Case", link: "products/pccase.html" },
+        { name: "Graphics Card", link: "products/graphics-card.html" },
+        { name: "Memory", link: "products/memory.html" },
+        { name: "Power Supply", link: "products/power-supply.html" }
       ],
       networking: [
-        { name: "Router", link: "router.html" },
-        { name: "Switch", link: "switch.html" },
-        { name: "Cables", link: "cables.html" }
+        { name: "Router", link: "products/router.html" },
+        { name: "Switch", link: "products/switch.html" },
+        { name: "Cables", link: "products/cables.html" }
       ],
       laptops: [
-        { name: "Laptops", link: "laptops.html" },
+        { name: "Laptops", link: "products/laptops.html" },
 
       ],
       workstation: [
-        { name: "Table", link: "table.html" },
-        { name: "Printer", link: "printer.html" },
-        { name: "Chair", link: "chair.html" },
+        { name: "Table", link: "products/table.html" },
+        { name: "Printer", link: "products/printer.html" },
+        { name: "Chair", link: "products/chair.html" },
       ],
       accessories: [
-        { name: "Earphones", link: "earphones.html" },
-        { name: "Powerbank", link: "powerbank.html" },
+        { name: "Earphones", link: "products/earphones.html" },
+        { name: "Powerbank", link: "products/powerbank.html" },
       ]
     };
 
@@ -392,77 +333,92 @@
   <!-- Search bar -->
   <script>
     const allProducts = Object.values(items).flat();
-    const searchForm = document.getElementById("searchForm");
-    const searchInput = document.getElementById("searchInput");
-    const suggestionsBox = document.getElementById("suggestionsBox");
-    const suggestionsList = document.getElementById("suggestionsList");
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
+const suggestionsBox = document.getElementById("suggestionsBox");
+const suggestionsList = document.getElementById("suggestionsList");
 
-    let currentSuggestions = [];
+let currentSuggestions = [];
 
-    // Default popular searches
-    const popularSearches = [
-      { name: "Laptop", link: "products/laptops.html" },
-      { name: "Graphics Card", link: "products/graphics-card.html" },
-      { name: "Keyboard", link: "products/keyboards.html" },
-      { name: "Router", link: "products/router.html" }
-    ];
+// Default popular searches
+const popularSearches = [
+  { name: "Laptop", link: "products/laptops.html" },
+  { name: "Graphics Card", link: "products/graphics-card.html" },
+  { name: "Keyboard", link: "products/keyboards.html" },
+  { name: "Router", link: "products/router.html" }
+];
 
-    // Show popular searches by default when input is focused
-    searchInput.addEventListener("focus", () => {
-      renderSuggestions(popularSearches);
+// Show popular searches by default when input is focused
+searchInput.addEventListener("focus", () => {
+  renderSuggestions(popularSearches);
+});
+
+// Show filtered suggestions as user types
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.trim().toLowerCase();
+  if (!query) {
+    renderSuggestions(popularSearches);
+    return;
+  }
+  const matches = allProducts.filter(p => p.name.toLowerCase().includes(query));
+  renderSuggestions(matches);
+});
+
+function renderSuggestions(list) {
+  currentSuggestions = list; // save current list
+  suggestionsList.innerHTML = "";
+  if (list.length === 0) {
+    suggestionsBox.style.display = "none";
+    return;
+  }
+
+  list.forEach(p => {
+    const li = document.createElement("li");
+    li.className = "list-group-item list-group-item-action";
+    li.textContent = p.name;
+    li.style.cursor = "pointer";
+
+    li.addEventListener("click", () => {
+      window.location.href = p.link;
     });
 
-    // Show filtered suggestions as user types
-    searchInput.addEventListener("input", () => {
-      const query = searchInput.value.trim().toLowerCase();
-      if (!query) {
-        renderSuggestions(popularSearches);
-        return;
-      }
-      const matches = allProducts.filter(p => p.name.toLowerCase().includes(query));
-      renderSuggestions(matches);
-    });
+    suggestionsList.appendChild(li);
+  });
 
-    function renderSuggestions(list) {
-      currentSuggestions = list; // save current list
-      suggestionsList.innerHTML = "";
-      if (list.length === 0) {
-        suggestionsBox.style.display = "none";
-        return;
-      }
+  suggestionsBox.style.display = "block";
+}
 
-      list.forEach(p => {
-        const li = document.createElement("li");
-        li.className = "list-group-item list-group-item-action";
-        li.textContent = p.name;
-        li.style.cursor = "pointer";
+// Handle pressing Enter (open first suggestion)
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault(); // prevent default reload
+  if (currentSuggestions.length > 0) {
+    window.location.href = currentSuggestions[0].link;
+  }
+});
 
-        li.addEventListener("click", () => {
-          window.location.href = p.link;
-        });
-
-        suggestionsList.appendChild(li);
-      });
-
-      suggestionsBox.style.display = "block";
-    }
-
-    // Handle pressing Enter (open first suggestion)
-    searchForm.addEventListener("submit", (e) => {
-      e.preventDefault(); // prevent default reload
-      if (currentSuggestions.length > 0) {
-        window.location.href = currentSuggestions[0].link;
-      }
-    });
-
-    // Hide when clicking outside
-    document.addEventListener("click", (e) => {
-      if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
-        suggestionsBox.style.display = "none";
-      }
-    });
+// Hide when clicking outside
+document.addEventListener("click", (e) => {
+  if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+    suggestionsBox.style.display = "none";
+  }
+});
 
   </script> 
+
+  <!-- slides -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- centered scrollbar -->
+  <script>
+  window.addEventListener("load", () => {
+    const container = document.querySelector(".pcontainer");
+    container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
+  });
+  window.addEventListener("load", () => {
+    const container = document.querySelector(".rcontainer");
+    container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
+  });
+  </script>
 
   <!-- About Us -->
   <script>
