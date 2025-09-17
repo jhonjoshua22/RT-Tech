@@ -275,6 +275,7 @@ img {
 .emailus, .facebook{
   bottom: 3vh;
   right: 2vw;
+  z-index: 10;
   position: fixed;
   height: 40px;
 }
@@ -290,4 +291,18 @@ img {
 .contacts {
   padding-top: 15px;
   user-select: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button {
+  border: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #198754; /* your bg-success color */
+  color: #fff;
+  box-shadow: none;
 }

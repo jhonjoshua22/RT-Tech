@@ -232,44 +232,115 @@
   <a href="https://www.facebook.com/RTtechshop" target="_blank" ><img class="facebook" src="../images/facebook.png" alt="" style="bottom: 11vh"></a>
 
 
-  <!-- Contact Us etc -->
-  <div class="container-fluid bg-success" style="height: auto; padding: 5vh 5vw">
-    <div class="container-fluid d-flex justify-content-center text-white">
-      <h1 id="contacts" style="font-size: 1vh; color: transparent; user-select: none;">Contact Us</h1>
+  <!-- Footer -->
+  <div id="contacts" class="container-fluid bg-success text-white py-5">
+    <div class="container">
+      <div class="row">
 
-      <div class="container-fluid" style="margin: 0 auto; width: 40%">
-          <img src="../images/logo-light.png" alt="" style="height: 50vh">
+        <!-- Left side: Logo -->  
+        <div class="col-6 col-md-4 d-flex justify-content-center mb-4 mb-md-0">
+          <img src="../images/logo-light.png" alt="RT Tech Logo" class="img-fluid" style="max-height: 200px;">
+        </div>
+
+        <!-- Right side (mobile: accordion | desktop: columns) -->
+        <div class="col-6 col-md-8">
+
+          <!-- Mobile Accordion -->
+          <div class="d-block d-md-none">
+            <div class="accordion" id="footerAccordion">
+
+              <!-- RT TECH -->
+              <div class="accordion-item bg-success border-0">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-success text-white" type="button" data-bs-toggle="collapse" data-bs-target="#rttechMobile">
+                    RT TECH
+                  </button>
+                </h2>
+                <div id="rttechMobile" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <h3 style="font-size: 16px; color: white">Contact Us</h3>
+                    <img src="../images/facebook-light.png" alt="Facebook" style="height: 35px;">
+                  </div>
+                </div>
+              </div>
+
+              <!-- COMPANY -->
+              <div class="accordion-item bg-success border-0">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-success text-white" type="button" data-bs-toggle="collapse" data-bs-target="#companyMobile">
+                    COMPANY
+                  </button>
+                </h2>
+                <div id="companyMobile" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <a href="our-company.html" class="d-block link-light" style="font-size: 13px;">Our Company</a>
+                    <a href="our-company.html#FAQs" class="d-block link-light" style="font-size: 13px;">FAQs</a>
+                    <a href="our-company.html#storelocation" class="d-block link-light" style="font-size: 13px;">Store Locations</a>
+                    <a href="our-company.html#careers" class="d-block link-light" style="font-size: 13px;">Careers</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CUSTOMER SERVICE -->
+              <div class="accordion-item bg-success border-0">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-success text-white" type="button" data-bs-toggle="collapse" data-bs-target="#customerMobile">
+                    CUSTOMER SERVICE
+                  </button>
+                </h2>
+                <div id="customerMobile" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Order And Payments</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Cancellation Policy</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Delivery</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Payment FAQs</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Privacy Policy</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Return And Refunds</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Service Area Directory</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Information</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Terms And Conditions</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Policy</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Desktop Columns -->
+          <div class="row d-none d-md-flex">
+            <div class="col-md-4 contacts">
+              <h1 style="font-size: 16px">RT TECH</h1>
+              <h3 style="font-size: 16px">Contact Us</h3>
+              <img src="../images/facebook-light.png" alt="Facebook" style="height: 35px;">
+            </div>
+
+            <div class="col-md-4 contacts">
+              <h5 style="font-size: 16px">COMPANY</h5>
+              <a href="our-company.html" class="d-block link-light" style="font-size: 13px;">Our Company</a>
+              <a href="our-company.html#FAQs" class="d-block link-light" style="font-size: 13px;">FAQs</a>
+              <a href="our-company.html#storelocation" class="d-block link-light" style="font-size: 13px;">Store Locations</a>
+              <a href="our-company.html#careers" class="d-block link-light" style="font-size: 13px;">Careers</a>
+            </div>
+
+            <div class="col-md-4 contacts">
+              <h5 style="font-size: 16px">CUSTOMER SERVICE</h5>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Order And Payments</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Cancellation Policy</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Delivery</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Payment FAQs</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Privacy Policy</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Return And Refunds</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Service Area Directory</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Information</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Terms And Conditions</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Policy</a>
+            </div>
+          </div>
+
+        </div>
+
       </div>
-
-      <div class="container-fluid contacts" style="width: 20%">
-          <h1 style="font-size: 16px">RT TECH</h1><br>
-          <h3 style="font-size: 16px">Contact Us</h3>
-          <img src="../images/facebook-light.png" alt="" style="height: 35px">
-      </div>
-
-      <div class="container-fluid contacts" style="width: 20%">
-          <h5 style="font-size: 16px">COMPANY</h5><br>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Our Company</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">FAQs</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">About Us</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Store Locations</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Careers</a>
-      </div>
-
-      <div class="container-fluid contacts" style="width: 20%">
-          <h5 style="font-size: 16px">CUSTOMER SERVICE</h5><br>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Order And Payments</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Cancellation Policy</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Delivery</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Payment FAQs</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Privacy Policy</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Return And Refunds</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Service Area Directory</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Warranty Information</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Terms And Conditions</a>
-          <a href="#" class="d-block" style="font-size: 13px; text-decoration: none; color: white;">Warranty Policy</a>
-      </div>
-
     </div>
   </div>
 

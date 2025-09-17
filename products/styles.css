@@ -263,6 +263,7 @@ img {
   bottom: 3vh;
   right: 2vw;
   position: fixed;
+  z-index: 10;
   height: 40px;
 }
 
@@ -299,14 +300,28 @@ img {
   /* Responsive */
   @media (max-width: 992px) {
     .products {
-      flex: 1 1 calc(50% - 1rem); /* 2 per row on tablets */
+      flex: 1 1 calc(33.33% - 1rem); /* 3 per row on tablets */
       max-width: calc(50% - 1rem);
     }
   }
 
   @media (max-width: 576px) {
     .products {
-      flex: 1 1 100%; /* full width on mobile */
+      flex: 1 1 calc(50% - 1rem); /* 2 per row on mobile */
       max-width: 100%;
     }
   }
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button {
+  border: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #198754; /* your bg-success color */
+  color: #fff;
+  box-shadow: none;
+}
