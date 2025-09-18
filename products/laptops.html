@@ -55,7 +55,7 @@
             <a href="#" class="nav-link text-success" style="margin: 0 1vw">Products ⮟</a>
             <div class="dropdown-mega border" id="megaMenu">
               <div class="left">
-                <ul><span class="text-success" style="font-size: 16px">PRODUCTS</span>
+                <ul><span class="text-success" style="font-size: 2vh">PRODUCTS</span>
                   <li data-category="peripherals">Peripherals</li>
                   <li data-category="laptops">Laptops</li>
                   <li data-category="pc">PC Parts</li>
@@ -345,10 +345,10 @@
                 </h2>
                 <div id="companyMobile" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <a href="our-company.html" class="d-block link-light" style="font-size: 13px;">Our Company</a>
-                    <a href="our-company.html#FAQs" class="d-block link-light" style="font-size: 13px;">FAQs</a>
-                    <a href="our-company.html#storelocation" class="d-block link-light" style="font-size: 13px;">Store Locations</a>
-                    <a href="our-company.html#careers" class="d-block link-light" style="font-size: 13px;">Careers</a>
+                    <a href="../our-company.html" class="d-block link-light" style="font-size: 13px;">Our Company</a>
+                    <a href="../our-company.html#FAQs" class="d-block link-light" style="font-size: 13px;">FAQs</a>
+                    <a href="../our-company.html#storelocation" class="d-block link-light" style="font-size: 13px;">Store Locations</a>
+                    <a href="../our-company.html#careers" class="d-block link-light" style="font-size: 13px;">Careers</a>
                   </div>
                 </div>
               </div>
@@ -389,10 +389,10 @@
 
             <div class="col-md-4 contacts">
               <h5 style="font-size: 16px">COMPANY</h5>
-              <a href="our-company.html" class="d-block link-light" style="font-size: 13px;">Our Company</a>
-              <a href="our-company.html#FAQs" class="d-block link-light" style="font-size: 13px;">FAQs</a>
-              <a href="our-company.html#storelocation" class="d-block link-light" style="font-size: 13px;">Store Locations</a>
-              <a href="our-company.html#careers" class="d-block link-light" style="font-size: 13px;">Careers</a>
+              <a href="../our-company.html" class="d-block link-light" style="font-size: 13px;">Our Company</a>
+              <a href="../our-company.html#FAQs" class="d-block link-light" style="font-size: 13px;">FAQs</a>
+              <a href="../our-company.html#storelocation" class="d-block link-light" style="font-size: 13px;">Store Locations</a>
+              <a href="../our-company.html#careers" class="d-block link-light" style="font-size: 13px;">Careers</a>
             </div>
 
             <div class="col-md-4 contacts">
@@ -492,14 +492,14 @@
 
     function loadCategory(cat) {
       megaContent.innerHTML = `
-        <h6 class="fw-bold text-success" style="font-size: 16px">
+        <h6 class="fw-bold text-success" style="font-size: 2vh">
           ${cat.toUpperCase()}
         </h6>
         <ul>
       `;
       items[cat].forEach(it => {
         megaContent.innerHTML += `
-          <li style="text-decoration: underline;font-size: 14px; margin: 1vh 0">
+          <li style="text-decoration: underline;font-size: 2vh; margin: 1vh 0">
             <a href="${it.link}" class="text-dark text-decoration-none">
               ${it.name}
             </a>

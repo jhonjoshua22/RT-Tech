@@ -27,7 +27,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
-        <form id="searchForm" class="d-flex ms-auto my-2 my-lg-0" role="search" style="width: 30vw; max-width: 30vw; position: relative;">
+        <form id="searchForm" class="d-flex ms-auto my-2 my-lg-0" role="search" style="max-width: 30vw; position: relative;">
           <input id="searchInput" class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
           <button class="btn btn-success" type="submit">Search</button>
 
@@ -55,7 +55,7 @@
             <a href="#" class="nav-link text-success" style="margin: 0 1vw">Products ⮟</a>
             <div class="dropdown-mega border" id="megaMenu">
               <div class="left">
-                <ul><span class="text-success" style="font-size: 16px">PRODUCTS</span>
+                <ul><span class="text-success" style="font-size: 2vh">PRODUCTS</span>
                   <li data-category="peripherals">Peripherals</li>
                   <li data-category="laptops">Laptops</li>
                   <li data-category="pc">PC Parts</li>
@@ -721,6 +721,8 @@
       ]
     };
 
+    
+
     // Desktop hover
     if (window.innerWidth > 991) {
       productsMenu.addEventListener("mouseenter", () => {
@@ -732,13 +734,25 @@
       });
     }
 
-    // Mobile toggle
+    // Mobile toggle for products
     productsMenu.querySelector("a").addEventListener("click", e => {
       if (window.innerWidth <= 991) {
         e.preventDefault();
         megaMenu.classList.toggle("show");
       }
     });
+
+    // Mobile: click category to load products on right side
+    megaMenu.querySelectorAll(".left li").forEach(li => {
+      li.addEventListener("click", () => {
+        if (window.innerWidth <= 991) {
+          megaMenu.querySelectorAll(".left li").forEach(x => x.classList.remove("active"));
+          li.classList.add("active");
+          loadCategory(li.dataset.category);
+        }
+      });
+    });
+
 
     // Load right-side content
     megaMenu.querySelectorAll(".left li").forEach(li => {
@@ -752,14 +766,14 @@
 
     function loadCategory(cat) {
       megaContent.innerHTML = `
-        <h6 class="fw-bold text-success" style="font-size: 16px">
+        <h6 class="fw-bold text-success" style="font-size: 2vh">
           ${cat.toUpperCase()}
         </h6>
         <ul>
       `;
       items[cat].forEach(it => {
         megaContent.innerHTML += `
-          <li style="text-decoration: underline;font-size: 14px; margin: 1vh 0">
+          <li style="text-decoration: underline;font-size: 2vh; margin: 1vh 0">
             <a href="${it.link}" class="text-dark text-decoration-none">
               ${it.name}
             </a>
@@ -789,6 +803,8 @@
       if (activeItem) activeItem.classList.remove('active');
       activeItem = null;
     });
+
+    
 
   </script>
 

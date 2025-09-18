@@ -104,28 +104,42 @@ ul {
 /* --- Mobile override --- */
 @media (max-width: 991px) {
   .dropdown-mega {
-    position: static;
-    transform: none;
-    width: 100%;
-    height: auto;              /* let it grow naturally on mobile */
-    flex-direction: column;
-    border-radius: 0;
-    background: rgba(255, 255, 255, 0);
-    box-shadow: none;
+    display: none; 
+    height: auto;
+    top: 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;                 /* center based on screen */
+    flex-direction: row;        /* ⬅ make it side by side on mobile */
+    gap: 1rem;
+    background: inherit !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
     padding: 1rem;
-    opacity: 1;
-    visibility: visible;
+  }
+
+  .dropdown-mega.show {
+    display: flex;
   }
 
   .dropdown-mega .left {
-    border-right: none;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 0 0 1rem 0;
+    flex: 1;
+    padding-right: 1rem;
+    max-height: 300px;
+    overflow-y: auto;
   }
 
   .dropdown-mega .right {
-    padding: 1rem 0 0;
+    flex: 2;
+    font-size: 2vh;
+    padding-left: 1rem;
+    max-height: 300px;
+    overflow-y: auto;
   }
+
+  /* Center nav links on mobile */
 }
 
 /* Carousel arrow icons */
@@ -287,30 +301,25 @@ img {
 }
 
 .products {
-    flex: 1 1 calc(25% - 1rem); /* 4 per row */
-    max-width: calc(25% - 1rem);
-    box-sizing: border-box;
-  }
+  flex: 0 0 calc(25% - 1rem); /* 4 per row on desktop */
+  max-width: calc(25% - 1rem);
+  box-sizing: border-box;
+}
 
-  .products img {
-    max-width: 100%;
-    height: auto;
+@media (max-width: 992px) {
+  .products {
+    flex: 0 0 calc(33.33% - 1rem); /* 3 per row on tablet */
+    max-width: calc(33.33% - 1rem);
   }
+}
 
-  /* Responsive */
-  @media (max-width: 992px) {
-    .products {
-      flex: 1 1 calc(33.33% - 1rem); /* 3 per row on tablets */
-      max-width: calc(50% - 1rem);
-    }
+@media (max-width: 576px) {
+  .products {
+    flex: 0 0 calc(50% - 1rem); /* 2 per row on mobile */
+    max-width: calc(50% - 1rem);
   }
+}
 
-  @media (max-width: 576px) {
-    .products {
-      flex: 1 1 calc(50% - 1rem); /* 2 per row on mobile */
-      max-width: 100%;
-    }
-  }
 
 .accordion-button:focus {
   box-shadow: none;
