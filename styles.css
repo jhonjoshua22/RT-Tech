@@ -133,12 +133,12 @@ ul {
     transform: translateX(-50%);
     width: 95%;                 /* center based on screen */
     flex-direction: row;        /* ⬅ make it side by side on mobile */
-    gap: 1rem;
+    gap: 0;
     background: inherit !important;
     border: 0 !important;
     box-shadow: none !important;
     border-radius: 0 !important;
-    padding: 1rem;
+    padding: 0;
   }
 
   .dropdown-mega.show {
@@ -147,14 +147,13 @@ ul {
 
   .dropdown-mega .left {
     flex: 1;
-    padding-right: 1rem;
+    margin-left: -5vw;;
     max-height: 300px;
     overflow-y: auto;
   }
 
   .dropdown-mega .right {
     flex: 2;
-    padding-left: 1rem;
     max-height: 300px;
     overflow-y: auto;
   }
