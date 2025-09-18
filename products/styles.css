@@ -248,18 +248,19 @@ img {
 }
 
 @media (max-width: 991px) { 
-.rcontainer::-webkit-scrollbar, .pcontainer::-webkit-scrollbar {
-  visibility: hidden;
+  .rcontainer::-webkit-scrollbar, .pcontainer::-webkit-scrollbar {
+    visibility: hidden;
+  }
+
+  .rcontainer::-webkit-scrollbar-thumb, .pcontainer::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  .pcontainer::-webkit-scrollbar-track {
+    background: #e9ecef;
+  }
 }
 
-.rcontainer::-webkit-scrollbar-thumb, .pcontainer::-webkit-scrollbar-thumb {
-  background: transparent;
-}
-
-.pcontainer::-webkit-scrollbar-track {
-  background: #e9ecef;
-}
-}
 
 .pcontainer .card {
   flex: 0 0 auto; /* prevents shrinking */

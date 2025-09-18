@@ -112,7 +112,22 @@
     <div class="container d-flex">
 
         <div class="d-flex justify-content-start" style="width: 65%">
-            <img id="storelocation" src="images/storelocation.png" alt="" style="width: 100%; display: block;">
+          <div id="map" style="height: 400px; width: 100%;"></div>
+
+          <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+          <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+          <script>
+            const map = L.map('map').setView([14.341092, 120.852825], 16);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            L.marker([14.563526, 121.076469]).addTo(map)
+              .bindPopup('RT Tech Shop<br>44 Dr. Sixto Antonio Ave., Kapasigan, Pasig, 1600 Metro Manila')
+              .openPopup();
+          </script>
         </div>
 
         <div class="d-flex flex-column justify-content-start align-items-center justify-content-center" style="width: 35%">
@@ -120,7 +135,8 @@
             
             <p>44 Dr. Sixto Antonio Ave. Kapasigan, Pasig City</p>
             
-            <a href="#">View on Google Maps</a>
+            <a target="_blank" href="https://www.bing.com/maps?&ty=18&q=RT%20TECH%20Shop%2C%2044%20Dr.%20Sixto%20Antonio%20Ave.%2C%20Kapasigan%2C%20Pasig%2C%201600%20Metro%20Manila%2C%20Philippines%2C%20Philippines&ss=ypid.YN8144x12890129515740368043&mb=14.563852~121.075941~14.563201~121.076998&description=44%20Dr.%20Sixto%20Antonio%20Ave.%2C%20Kapasigan%2C%20Pasig%2C%201600%20Metro%20Manila%2C%20Philippines%C2%B7Computer%20store&cardbg=%23768DF1&dt=1758182400000&tt=RT%20TECH%20Shop&tsts0=%2526ty%253D18%2526q%253DRT%252520TECH%252520Shop%25252C%25252044%252520Dr.%252520Sixto%252520Antonio%252520Ave.%25252C%252520Kapasigan%25252C%252520Pasig%25252C%2525201600%252520Metro%252520Manila%25252C%252520Philippines%25252C%252520Philippines%2526ss%253Dypid.YN8144x12890129515740368043%2526mb%253D14.563852~121.075941~14.563201~121.076998%2526description%253D44%252520Dr.%252520Sixto%252520Antonio%252520Ave.%25252C%252520Kapasigan%25252C%252520Pasig%25252C%2525201600%252520Metro%252520Manila%25252C%252520Philippines%2525C2%2525B7Computer%252520store%2526cardbg%253D%252523768DF1%2526dt%253D1758182400000&tstt0=RT%20TECH%20Shop&cp=14.563526~121.076165&lvl=20.13&pi=0&ftst=0&ftics=False&v=2&sV=2&form=S00027">
+              View on Google Maps</a>
         </div>
     </div><br>
     <hr>
@@ -176,7 +192,7 @@
 
         <!-- Left side: Logo -->  
         <div class="col-6 col-md-4 d-flex justify-content-center mb-4 mb-md-0">
-          <img src="images/logo-light.png" alt="RT Tech Logo" class="img-fluid" style="max-height: 200px;">
+          <img src="images/logo-light.png" alt="RT Tech Logo" class="img-fluid" style="height: 200px;">
         </div>
 
         <!-- Right side (mobile: accordion | desktop: columns) -->
