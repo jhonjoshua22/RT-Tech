@@ -152,6 +152,12 @@ ul {
     overflow-y: auto;
   }
 
+  .left li:hover,
+  .left li:focus,
+  .left li.active {
+    background: transparent;
+  }
+
   .dropdown-mega .right {
     flex: 2;
     max-height: 300px;
@@ -160,8 +166,6 @@ ul {
 
   /* Center nav links on mobile */
 }
-
-
 
 
 /* Carousel arrow icons */
@@ -243,6 +247,12 @@ img {
   user-select: none;
 }
 
+@media (max-width: 991px) {
+  .slides {
+    height: 40vh;
+  }
+}
+
 /* optional: change cursor while dragging */
 .rcontainer:active, .pcontainer:active {
   cursor: grabbing;
@@ -259,6 +269,20 @@ img {
 
 .pcontainer::-webkit-scrollbar-track {
   background: #e9ecef;
+}
+
+@media (max-width: 991px) { 
+  .tcontainer::-webkit-scrollbar, .rcontainer::-webkit-scrollbar, .pcontainer::-webkit-scrollbar {
+    visibility: hidden;
+  }
+
+  .tcontainer::-webkit-scrollbar-thumb, .rcontainer::-webkit-scrollbar-thumb, .pcontainer::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  .tcontainer::-webkit-scrollbar-track, .rcontainer::-webkit-scrollbar-track, .pcontainer::-webkit-scrollbar-track {
+    background: transparent;
+  }
 }
 
 .pcontainer .card {
