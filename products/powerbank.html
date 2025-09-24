@@ -85,15 +85,6 @@
     <div class="container border border-gray py-3" style="border-radius: 10px;">
       <div class="d-flex justify-content-between align-items-center text-center">
 
-        <!-- Price -->
-        <div class="flex-fill px-2">
-          <h6 style="text-align: left;">Price</h6>
-          <div class="d-flex" style="gap: .5rem;">
-            <input id="minPrice" type="number" class="form-control" placeholder="Min" step="1000" min="0">
-            <input id="maxPrice" type="number" class="form-control" placeholder="Max" step="1000" min="0">
-          </div>
-        </div>
-
         <!-- Brand -->
         <div class="flex-fill px-2">
           <h6 style="text-align: left;">Brand</h6>
@@ -133,14 +124,26 @@
   </div>
 
   <script>
-  // Laptop Products
+  // Powerbank Products
     const powerbank = [
+      {
+        brand: "Dell",
+        rating: 4.8,
+        image: "../productimage/pb140W.png",
+        title: "Targus 140W USB-C Power Bank - 2yr Ltd HW Warranty by Targus - SnP",
+        buttonText: "Description"
+      },
+      {
+        brand: "Dell",
+        rating: 4.6,
+        image: "../productimage/pb100W.png",
+        title: "Targus 100W USB-C Power Bank - 2yr Ltd HW Warranty by Targus - SnP",
+        buttonText: "Description"
+      },
     
     ];
 
     const container = document.getElementById("cards-container");
-    const minPrice = document.getElementById("minPrice");
-    const maxPrice = document.getElementById("maxPrice");
     const brandFilter = document.getElementById("brandFilter");
     const ratingFilter = document.getElementById("ratingFilter");
 
@@ -152,7 +155,6 @@
         <div class="card-subtitle" style="font-weight: bold">${item.brand}</div>
         <div class="card-subtitle" style="font-weight: bold; font-size: 12px">${item.rating}</div>
         <img class="card-img-top" src="${item.image}">
-        <div class="card-subtitle" style="font-weight: bold; font-size: 16px">₱${item.price.toLocaleString()}</div>
         <div class="card-title" style="font-size: 12px; font-weight: bold">${item.title}</div>
         <button class="border border-black" style="border-radius: 5px">${item.buttonText}</button>
       `;
@@ -171,29 +173,24 @@
     function filterProducts() {
       let filtered = powerbank;
 
-      const min = parseInt(minPrice.value) || 0;
-      const max = parseInt(maxPrice.value) || Infinity;
       const brand = brandFilter.value;
       const rating = parseFloat(ratingFilter.value) || 0;
 
-      filtered = filtered.filter(laptop => {
-        const matchesPrice = laptop.price >= min && laptop.price <= max;
-        const matchesBrand = !brand || laptop.brand === brand;
-        const matchesRating = laptop.rating >= rating;
-        return matchesPrice && matchesBrand && matchesRating;
+      filtered = filtered.filter(powerbank => {
+        const matchesBrand = !brand || powerbank.brand === brand;
+        const matchesRating = powerbank.rating >= rating;
+        return matchesBrand && matchesRating;
       });
 
       renderCards(filtered);
-    }
 
-    // Event listeners
-    minPrice.addEventListener("input", filterProducts);
-    maxPrice.addEventListener("input", filterProducts);
     brandFilter.addEventListener("change", filterProducts);
     ratingFilter.addEventListener("change", filterProducts);
+    }
 
     // Initial render
     renderCards(powerbank);
+
   </script>
 
   <!-- Contact Us etc -->
@@ -355,6 +352,7 @@
     const items = {
       peripherals: [
         { name: "Keyboard", link: "keyboards.html" },
+        { name: "Camera", link: "camera.html" },
         { name: "Mouse", link: "mouse.html" },
         { name: "Headset", link: "headset.html" },
         { name: "Monitor", link: "monitor.html" },

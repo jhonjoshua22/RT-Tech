@@ -85,21 +85,12 @@
     <div class="container border border-gray py-3" style="border-radius: 10px;">
       <div class="d-flex justify-content-between align-items-center text-center">
 
-        <!-- Price -->
-        <div class="flex-fill px-2">
-          <h6 style="text-align: left;">Price</h6>
-          <div class="d-flex" style="gap: .5rem;">
-            <input id="minPrice" type="number" class="form-control" placeholder="Min" step="1000" min="0">
-            <input id="maxPrice" type="number" class="form-control" placeholder="Max" step="1000" min="0">
-          </div>
-        </div>
-
         <!-- Brand -->
         <div class="flex-fill px-2">
           <h6 style="text-align: left;">Brand</h6>
           <select id="brandFilter" class="form-select form-select-sm">
             <option value="">All Brands</option>
-            <option value="Asus">Asus</option>
+            <option value="Dell">Dell</option>
             <option value="Acer">Acer</option>
             <option value="MSI">MSI</option>
             <option value="Lenovo">Lenovo</option>
@@ -133,14 +124,82 @@
   </div>
 
   <script>
-  // Laptop Products
+  // Monitor Products
     const monitor = [
+      {
+        brand: "Dell",
+        rating: 4.8,
+        image: "../productimage/delle2020h.png",
+        title: "Dell E2020H 19.45 in Widescreen Flat Panel Monitor",
+        buttonText: "Description"
+      },
+      {
+        brand: "Dell",
+        rating: 4.6,
+        image: "../productimage/delle2425hsm.png",
+        title: "Dell Pro 24 Monitor - E2425HSM",
+        buttonText: "Description"
+      },
+      {
+        brand: "Dell",
+        rating: 4.9,
+        image: "../productimage/p1425.png",
+        title: "Dell Pro 14 Plus Portable Monitor - P1425",
+        buttonText: "Description"
+      },
+      {
+        brand: "Dell",
+        rating: 4.7,
+        image: "../productimage/E2225HM.png",
+        title: "Dell Pro 22 Monitor - E2225HM",
+        buttonText: "Description"
+      }, 
+      {
+        brand: "Dell",
+        rating: 4.7,
+        image: "../productimage/E2725HM.png",
+        title: "Dell Pro 27 Monitor E2725HM",
+        buttonText: "Description"
+      },
+      {
+        brand: "Dell",
+        rating: 4.9,
+        image: "../productimage/P2425HE.png",
+        title: "Dell P2425HE 23.8 Monitor",
+        buttonText: "Description"
+      },
+      {
+        brand: "Dell",
+        rating: 4.7,
+        image: "../productimage/P2725H.png",
+        title: "Dell P2725H Monitor",
+        buttonText: "Description"
+      }, 
+      {
+        brand: "Dell",
+        rating: 4.7,
+        image: "../productimage/P2723QE.png",
+        title: "Dell 27 Monitor - P2723QE",
+        buttonText: "Description"
+      },
+      {
+        brand: "Dell",
+        rating: 4.9,
+        image: "../productimage/P2724DEB.png",
+        title: "Dell 27 Video Conferencing Monitor - P2724DEB",
+        buttonText: "Description"
+      },
+      {
+        brand: "Dell",
+        rating: 4.7,
+        image: "../productimage/P1917S.png",
+        title: "Dell 19 Monitor | P1917S",
+        buttonText: "Description"
+      }, 
     
     ];
 
     const container = document.getElementById("cards-container");
-    const minPrice = document.getElementById("minPrice");
-    const maxPrice = document.getElementById("maxPrice");
     const brandFilter = document.getElementById("brandFilter");
     const ratingFilter = document.getElementById("ratingFilter");
 
@@ -152,7 +211,6 @@
         <div class="card-subtitle" style="font-weight: bold">${item.brand}</div>
         <div class="card-subtitle" style="font-weight: bold; font-size: 12px">${item.rating}</div>
         <img class="card-img-top" src="${item.image}">
-        <div class="card-subtitle" style="font-weight: bold; font-size: 16px">₱${item.price.toLocaleString()}</div>
         <div class="card-title" style="font-size: 12px; font-weight: bold">${item.title}</div>
         <button class="border border-black" style="border-radius: 5px">${item.buttonText}</button>
       `;
@@ -171,24 +229,19 @@
     function filterProducts() {
       let filtered = monitor;
 
-      const min = parseInt(minPrice.value) || 0;
-      const max = parseInt(maxPrice.value) || Infinity;
       const brand = brandFilter.value;
       const rating = parseFloat(ratingFilter.value) || 0;
 
-      filtered = filtered.filter(laptop => {
-        const matchesPrice = laptop.price >= min && laptop.price <= max;
-        const matchesBrand = !brand || laptop.brand === brand;
-        const matchesRating = laptop.rating >= rating;
-        return matchesPrice && matchesBrand && matchesRating;
+      filtered = filtered.filter(monitor => {
+        const matchesBrand = !brand || monitor.brand === brand;
+        const matchesRating = monitor.rating >= rating;
+        return matchesBrand && matchesRating;
       });
 
       renderCards(filtered);
     }
 
     // Event listeners
-    minPrice.addEventListener("input", filterProducts);
-    maxPrice.addEventListener("input", filterProducts);
     brandFilter.addEventListener("change", filterProducts);
     ratingFilter.addEventListener("change", filterProducts);
 
@@ -355,6 +408,7 @@
     const items = {
       peripherals: [
         { name: "Keyboard", link: "keyboards.html" },
+        { name: "Camera", link: "products/camera.html" },
         { name: "Mouse", link: "mouse.html" },
         { name: "Headset", link: "headset.html" },
         { name: "Monitor", link: "monitor.html" },

@@ -261,6 +261,13 @@ img {
   }
 }
 
+.card-title {
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;       /* keep text in a single line */
+  overflow: hidden;          /* hide overflow text */
+  text-overflow: ellipsis;   /* add "..." at the end */
+}
 
 .pcontainer .card {
   flex: 0 0 auto; /* prevents shrinking */
