@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RT Tech | Monitor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link href="styles.css" rel="stylesheet">
+  <style>
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg shadow fixed-top" style="background: white">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center gap-2 text-success fw-bold" href="../index.html">
+        <img src="../images/logo.png" alt="Logo" class="img-fluid" style="height: 7vh;">
+        <h1 class="mb-0 mt-1" style="font-size: 4vh; font-family: Monument;">RT TECH</h1>
+      </a>
+
+
+      <!-- Toggler for mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <form id="searchForm" class="d-flex ms-auto my-2 my-lg-0" role="search" style="width: 30vw; max-width: 30vw; position: relative;">
+          <input id="searchInput" class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
+          <button class="btn btn-success" type="submit">Search</button>
+
+          <!-- Suggestions Box -->
+          <div id="suggestionsBox"
+              class="card position-absolute w-100 shadow"
+              style="top: 100%; left: 0; z-index: 1000; display: none;
+                      height: 40vh; overflow-y: auto;">
+
+            <!-- Header -->
+            <div class="card-header bg-light fw-bold text-success" style="font-size: 14px;">
+              Popular Searches
+            </div>
+
+            <!-- Suggestions -->
+            <ul id="suggestionsList" class="list-group list-group-flush"></ul>
+          </div>
+        </form>
+
+        <ul class="navbar-nav ms-auto fw-bold" style="font-size: 2vh">
+          <li class="nav-item"><a href="../index.html#home" class="nav-link text-success" style="margin: 0 1vw">Home</a></li>
+
+          <!-- Products with Mega Menu -->
+          <li class="nav-item position-relative" id="productsMenu">
+            <a href="#" class="nav-link text-success" style="margin: 0 1vw">Products ⮟</a>
+            <div class="dropdown-mega border" id="megaMenu">
+              <div class="left">
+                <ul><span class="text-success" style="font-size: 2vh">PRODUCTS</span>
+                  <li data-category="peripherals">Peripherals</li>
+                  <li data-category="laptops">Laptops</li>
+                  <li data-category="pc">PC Parts</li>
+                  <li data-category="workstation">Workstation</li>
+                  <li data-category="accessories">Accessories</li>
+                  <li data-category="networking">Networking</li>
+                </ul>
+              </div>
+              <div class="right" id="megaContent">
+                <p class="text-muted">Hover or tap a category to see items.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="#contacts" class="nav-link text-success" style="margin: 0 1vw">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid" style="min-height: 140vh; padding: 12vh 0 5vh">
+    <div class="container">
+      <h5 style="padding: 8vh 0 1vh">Monitors</h5>
+    </div>
+
+    <!-- Filters -->
+    <div class="container border border-gray py-3" style="border-radius: 10px;">
+      <div class="d-flex justify-content-between align-items-center text-center">
+
+        <!-- Price -->
+        <div class="flex-fill px-2">
+          <h6 style="text-align: left;">Price</h6>
+          <div class="d-flex" style="gap: .5rem;">
+            <input id="minPrice" type="number" class="form-control" placeholder="Min" step="1000" min="0">
+            <input id="maxPrice" type="number" class="form-control" placeholder="Max" step="1000" min="0">
+          </div>
+        </div>
+
+        <!-- Brand -->
+        <div class="flex-fill px-2">
+          <h6 style="text-align: left;">Brand</h6>
+          <select id="brandFilter" class="form-select form-select-sm">
+            <option value="">All Brands</option>
+            <option value="Asus">Asus</option>
+            <option value="Acer">Acer</option>
+            <option value="MSI">MSI</option>
+            <option value="Lenovo">Lenovo</option>
+          </select>
+        </div>
+
+        <!-- Ratings -->
+        <div class="flex-fill px-2">
+          <h6 style="text-align: left;">Ratings</h6>
+          <select id="ratingFilter" class="form-select form-select-sm">
+            <option value="">Any</option>
+            <option value="5">⭐⭐⭐⭐⭐ (5 Stars)</option>
+            <option value="4">⭐⭐⭐⭐ (4 Stars & up)</option>
+            <option value="3">⭐⭐⭐ (3 Stars & up)</option>
+            <option value="2">⭐⭐ (2 Stars & up)</option>
+            <option value="1">⭐ (1 Star & up)</option>
+          </select>
+        </div>
+
+        <!-- Availability -->
+        <div class="flex-fill px-2">
+          <h6 style="text-align: left;">Availability</h6>
+          <p class="mb-0" style="text-align: left;">120 in stock</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div id="cards-container" class="container mt-4"></div>
+  </div>
+
+  <script>
+  // Laptop Products
+    const monitor = [
+    
+    ];
+
+    const container = document.getElementById("cards-container");
+    const minPrice = document.getElementById("minPrice");
+    const maxPrice = document.getElementById("maxPrice");
+    const brandFilter = document.getElementById("brandFilter");
+    const ratingFilter = document.getElementById("ratingFilter");
+
+    function createCard(item) {
+      const card = document.createElement("div");
+      card.className = "card p-3 products";
+
+      card.innerHTML = `
+        <div class="card-subtitle" style="font-weight: bold">${item.brand}</div>
+        <div class="card-subtitle" style="font-weight: bold; font-size: 12px">${item.rating}</div>
+        <img class="card-img-top" src="${item.image}">
+        <div class="card-subtitle" style="font-weight: bold; font-size: 16px">₱${item.price.toLocaleString()}</div>
+        <div class="card-title" style="font-size: 12px; font-weight: bold">${item.title}</div>
+        <button class="border border-black" style="border-radius: 5px">${item.buttonText}</button>
+      `;
+      return card;
+    }
+
+    function renderCards(items) {
+      container.innerHTML = "";
+      if (items.length === 0) {
+        container.innerHTML = "<p class='text-center'>No item found</p>";
+        return;
+      }
+      items.forEach(item => container.appendChild(createCard(item)));
+    }
+
+    function filterProducts() {
+      let filtered = monitor;
+
+      const min = parseInt(minPrice.value) || 0;
+      const max = parseInt(maxPrice.value) || Infinity;
+      const brand = brandFilter.value;
+      const rating = parseFloat(ratingFilter.value) || 0;
+
+      filtered = filtered.filter(laptop => {
+        const matchesPrice = laptop.price >= min && laptop.price <= max;
+        const matchesBrand = !brand || laptop.brand === brand;
+        const matchesRating = laptop.rating >= rating;
+        return matchesPrice && matchesBrand && matchesRating;
+      });
+
+      renderCards(filtered);
+    }
+
+    // Event listeners
+    minPrice.addEventListener("input", filterProducts);
+    maxPrice.addEventListener("input", filterProducts);
+    brandFilter.addEventListener("change", filterProducts);
+    ratingFilter.addEventListener("change", filterProducts);
+
+    // Initial render
+    renderCards(monitor);
+  </script>
+
+  <!-- Contact Us etc -->
+  <img class="emailus" src="../images/email.png" alt="" data-bs-toggle="modal" data-bs-target="#emailModal" style="cursor: pointer">
+
+  <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content rounded-3 shadow">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title" id="emailModalLabel">Send Us an Email</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="emailName" class="form-label">Your Name</label>
+              <input type="text" class="form-control" id="emailName" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="text" class="form-control" id="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="mb-3">
+              <label for="emailMessage" class="form-label">Message</label>
+              <textarea class="form-control" id="emailMessage" rows="4" placeholder="Write your message..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Send Email</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <a href="https://www.facebook.com/RTtechshop" target="_blank" ><img class="facebook" src="../images/facebook.png" alt="" style="bottom: 11vh"></a>
+
+  <!-- Footer -->
+  <div id="contacts" class="container-fluid bg-success text-white py-5">
+    <div class="container">
+      <div class="row">
+
+        <!-- Left side: Logo -->  
+        <div class="col-6 col-md-4 d-flex justify-content-center mb-4 mb-md-0">
+          <img src="../images/logo-light.png" alt="RT Tech Logo" class="img-fluid" style="height: 200px;">
+        </div>
+
+        <!-- Right side (mobile: accordion | desktop: columns) -->
+        <div class="col-6 col-md-8">
+
+          <!-- Mobile Accordion -->
+          <div class="d-block d-md-none">
+            <div class="accordion" id="footerAccordion">
+
+              <!-- RT TECH -->
+              <div class="accordion-item bg-success border-0">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-success text-white" type="button" data-bs-toggle="collapse" data-bs-target="#rttechMobile">
+                    RT TECH
+                  </button>
+                </h2>
+                <div id="rttechMobile" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <h3 style="font-size: 16px; color: white">Contact Us</h3>
+                    <img src="../images/facebook-light.png" alt="Facebook" style="height: 35px;">
+                  </div>
+                </div>
+              </div>
+
+              <!-- COMPANY -->
+              <div class="accordion-item bg-success border-0">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-success text-white" type="button" data-bs-toggle="collapse" data-bs-target="#companyMobile">
+                    COMPANY
+                  </button>
+                </h2>
+                <div id="companyMobile" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <a href="../our-company.html" class="d-block link-light" style="font-size: 13px;">Our Company</a>
+                    <a href="../our-company.html#FAQs" class="d-block link-light" style="font-size: 13px;">FAQs</a>
+                    <a href="../our-company.html#storelocation" class="d-block link-light" style="font-size: 13px;">Store Locations</a>
+                    <a href="../our-company.html#careers" class="d-block link-light" style="font-size: 13px;">Careers</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CUSTOMER SERVICE -->
+              <div class="accordion-item bg-success border-0">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-success text-white" type="button" data-bs-toggle="collapse" data-bs-target="#customerMobile">
+                    CUSTOMER SERVICE
+                  </button>
+                </h2>
+                <div id="customerMobile" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Order And Payments</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Cancellation Policy</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Delivery</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Payment FAQs</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Privacy Policy</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Return And Refunds</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Service Area Directory</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Information</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Terms And Conditions</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Policy</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Desktop Columns -->
+          <div class="row d-none d-md-flex">
+            <div class="col-md-4 contacts">
+              <h1 style="font-size: 16px">RT TECH</h1>
+              <h3 style="font-size: 16px">Contact Us</h3>
+              <img src="../images/facebook-light.png" alt="Facebook" style="height: 35px;">
+            </div>
+
+            <div class="col-md-4 contacts">
+              <h5 style="font-size: 16px">COMPANY</h5>
+              <a href="../our-company.html" class="d-block link-light" style="font-size: 13px;">Our Company</a>
+              <a href="../our-company.html#FAQs" class="d-block link-light" style="font-size: 13px;">FAQs</a>
+              <a href="../our-company.html#storelocation" class="d-block link-light" style="font-size: 13px;">Store Locations</a>
+              <a href="../our-company.html#careers" class="d-block link-light" style="font-size: 13px;">Careers</a>
+            </div>
+
+            <div class="col-md-4 contacts">
+              <h5 style="font-size: 16px">CUSTOMER SERVICE</h5>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Order And Payments</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Cancellation Policy</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Delivery</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Payment FAQs</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Privacy Policy</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Return And Refunds</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Service Area Directory</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Information</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Terms And Conditions</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Policy</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- !!!Scripts!!!-->
+  <!-- Products Dropdown-->
+  <script>
+    const productsMenu = document.getElementById("productsMenu");
+    const megaMenu = document.getElementById("megaMenu");
+    const megaContent = document.getElementById("megaContent");
+    let hideTimeout;
+
+    // Categories + items
+    const items = {
+      peripherals: [
+        { name: "Keyboard", link: "keyboards.html" },
+        { name: "Mouse", link: "mouse.html" },
+        { name: "Headset", link: "headset.html" },
+        { name: "Monitor", link: "monitor.html" },
+        { name: "Speaker", link: "speaker.html" }
+      ],
+      pc: [
+        { name: "Processor", link: "processor.html" },
+        { name: "Motherboard", link: "motherboard.html" },
+        { name: "PC Case", link: "pccase.html" },
+        { name: "Graphics Card", link: "graphics-card.html" },
+        { name: "Memory", link: "memory.html" },
+        { name: "Power Supply", link: "power-supply.html" }
+      ],
+      networking: [
+        { name: "Router", link: "router.html" },
+        { name: "Switch", link: "switch.html" },
+        { name: "Cables", link: "cables.html" }
+      ],
+      laptops: [
+        { name: "Laptops", link: "laptops.html" },
+
+      ],
+      workstation: [
+        { name: "Table", link: "table.html" },
+        { name: "Printer", link: "printer.html" },
+        { name: "Chair", link: "chair.html" },
+      ],
+      accessories: [
+        { name: "Earphones", link: "earphones.html" },
+        { name: "Powerbank", link: "powerbank.html" },
+      ]
+    };
+
+    // Desktop hover
+    if (window.innerWidth > 991) {
+      productsMenu.addEventListener("mouseenter", () => {
+        clearTimeout(hideTimeout);
+        megaMenu.classList.add("show");
+      });
+      productsMenu.addEventListener("mouseleave", () => {
+        hideTimeout = setTimeout(() => megaMenu.classList.remove("show"), 200);
+      });
+    }
+
+    // Mobile toggle
+    productsMenu.querySelector("a").addEventListener("click", e => {
+      if (window.innerWidth <= 991) {
+        e.preventDefault();
+        megaMenu.classList.toggle("show");
+      }
+    });
+
+    // Load right-side content
+    megaMenu.querySelectorAll(".left li").forEach(li => {
+      li.addEventListener("mouseenter", () => {
+        if (window.innerWidth > 991) loadCategory(li.dataset.category);
+      });
+      li.addEventListener("click", () => {
+        if (window.innerWidth <= 991) loadCategory(li.dataset.category);
+      });
+    });
+
+    function loadCategory(cat) {
+      megaContent.innerHTML = `
+        <h6 class="fw-bold text-success" style="font-size: 2vh">
+          ${cat.toUpperCase()}
+        </h6>
+        <ul>
+      `;
+      items[cat].forEach(it => {
+        megaContent.innerHTML += `
+          <li style="text-decoration: underline;font-size: 2vh; margin: 1vh 0">
+            <a href="${it.link}" class="text-dark text-decoration-none">
+              ${it.name}
+            </a>
+          </li>
+        `;
+      });
+      megaContent.innerHTML += `</ul>`;
+    }
+
+
+    const leftItems = document.querySelectorAll('.left li');
+    const rightPanel = document.getElementById('megaContent');
+    let activeItem = null;
+
+    leftItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        // Clear any previous active
+        if (activeItem) activeItem.classList.remove('active');
+        // Set new active
+        item.classList.add('active');
+        activeItem = item;
+      });
+    });
+
+    // Remove highlight only when leaving dropdown entirely
+    document.getElementById('megaMenu').addEventListener('mouseleave', () => {
+      if (activeItem) activeItem.classList.remove('active');
+      activeItem = null;
+    });
+
+  </script>
+
+  <!-- Search bar -->
+  <script>
+    const allProducts = Object.values(items).flat();
+    const searchForm = document.getElementById("searchForm");
+    const searchInput = document.getElementById("searchInput");
+    const suggestionsBox = document.getElementById("suggestionsBox");
+    const suggestionsList = document.getElementById("suggestionsList");
+
+    let currentSuggestions = [];
+
+    // Default popular searches
+    const popularSearches = [
+      { name: "Laptop", link: "products/laptops.html" },
+      { name: "Graphics Card", link: "products/graphics-card.html" },
+      { name: "Keyboard", link: "products/keyboards.html" },
+      { name: "Router", link: "products/router.html" }
+    ];
+
+    // Show popular searches by default when input is focused
+    searchInput.addEventListener("focus", () => {
+      renderSuggestions(popularSearches);
+    });
+
+    // Show filtered suggestions as user types
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) {
+        renderSuggestions(popularSearches);
+        return;
+      }
+      const matches = allProducts.filter(p => p.name.toLowerCase().includes(query));
+      renderSuggestions(matches);
+    });
+
+    function renderSuggestions(list) {
+      currentSuggestions = list; // save current list
+      suggestionsList.innerHTML = "";
+      if (list.length === 0) {
+        suggestionsBox.style.display = "none";
+        return;
+      }
+
+      list.forEach(p => {
+        const li = document.createElement("li");
+        li.className = "list-group-item list-group-item-action";
+        li.textContent = p.name;
+        li.style.cursor = "pointer";
+
+        li.addEventListener("click", () => {
+          window.location.href = p.link;
+        });
+
+        suggestionsList.appendChild(li);
+      });
+
+      suggestionsBox.style.display = "block";
+    }
+
+    // Handle pressing Enter (open first suggestion)
+    searchForm.addEventListener("submit", (e) => {
+      e.preventDefault(); // prevent default reload
+      if (currentSuggestions.length > 0) {
+        window.location.href = currentSuggestions[0].link;
+      }
+    });
+
+    // Hide when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+        suggestionsBox.style.display = "none";
+      }
+    });
+
+  </script> 
+
+  <!-- About Us -->
+  <script>
+  const toggleBtn = document.getElementById("toggleBtn");
+  const aboutText = document.getElementById("aboutText");
+
+  toggleBtn.addEventListener("click", () => {
+    aboutText.classList.toggle("expanded");
+    if (aboutText.classList.contains("expanded")) {
+      toggleBtn.textContent = "Show less";
+    } else {
+      toggleBtn.textContent = "Show more";
+    }
+  });
+
+  </script>
+
+</body>
+</html>

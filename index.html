@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RT Tech Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link href="styles.css" rel="stylesheet">
+  <style>
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg shadow fixed-top" style="background: white">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center gap-2 text-success fw-bold" href="#home">
+        <img src="images/logo.png" alt="Logo" class="img-fluid" style="height: 7vh;">
+        <h1 class="mb-0 mt-1" style="font-size: 4vh; font-family: Monument;">RT TECH</h1>
+      </a>
+
+
+      <!-- Toggler for mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <form id="searchForm" class="d-flex ms-auto my-2 my-lg-0" role="search" style="max-width: 30vw; position: relative;">
+          <input id="searchInput" class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
+          <button class="btn btn-success" type="submit">Search</button>
+
+          <!-- Suggestions Box -->
+          <div id="suggestionsBox"
+              class="card position-absolute w-100 shadow"
+              style="top: 100%; left: 0; z-index: 1000; display: none;
+                      height: 40vh; overflow-y: auto;">
+
+            <!-- Header -->
+            <div class="card-header bg-light fw-bold text-success" style="font-size: 14px;">
+              Popular Searches
+            </div>
+
+            <!-- Suggestions -->
+            <ul id="suggestionsList" class="list-group list-group-flush"></ul>
+          </div>
+        </form>
+
+        <ul class="navbar-nav ms-auto fw-bold" style="font-size: 2vh">
+          <li class="nav-item"><a href="#home" class="nav-link text-success" style="margin: 0 1vw">Home</a></li>
+
+          <!-- Products with Mega Menu -->
+          <li class="nav-item position-relative" id="productsMenu">
+            <a href="#" class="nav-link text-success" style="margin: 0 1vw">Products ⮟</a>
+            <div class="dropdown-mega border" id="megaMenu">
+              <div class="left">
+                <ul><span class="text-success" style="font-size: 2vh">PRODUCTS</span>
+                  <li data-category="peripherals">Peripherals</li>
+                  <li data-category="laptops">Laptops</li>
+                  <li data-category="pc">PC Parts</li>
+                  <li data-category="workstation">Workstation</li>
+                  <li data-category="accessories">Accessories</li>
+                  <li data-category="networking">Networking</li>
+                </ul>
+              </div>
+              <div class="right" id="megaContent">
+                <p class="text-muted">Hover or tap a category to see items.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="#contacts" class="nav-link text-success" style="margin: 0 1vw">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Slides -->
+  <div id="home" class="container slides px-0" style="padding: 12vh 0 5vh; ">
+    <div id="photoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" >
+
+      <!-- Indicators -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#photoCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#photoCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#photoCarousel" data-bs-slide-to="2"></button>
+      </div>
+
+      <!-- Slides -->
+      <div  id="products" class="carousel-inner">
+        <div class="carousel-item">
+          <img src="images/brands.png" class="d-block w-100" alt="Slide 3" style="object-fit: cover; max-height: 60vh;">
+        </div>
+        <div class="carousel-item active">
+          <img src="images/assemblepc.png" class="d-block w-100" alt="Slide 1" style="object-fit: cover; max-height: 60vh;">
+        </div>
+        <div class="carousel-item">
+          <img src="images/banner2.png" class="d-block w-100" alt="Slide 2" style="object-fit: cover; max-height: 60vh;">
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon">&#10094;</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon">&#10095;</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Products -->
+  <div class="container pt-3 pb-5">
+    <div class="pcontainer">
+
+      <a href="products/power-supply.html">
+        <div class="card border-1 p-2" style="width: 140px;">
+          <img src="images/powersupply.jpeg" class="card-img-top" alt="">
+          <div class="card-body p-2">
+            <div class="card-title text-center fw-bold small">Power Supply</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/memory.html">
+        <div class="card border-1 p-2" style="width: 140px;">
+          <img src="images/memory.jpg" class="card-img-top" alt="">
+          <div class="card-body p-2">
+            <div class="card-title text-center fw-bold small">Memory</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/graphics-card.html">
+        <div class="card border-1 p-2" style="width: 140px;">
+          <img src="images/graphics.jpg" class="card-img-top" alt="">
+          <div class="card-body p-2">
+            <div class="card-title text-center fw-bold small">Graphics Card</div>
+          </div>
+        </div>
+      </a>
+
+     <a href="products/motherboard.html">
+        <div class="card border-1 p-2" style="width: 140px;">
+          <img src="images/motherboard.png" class="card-img-top" alt="">
+          <div class="card-body p-2">
+            <div class="card-title text-center fw-bold small">Motherboard</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/pccase.html">
+        <div class="card border-1 p-2" style="width: 140px;">
+          <img src="images/pccase.jpg" class="card-img-top" alt="">
+          <div class="card-body p-2">
+            <div class="card-title text-center fw-bold small">PC Case</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/laptops.html">
+        <div class="card border-1 p-2" style="width: 140px;">
+          <img src="images/laptop.png" class="card-img-top" alt="">
+          <div class="card-body p-2">
+            <div class="card-title text-center fw-bold small">Laptop</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/keyboards.html">
+        <div class="card border-1 p-2" style="width: 140px;">
+          <img src="images/keyboard.webp" class="card-img-top" alt="">
+          <div class="card-body p-2">
+            <div class="card-title text-center fw-bold small">Keyboard</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/monitor.html">
+        <div class="card border-1 p-2" style="width: 140px;">
+          <img src="images/monitor.jpg" class="card-img-top" alt="">
+          <div class="card-body p-2">
+            <div class="card-title text-center fw-bold small">Monitor</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/headset.html">
+        <div class="card border-1 p-2" style="width: 140px;">
+          <img src="images/headset.jpg" class="card-img-top" alt="">
+          <div class="card-body p-2">
+            <div class="card-title text-center fw-bold small">Headset</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/mouse.html">
+        <div class="card border-1 p-2" style="width: 140px;">
+          <img src="images/mouse.jpg" class="card-img-top" alt="">
+          <div class="card-body p-2">
+            <div class="card-title text-center fw-bold small">Mouse</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/printer.html">
+        <div class="card border-1 p-2" style="width: 140px;">
+          <img src="images/printer.png" class="card-img-top" alt="">
+          <div class="card-body p-2">
+            <div class="card-title text-center fw-bold small">Printer</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/speaker.html">
+        <div class="card border-1 p-2" style="width: 140px;">
+          <img src="images/speaker.png" class="card-img-top" alt="">
+          <div class="card-body p-2">
+            <div class="card-title text-center fw-bold small">Speaker</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/network.html">
+        <div class="card border-1 p-2" style="width: 140px;">
+          <img src="images/router.jpg" class="card-img-top" alt="">
+          <div class="card-body p-2">
+            <div class="card-title text-center fw-bold small">Network</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/chair.html">
+        <div class="card border-1 p-2" style="width: 140px;">
+          <img src="images/chair.jpg" class="card-img-top" alt="">
+          <div class="card-body p-2">
+            <div class="card-title text-center fw-bold small">Gaming Chair</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="products/processor.html">
+        <div class="card border-1 p-2" style="width: 140px;">
+          <img src="images/processor.jpg" class="card-img-top" alt="">
+          <div class="card-body p-2">
+            <div class="card-title text-center fw-bold small">Processor</div>
+          </div>
+        </div>
+      </a>
+
+      
+    </div>
+  </div>
+
+  <!-- Top Sellers -->
+  <div class="container-fluid pb-5" style="background: white">
+    <h2 style="text-align: center; font-weight: bold">TOP SELLERS</h2>
+    <div class="container tcontainer d-flex" style="height: auto; background: white">
+      <!-- JS will inject cards here -->
+    </div>
+  </div>
+
+  <!-- New Arrival -->
+  <div class="container-fluid pb-5" style="background: white">
+    <h2 style="text-align: center; font-weight: bold">NEW ARRIVALS</h2>
+    <div class="container ncontainer d-flex" style="height: auto; background: white">
+      <!-- JS will inject cards here -->
+    </div>
+  </div>
+
+  <!-- RT Tech's Top Pick -->
+  <div class="container-fluid pb-5" style="background: white">
+    <h2 style="text-align: center; font-weight: bold">RT TECH'S TOP PICKS</h2>
+    <div class="container tpcontainer d-flex" style="height: auto; background: white">
+      <!-- JS will inject cards here -->
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+
+  <!-- Reviews -->
+  <div class="container-fluid text-bg-dark" style="padding: 10vh 0; user-select: none; overflow: hidden;">
+  <div class="container" style="height: auto;">
+    <h1 class="text-center fw-bold">Hear From Our Customers</h1>
+
+    <div class="rcontainer mt-5">
+
+      <div class="card bg-transparent text-white border-white">
+        <div class="card-body text-center">
+          <div class="card-title">⭐⭐⭐⭐⭐</div>
+          <div class="card-subtitle mb-2">Alex J.</div>
+          <div class="card-text" style="font-size: 14px;">
+            RT Tech Shop provided outstanding service with knowledgeable staff and great products!
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-transparent text-white border-white">
+        <div class="card-body text-center">
+          <div class="card-title">⭐⭐⭐⭐⭐</div>
+          <div class="card-subtitle mb-2">Mary L.</div>
+          <div class="card-text" style="font-size: 14px;">
+            The selection at RT Tech Shop is incredible, and the customer service is top-notch. Highly recommended for all tech enthusiasts!
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-transparent text-white border-white">
+        <div class="card-body text-center">
+          <div class="card-title">⭐⭐⭐⭐⭐</div>
+          <div class="card-subtitle mb-2">John P.</div>
+          <div class="card-text" style="font-size: 14px;">
+            Smooth shopping experience and fast delivery. Will definitely order again!
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-transparent text-white border-white">
+        <div class="card-body text-center">
+          <div class="card-title">⭐⭐⭐⭐⭐</div>
+          <div class="card-subtitle mb-2">Sophia K.</div>
+          <div class="card-text" style="font-size: 14px;">
+            Amazing quality and support. RT Tech always delivers the best tech gear!
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-transparent text-white border-white">
+        <div class="card-body text-center">
+          <div class="card-title">⭐⭐⭐⭐⭐</div>
+          <div class="card-subtitle mb-2">David R.</div>
+          <div class="card-text" style="font-size: 14px;">
+            They went above and beyond with my order. Excellent service!
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+  <!-- About US -->
+  <div class="container-fluid mb-4" >
+    <div class="container">
+    <h2 class="mt-5" style="font-weight: bold">Get to Know Us</h2><hr>
+    <div class="text-content collapsed" id="aboutText" style="font-size: 13px;">
+      <p>At RT Tech Shop, we provide more than just gadgets—we deliver reliable solutions that keep you connected and productive. From computers, laptops, phones, printers, networking devices, cables, and accessories, to repair services for damaged laptops and gadgets, we are your trusted one-stop shop for all tech needs. Our priority is customer support excellence, ensuring every customer enjoys a smooth and worry-free experience, all while offering affordable prices that fit your budget.
+
+      
+      <h5>Convenience at Your Fingertips</h5>
+      <p>
+        Shopping at RT Tech is easy and stress-free. Whether you prefer cash on delivery, installment options through Home Credit, or digital payments, we’ve got you covered. Plus, our store location in Kapasigan, Pasig City makes it convenient for you to visit us directly for purchases, product inquiries, or gadget repairs.
+      </p>
+
+      <h5>Trusted Payment Options</h5>
+      <p>Your trust and safety come first. That’s why we offer secure and flexible payment options including Cash, GCash, PayMaya, Bank Transfer, and Home Credit. Every transaction is handled with care, giving you peace of mind with every purchase.</p>
+      
+      <h5>Mission</h5>
+      <p>
+        At RT Tech, our mission is to make technology accessible, reliable, and affordable for everyone. We aim to provide not only the latest computers, phones, laptops, printers, and accessories, but also the repair services and technical support our customers need to keep their devices performing at their best. Beyond offering products, we are committed to delivering exceptional customer service, ensuring every customer feels supported before, during, and after their purchase. By offering flexible payment methods such as Cash, GCash, PayMaya, Bank Transfer, and Home Credit, we make shopping simple and worry-free. Our goal is to be a partner in every customer’s digital journey—helping individuals, families, and businesses stay connected, productive, and future-ready.
+      </p>
+
+      <h5>Vision</h5>
+      <p>
+        Our vision is to become a trusted leader in technology solutions and services in the Philippines, known for our integrity, reliability, and customer-first approach. We aspire to create a store where technology is not intimidating but accessible and convenient for everyone, regardless of budget. We envision RT Tech as a go-to hub for affordable yet high-quality gadgets and repair services, where every customer can enjoy peace of mind knowing they are backed by a team that values excellence in customer care. In the long run, we aim to expand our reach, continuously improve our offerings, and build lasting relationships with our community—helping empower Filipinos to embrace technology in their homes, schools, and businesses.
+      </p>
+    </div>
+
+    <button id="toggleBtn" class="btn btn-link p-0 mt-2">Show more</button>
+  </div>
+
+  </div>
+
+  <!-- Contact Us etc -->
+  <img class="emailus" src="images/email.png" alt="" data-bs-toggle="modal" data-bs-target="#emailModal" style="cursor: pointer">
+
+  <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content rounded-3 shadow">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title" id="emailModalLabel">Send Us an Email</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="emailForm" method="POST" action="sendmail.php">
+            <div class="mb-3">
+              <label for="emailName" class="form-label">Your Name</label>
+              <input type="text" class="form-control" name="name" id="emailName" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="mb-3">
+              <label for="emailMessage" class="form-label">Message</label>
+              <textarea class="form-control" name="message" id="emailMessage" rows="4" placeholder="Write your message..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Send Email</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://www.facebook.com/RTtechshop" target="_blank" ><img class="facebook" src="images/facebook.png" alt="" style="bottom: 11vh"></a>
+
+
+  <!-- Footer -->
+  <div id="contacts" class="container-fluid bg-success text-white py-5">
+    <div class="container">
+      <div class="row">
+
+        <!-- Left side: Logo -->
+        <div class="col-6 col-md-4 d-flex justify-content-center mb-4 mb-md-0">
+          <img src="images/logo-light.png" alt="RT Tech Logo" class="img-fluid" style="height: 200px;">
+        </div>
+
+        <!-- Right side (mobile: accordion | desktop: columns) -->
+        <div class="col-6 col-md-8">
+
+          <!-- Mobile Accordion -->
+          <div class="d-block d-md-none">
+            <div class="accordion" id="footerAccordion">
+
+              <!-- RT TECH -->
+              <div class="accordion-item bg-success border-0">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-success text-white" type="button" data-bs-toggle="collapse" data-bs-target="#rttechMobile">
+                    RT TECH
+                  </button>
+                </h2>
+                <div id="rttechMobile" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <h3 style="font-size: 16px; color: white">Contact Us</h3>
+                    <img src="images/facebook-light.png" alt="Facebook" style="height: 35px;">
+                  </div>
+                </div>
+              </div>
+
+              <!-- COMPANY -->
+              <div class="accordion-item bg-success border-0">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-success text-white" type="button" data-bs-toggle="collapse" data-bs-target="#companyMobile">
+                    COMPANY
+                  </button>
+                </h2>
+                <div id="companyMobile" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <a href="our-company.html" class="d-block link-light" style="font-size: 13px;">Our Company</a>
+                    <a href="our-company.html#FAQs" class="d-block link-light" style="font-size: 13px;">FAQs</a>
+                    <a href="our-company.html#storelocation" class="d-block link-light" style="font-size: 13px;">Store Locations</a>
+                    <a href="our-company.html#careers" class="d-block link-light" style="font-size: 13px;">Careers</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CUSTOMER SERVICE -->
+              <div class="accordion-item bg-success border-0">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-success text-white" type="button" data-bs-toggle="collapse" data-bs-target="#customerMobile">
+                    CUSTOMER SERVICE
+                  </button>
+                </h2>
+                <div id="customerMobile" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Order And Payments</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Cancellation Policy</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Delivery</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Payment FAQs</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Privacy Policy</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Return And Refunds</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Service Area Directory</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Information</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Terms And Conditions</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Policy</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Desktop Columns -->
+          <div class="row d-none d-md-flex">
+            <div class="col-md-4 contacts">
+              <h1 style="font-size: 16px">RT TECH</h1>
+              <h3 style="font-size: 16px">Contact Us</h3>
+              <img src="images/facebook-light.png" alt="Facebook" style="height: 35px;">
+            </div>
+
+            <div class="col-md-4 contacts">
+              <h5 style="font-size: 16px">COMPANY</h5>
+              <a href="our-company.html" class="d-block link-light" style="font-size: 13px;">Our Company</a>
+              <a href="our-company.html#FAQs" class="d-block link-light" style="font-size: 13px;">FAQs</a>
+              <a href="our-company.html#storelocation" class="d-block link-light" style="font-size: 13px;">Store Locations</a>
+              <a href="our-company.html#careers" class="d-block link-light" style="font-size: 13px;">Careers</a>
+            </div>
+
+            <div class="col-md-4 contacts">
+              <h5 style="font-size: 16px">CUSTOMER SERVICE</h5>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Order And Payments</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Cancellation Policy</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Delivery</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Payment FAQs</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Privacy Policy</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Return And Refunds</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Service Area Directory</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Information</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Terms And Conditions</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Policy</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- !!!Scripts!!!-->
+
+  <!-- Products Dropdown-->
+  <script>
+    const productsMenu = document.getElementById("productsMenu");
+    const megaMenu = document.getElementById("megaMenu");
+    const megaContent = document.getElementById("megaContent");
+    let hideTimeout;
+
+    // Categories + items
+    const items = {
+      peripherals: [
+        { name: "Keyboard", link: "products/keyboards.html" },
+        { name: "Mouse", link: "products/mouse.html" },
+        { name: "Headset", link: "products/headset.html" },
+        { name: "Monitor", link: "products/monitor.html" },
+        { name: "Speaker", link: "products/speaker.html" }
+      ],
+      pc: [
+        { name: "Processor", link: "products/processor.html" },
+        { name: "Motherboard", link: "products/motherboard.html" },
+        { name: "PC Case", link: "products/pccase.html" },
+        { name: "Graphics Card", link: "products/graphics-card.html" },
+        { name: "Memory", link: "products/memory.html" },
+        { name: "Power Supply", link: "products/power-supply.html" }
+      ],
+      networking: [
+        { name: "Router", link: "products/router.html" },
+        { name: "Switch", link: "products/switch.html" },
+        { name: "Cables", link: "products/cables.html" }
+      ],
+      laptops: [
+        { name: "Laptops", link: "products/laptops.html" },
+
+      ],
+      workstation: [
+        { name: "Table", link: "products/table.html" },
+        { name: "Printer", link: "products/printer.html" },
+        { name: "Chair", link: "products/chair.html" },
+      ],
+      accessories: [
+        { name: "Earphones", link: "products/earphones.html" },
+        { name: "Powerbank", link: "products/powerbank.html" },
+      ]
+    };
+
+    
+
+    // Desktop hover
+    if (window.innerWidth > 991) {
+      productsMenu.addEventListener("mouseenter", () => {
+        clearTimeout(hideTimeout);
+        megaMenu.classList.add("show");
+      });
+      productsMenu.addEventListener("mouseleave", () => {
+        hideTimeout = setTimeout(() => megaMenu.classList.remove("show"), 200);
+      });
+    }
+
+    // Mobile toggle for products
+    productsMenu.querySelector("a").addEventListener("click", e => {
+      if (window.innerWidth <= 991) {
+        e.preventDefault();
+        megaMenu.classList.toggle("show");
+      }
+    });
+
+    // Mobile: click category to load products on right side
+    megaMenu.querySelectorAll(".left li").forEach(li => {
+      li.addEventListener("click", () => {
+        if (window.innerWidth <= 991) {
+          megaMenu.querySelectorAll(".left li").forEach(x => x.classList.remove("active"));
+          li.classList.add("active");
+          loadCategory(li.dataset.category);
+        }
+      });
+    });
+
+
+    // Load right-side content
+    megaMenu.querySelectorAll(".left li").forEach(li => {
+      li.addEventListener("mouseenter", () => {
+        if (window.innerWidth > 991) loadCategory(li.dataset.category);
+      });
+      li.addEventListener("click", () => {
+        if (window.innerWidth <= 991) loadCategory(li.dataset.category);
+      });
+    });
+
+    function loadCategory(cat) {
+      megaContent.innerHTML = `
+        <h6 class="fw-bold text-success" style="font-size: 2vh">
+          ${cat.toUpperCase()}
+        </h6>
+        <ul>
+      `;
+      items[cat].forEach(it => {
+        megaContent.innerHTML += `
+          <li style="text-decoration: underline;font-size: 2vh; margin: 1vh 0">
+            <a href="${it.link}" class="text-dark text-decoration-none">
+              ${it.name}
+            </a>
+          </li>
+        `;
+      });
+      megaContent.innerHTML += `</ul>`;
+    }
+
+
+    const leftItems = document.querySelectorAll('.left li');
+    const rightPanel = document.getElementById('megaContent');
+    let activeItem = null;
+
+    leftItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        // Clear any previous active
+        if (activeItem) activeItem.classList.remove('active');
+        // Set new active
+        item.classList.add('active');
+        activeItem = item;
+      });
+    });
+
+    // Remove highlight only when leaving dropdown entirely
+    document.getElementById('megaMenu').addEventListener('mouseleave', () => {
+      if (activeItem) activeItem.classList.remove('active');
+      activeItem = null;
+    });
+
+    
+
+  </script>
+
+  <!-- Search bar -->
+  <script>
+    const allProducts = Object.values(items).flat();
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
+const suggestionsBox = document.getElementById("suggestionsBox");
+const suggestionsList = document.getElementById("suggestionsList");
+
+let currentSuggestions = [];
+
+// Default popular searches
+const popularSearches = [
+  { name: "Laptop", link: "products/laptops.html" },
+  { name: "Graphics Card", link: "products/graphics-card.html" },
+  { name: "Keyboard", link: "products/keyboards.html" },
+  { name: "Router", link: "products/router.html" }
+];
+
+// Show popular searches by default when input is focused
+searchInput.addEventListener("focus", () => {
+  renderSuggestions(popularSearches);
+});
+
+// Show filtered suggestions as user types
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.trim().toLowerCase();
+  if (!query) {
+    renderSuggestions(popularSearches);
+    return;
+  }
+  const matches = allProducts.filter(p => p.name.toLowerCase().includes(query));
+  renderSuggestions(matches);
+});
+
+function renderSuggestions(list) {
+  currentSuggestions = list; // save current list
+  suggestionsList.innerHTML = "";
+  if (list.length === 0) {
+    suggestionsBox.style.display = "none";
+    return;
+  }
+
+  list.forEach(p => {
+    const li = document.createElement("li");
+    li.className = "list-group-item list-group-item-action";
+    li.textContent = p.name;
+    li.style.cursor = "pointer";
+
+    li.addEventListener("click", () => {
+      window.location.href = p.link;
+    });
+
+    suggestionsList.appendChild(li);
+  });
+
+  suggestionsBox.style.display = "block";
+}
+
+// Handle pressing Enter (open first suggestion)
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault(); // prevent default reload
+  if (currentSuggestions.length > 0) {
+    window.location.href = currentSuggestions[0].link;
+  }
+});
+
+// Hide when clicking outside
+document.addEventListener("click", (e) => {
+  if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+    suggestionsBox.style.display = "none";
+  }
+});
+
+  </script> 
+
+  <!-- slides -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- centered scrollbar -->
+  <script>
+  window.addEventListener("load", () => {
+    const container = document.querySelector(".pcontainer");
+    container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
+  });
+  window.addEventListener("load", () => {
+    const container = document.querySelector(".rcontainer");
+    container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
+  });
+  </script>
+
+  <!-- About Us -->
+  <script>
+  const toggleBtn = document.getElementById("toggleBtn");
+  const aboutText = document.getElementById("aboutText");
+
+  toggleBtn.addEventListener("click", () => {
+    aboutText.classList.toggle("expanded");
+    if (aboutText.classList.contains("expanded")) {
+      toggleBtn.textContent = "Show less";
+    } else {
+      toggleBtn.textContent = "Show more";
+    }
+  });
+
+  </script>
+
+  <!-- sendmail -->
+  <script>
+  document.getElementById("emailForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    fetch("sendmail.php", {
+      method: "POST",
+      body: new FormData(this)
+    })
+    .then(res => res.text())
+    .then(data => {
+      if (data.trim() === "success") {
+        alert("Your message has been sent!");
+        document.getElementById("emailForm").reset();
+        bootstrap.Modal.getInstance(document.getElementById('emailModal')).hide();
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    });
+  });
+  </script>
+
+
+</body>
+</html>

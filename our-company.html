@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RT Tech | Customer Service</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link href="styles.css" rel="stylesheet">
+  <style>
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg shadow fixed-top" style="background: white">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center gap-2 text-success fw-bold" href="index.html">
+        <img src="images/logo.png" alt="Logo" class="img-fluid" style="height: 7vh;">
+        <h1 class="mb-0 mt-1" style="font-size: 4vh; font-family: Monument;">RT TECH</h1>
+      </a>
+
+
+      <!-- Toggler for mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <form id="searchForm" class="d-flex ms-auto my-2 my-lg-0" role="search" style="width: 30vw; max-width: 30vw; position: relative;">
+          <input id="searchInput" class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
+          <button class="btn btn-success" type="submit">Search</button>
+
+          <!-- Suggestions Box -->
+          <div id="suggestionsBox"
+              class="card position-absolute w-100 shadow"
+              style="top: 100%; left: 0; z-index: 1000; display: none;
+                      height: 40vh; overflow-y: auto;">
+
+            <!-- Header -->
+            <div class="card-header bg-light fw-bold text-success" style="font-size: 14px;">
+              Popular Searches
+            </div>
+
+            <!-- Suggestions -->
+            <ul id="suggestionsList" class="list-group list-group-flush"></ul>
+          </div>
+        </form>
+
+        <ul class="navbar-nav ms-auto fw-bold" style="font-size: 2vh">
+          <li class="nav-item"><a href="index.html" class="nav-link text-success" style="margin: 0 1vw">Home</a></li>
+
+          <!-- Products with Mega Menu -->
+          <li class="nav-item position-relative" id="productsMenu">
+            <a href="#" class="nav-link text-success" style="margin: 0 1vw">Products ⮟</a>
+            <div class="dropdown-mega border" id="megaMenu">
+              <div class="left">
+                <ul><span class="text-success" style="font-size: 16px">PRODUCTS</span>
+                  <li data-category="peripherals">Peripherals</li>
+                  <li data-category="laptops">Laptops</li>
+                  <li data-category="pc">PC Parts</li>
+                  <li data-category="workstation">Workstation</li>
+                  <li data-category="accessories">Accessories</li>
+                  <li data-category="networking">Networking</li>
+                </ul>
+              </div>
+              <div class="right" id="megaContent">
+                <p class="text-muted">Hover or tap a category to see items.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="#contacts" class="nav-link text-success" style="margin: 0 1vw">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="ourcompany" class="container-fluid" style="padding: 20vh 0 2vh">
+    <div class="container">
+        <h2 style="font-weight: bold">Our Company</h2><hr>
+        <p>At RT Tech Shop, we are more than just a store—we are your trusted partner in all things tech. We offer a wide range of products, including computers, laptops, phones, printers, networking devices, cables, and accessories, as well as reliable repair services for damaged gadgets. Our goal is to make technology accessible, reliable, and affordable for everyone, while ensuring every customer enjoys a smooth and worry-free experience. With flexible payment options such as Cash, GCash, PayMaya, Bank Transfer, and Home Credit, plus a convenient store location in Kapasigan, Pasig City, we make shopping simple, secure, and hassle-free. Guided by our mission to provide dependable solutions and our vision to become a trusted leader in tech services in the Philippines, we are committed to delivering exceptional customer support and building lasting relationships with the community we serve.</p>
+    </div>
+  </div>
+
+  <div id="FAQs" class="container-fluid" style="padding: 4vh 0 0">
+    <div class="container">
+        <h2 style="font-weight: bold">Frequently Asked Questions (FAQs)</h2><hr>
+        <h4>🛒 Orders & Shipping</h4><br>
+        <p><span style="font-weight: bold">Q: Do you offer cash on delivery (COD)? </span><br>
+        A: Yes, we offer cash on delivery for selected areas. Please contact us to confirm availability in your location.</p>
+        <p><span style="font-weight: bold">Q: Can I reserve or pre-order items? </span><br>
+        A: Yes, you may contact us to reserve or pre-order specific items that are currently out of stock or arriving soon.</p>
+        <hr>
+        <h4>💳 Payments & Financing</h4><br>
+        <p><span style="font-weight: bold">Q: What payment methods do you accept?</span><br>
+        A: We accept Cash, GCash, Bank Transfer, and Home Credit for installment plans.</p>
+        <p><span style="font-weight: bold">Q: Is it safe to pay online or digitally? </span><br>
+        A: Absolutely. We prioritize secure transactions and ensure that all digital payments are processed safely and securely.</p>
+        <hr>
+        <h4>🛍 Products & Services</h4><br>
+        <p><span style="font-weight: bold">Q: Do you offer gadget repair services?</span><br>
+        A: Yes! We provide reliable repair services for damaged laptops, phones, and other gadgets. You can bring your device directly to our shop for assessment.</p>
+        <p><span style="font-weight: bold">Q: Do you offer warranties on your products? </span><br>
+        A: Yes, most of our products come with a warranty. Warranty coverage may vary depending on the brand or item purchased, so feel free to ask our staff for specific details.</p>
+        <hr>
+    </div>
+  </div>
+  
+
+  <div class="container" style="padding: 4vh 0 4vh; overflow: hidden" style="height: auto;">
+    <div class="container d-block d-lg-flex">
+
+        <div class="maps d-flex justify-content-start">
+          <div id="map" style="width: 100%;"></div><br>
+
+          <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+          <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+          <script>
+            const map = L.map('map').setView([14.341092, 120.852825], 16);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            L.marker([14.563526, 121.076469]).addTo(map)
+              .bindPopup('RT Tech Shop<br>44 Dr. Sixto Antonio Ave., Kapasigan, Pasig, 1600 Metro Manila')
+              .openPopup();
+          </script>
+        </div>
+
+        <div class="map-dets d-flex flex-column justify-content-start align-items-center justify-content-center" style="text-align: center;">
+            <h2>Store Location</h2><br>
+            
+            <p>44 Dr. Sixto Antonio Ave. Kapasigan, Pasig City</p>
+            
+            <a target="_blank" href="https://www.bing.com/maps?&ty=18&q=RT%20TECH%20Shop%2C%2044%20Dr.%20Sixto%20Antonio%20Ave.%2C%20Kapasigan%2C%20Pasig%2C%201600%20Metro%20Manila%2C%20Philippines%2C%20Philippines&ss=ypid.YN8144x12890129515740368043&mb=14.563852~121.075941~14.563201~121.076998&description=44%20Dr.%20Sixto%20Antonio%20Ave.%2C%20Kapasigan%2C%20Pasig%2C%201600%20Metro%20Manila%2C%20Philippines%C2%B7Computer%20store&cardbg=%23768DF1&dt=1758182400000&tt=RT%20TECH%20Shop&tsts0=%2526ty%253D18%2526q%253DRT%252520TECH%252520Shop%25252C%25252044%252520Dr.%252520Sixto%252520Antonio%252520Ave.%25252C%252520Kapasigan%25252C%252520Pasig%25252C%2525201600%252520Metro%252520Manila%25252C%252520Philippines%25252C%252520Philippines%2526ss%253Dypid.YN8144x12890129515740368043%2526mb%253D14.563852~121.075941~14.563201~121.076998%2526description%253D44%252520Dr.%252520Sixto%252520Antonio%252520Ave.%25252C%252520Kapasigan%25252C%252520Pasig%25252C%2525201600%252520Metro%252520Manila%25252C%252520Philippines%2525C2%2525B7Computer%252520store%2526cardbg%253D%252523768DF1%2526dt%253D1758182400000&tstt0=RT%20TECH%20Shop&cp=14.563526~121.076165&lvl=20.13&pi=0&ftst=0&ftics=False&v=2&sV=2&form=S00027">
+              View on Google Maps</a>
+        </div>
+    </div><br>
+    <hr>
+  </div>
+
+  <div class="container-fluid" style="padding: 5vh 0; margin-bottom: 5vh">
+  <div class="container text-center">
+    <h2 id="careers">Careers at RT Tech</h2>
+    <p class="mt-3 text-muted" style="font-size: 1.1rem;">
+      There are currently no job openings at RT Tech Shop.  
+      Please check back soon or follow us on our social media pages for updates.
+    </p>
+  </div>
+</div>
+
+  <!-- Contact Us etc -->
+  <img class="emailus" src="images/email.png" alt="" data-bs-toggle="modal" data-bs-target="#emailModal" style="cursor: pointer">
+
+  <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content rounded-3 shadow">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title" id="emailModalLabel">Send Us an Email</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="emailName" class="form-label">Your Name</label>
+              <input type="text" class="form-control" id="emailName" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="text" class="form-control" id="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="mb-3">
+              <label for="emailMessage" class="form-label">Message</label>
+              <textarea class="form-control" id="emailMessage" rows="4" placeholder="Write your message..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Send Email</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://www.facebook.com/RTtechshop" target="_blank" ><img class="facebook" src="images/facebook.png" alt="" style="bottom: 11vh"></a>
+
+  <!-- Footer -->
+  <div id="contacts" class="container-fluid bg-success text-white py-5">
+    <div class="container">
+      <div class="row">
+
+        <!-- Left side: Logo -->  
+        <div class="col-6 col-md-4 d-flex justify-content-center mb-4 mb-md-0">
+          <img src="images/logo-light.png" alt="RT Tech Logo" class="img-fluid" style="height: 200px;">
+        </div>
+
+        <!-- Right side (mobile: accordion | desktop: columns) -->
+        <div class="col-6 col-md-8">
+
+          <!-- Mobile Accordion -->
+          <div class="d-block d-md-none">
+            <div class="accordion" id="footerAccordion">
+
+              <!-- RT TECH -->
+              <div class="accordion-item bg-success border-0">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-success text-white" type="button" data-bs-toggle="collapse" data-bs-target="#rttechMobile">
+                    RT TECH
+                  </button>
+                </h2>
+                <div id="rttechMobile" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <h3 style="font-size: 16px; color: white">Contact Us</h3>
+                    <img src="images/facebook-light.png" alt="Facebook" style="height: 35px;">
+                  </div>
+                </div>
+              </div>
+
+              <!-- COMPANY -->
+              <div class="accordion-item bg-success border-0">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-success text-white" type="button" data-bs-toggle="collapse" data-bs-target="#companyMobile">
+                    COMPANY
+                  </button>
+                </h2>
+                <div id="companyMobile" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <a href="our-company.html" class="d-block link-light" style="font-size: 13px;">Our Company</a>
+                    <a href="our-company.html#FAQs" class="d-block link-light" style="font-size: 13px;">FAQs</a>
+                    <a href="our-company.html#storelocation" class="d-block link-light" style="font-size: 13px;">Store Locations</a>
+                    <a href="our-company.html#careers" class="d-block link-light" style="font-size: 13px;">Careers</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CUSTOMER SERVICE -->
+              <div class="accordion-item bg-success border-0">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-success text-white" type="button" data-bs-toggle="collapse" data-bs-target="#customerMobile">
+                    CUSTOMER SERVICE
+                  </button>
+                </h2>
+                <div id="customerMobile" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Order And Payments</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Cancellation Policy</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Delivery</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Payment FAQs</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Privacy Policy</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Return And Refunds</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Service Area Directory</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Information</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Terms And Conditions</a>
+                    <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Policy</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Desktop Columns -->
+          <div class="row d-none d-md-flex">
+            <div class="col-md-4 contacts">
+              <h1 style="font-size: 16px">RT TECH</h1>
+              <h3 style="font-size: 16px">Contact Us</h3>
+              <img src="images/facebook-light.png" alt="Facebook" style="height: 35px;">
+            </div>
+
+            <div class="col-md-4 contacts">
+              <h5 style="font-size: 16px">COMPANY</h5>
+              <a href="our-company.html" class="d-block link-light" style="font-size: 13px;">Our Company</a>
+              <a href="our-company.html#FAQs" class="d-block link-light" style="font-size: 13px;">FAQs</a>
+              <a href="our-company.html#storelocation" class="d-block link-light" style="font-size: 13px;">Store Locations</a>
+              <a href="our-company.html#careers" class="d-block link-light" style="font-size: 13px;">Careers</a>
+            </div>
+
+            <div class="col-md-4 contacts">
+              <h5 style="font-size: 16px">CUSTOMER SERVICE</h5>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Order And Payments</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Cancellation Policy</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Delivery</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Payment FAQs</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Privacy Policy</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Return And Refunds</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Service Area Directory</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Information</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Terms And Conditions</a>
+              <a href="#" class="d-block link-light" style="font-size: 13px;">Warranty Policy</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- !!!Scripts!!!-->
+
+  <!-- Products Dropdown-->
+  <script>
+    const productsMenu = document.getElementById("productsMenu");
+    const megaMenu = document.getElementById("megaMenu");
+    const megaContent = document.getElementById("megaContent");
+    let hideTimeout;
+
+    // Categories + items
+    const items = {
+      peripherals: [
+        { name: "Keyboard", link: "products/keyboards.html" },
+        { name: "Mouse", link: "products/mouse.html" },
+        { name: "Headset", link: "products/headset.html" },
+        { name: "Monitor", link: "products/monitor.html" },
+        { name: "Speaker", link: "products/speaker.html" }
+      ],
+      pc: [
+        { name: "Processor", link: "products/processor.html" },
+        { name: "Motherboard", link: "products/motherboard.html" },
+        { name: "PC Case", link: "products/pccase.html" },
+        { name: "Graphics Card", link: "products/graphics-card.html" },
+        { name: "Memory", link: "products/memory.html" },
+        { name: "Power Supply", link: "products/power-supply.html" }
+      ],
+      networking: [
+        { name: "Router", link: "products/router.html" },
+        { name: "Switch", link: "products/switch.html" },
+        { name: "Cables", link: "products/cables.html" }
+      ],
+      laptops: [
+        { name: "Laptops", link: "products/laptops.html" },
+
+      ],
+      workstation: [
+        { name: "Table", link: "products/table.html" },
+        { name: "Printer", link: "products/printer.html" },
+        { name: "Chair", link: "products/chair.html" },
+      ],
+      accessories: [
+        { name: "Earphones", link: "products/earphones.html" },
+        { name: "Powerbank", link: "products/powerbank.html" },
+      ]
+    };
+
+    // Desktop hover
+    if (window.innerWidth > 991) {
+      productsMenu.addEventListener("mouseenter", () => {
+        clearTimeout(hideTimeout);
+        megaMenu.classList.add("show");
+      });
+      productsMenu.addEventListener("mouseleave", () => {
+        hideTimeout = setTimeout(() => megaMenu.classList.remove("show"), 200);
+      });
+    }
+
+    // Mobile toggle
+    productsMenu.querySelector("a").addEventListener("click", e => {
+      if (window.innerWidth <= 991) {
+        e.preventDefault();
+        megaMenu.classList.toggle("show");
+      }
+    });
+
+    // Load right-side content
+    megaMenu.querySelectorAll(".left li").forEach(li => {
+      li.addEventListener("mouseenter", () => {
+        if (window.innerWidth > 991) loadCategory(li.dataset.category);
+      });
+      li.addEventListener("click", () => {
+        if (window.innerWidth <= 991) loadCategory(li.dataset.category);
+      });
+    });
+
+    function loadCategory(cat) {
+      megaContent.innerHTML = `
+        <h6 class="fw-bold text-success" style="font-size: 16px">
+          ${cat.toUpperCase()}
+        </h6>
+        <ul>
+      `;
+      items[cat].forEach(it => {
+        megaContent.innerHTML += `
+          <li style="text-decoration: underline;font-size: 14px; margin: 1vh 0">
+            <a href="${it.link}" class="text-dark text-decoration-none">
+              ${it.name}
+            </a>
+          </li>
+        `;
+      });
+      megaContent.innerHTML += `</ul>`;
+    }
+
+
+    const leftItems = document.querySelectorAll('.left li');
+    const rightPanel = document.getElementById('megaContent');
+    let activeItem = null;
+
+    leftItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        // Clear any previous active
+        if (activeItem) activeItem.classList.remove('active');
+        // Set new active
+        item.classList.add('active');
+        activeItem = item;
+      });
+    });
+
+    // Remove highlight only when leaving dropdown entirely
+    document.getElementById('megaMenu').addEventListener('mouseleave', () => {
+      if (activeItem) activeItem.classList.remove('active');
+      activeItem = null;
+    });
+
+  </script>
+
+  <!-- Search bar -->
+  <script>
+    const allProducts = Object.values(items).flat();
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
+const suggestionsBox = document.getElementById("suggestionsBox");
+const suggestionsList = document.getElementById("suggestionsList");
+
+let currentSuggestions = [];
+
+// Default popular searches
+const popularSearches = [
+  { name: "Laptop", link: "products/laptops.html" },
+  { name: "Graphics Card", link: "products/graphics-card.html" },
+  { name: "Keyboard", link: "products/keyboards.html" },
+  { name: "Router", link: "products/router.html" }
+];
+
+// Show popular searches by default when input is focused
+searchInput.addEventListener("focus", () => {
+  renderSuggestions(popularSearches);
+});
+
+// Show filtered suggestions as user types
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.trim().toLowerCase();
+  if (!query) {
+    renderSuggestions(popularSearches);
+    return;
+  }
+  const matches = allProducts.filter(p => p.name.toLowerCase().includes(query));
+  renderSuggestions(matches);
+});
+
+function renderSuggestions(list) {
+  currentSuggestions = list; // save current list
+  suggestionsList.innerHTML = "";
+  if (list.length === 0) {
+    suggestionsBox.style.display = "none";
+    return;
+  }
+
+  list.forEach(p => {
+    const li = document.createElement("li");
+    li.className = "list-group-item list-group-item-action";
+    li.textContent = p.name;
+    li.style.cursor = "pointer";
+
+    li.addEventListener("click", () => {
+      window.location.href = p.link;
+    });
+
+    suggestionsList.appendChild(li);
+  });
+
+  suggestionsBox.style.display = "block";
+}
+
+// Handle pressing Enter (open first suggestion)
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault(); // prevent default reload
+  if (currentSuggestions.length > 0) {
+    window.location.href = currentSuggestions[0].link;
+  }
+});
+
+// Hide when clicking outside
+document.addEventListener("click", (e) => {
+  if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+    suggestionsBox.style.display = "none";
+  }
+});
+
+  </script> 
+
+  <!-- slides -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- centered scrollbar -->
+  <script>
+  window.addEventListener("load", () => {
+    const container = document.querySelector(".pcontainer");
+    container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
+  });
+  window.addEventListener("load", () => {
+    const container = document.querySelector(".rcontainer");
+    container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
+  });
+  </script>
+
+  <!-- About Us -->
+  <script>
+  const toggleBtn = document.getElementById("toggleBtn");
+  const aboutText = document.getElementById("aboutText");
+
+  toggleBtn.addEventListener("click", () => {
+    aboutText.classList.toggle("expanded");
+    if (aboutText.classList.contains("expanded")) {
+      toggleBtn.textContent = "Show less";
+    } else {
+      toggleBtn.textContent = "Show more";
+    }
+  });
+
+  </script>
+
+</body>
+</html>
