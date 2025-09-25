@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,22 +21,24 @@
         <h1 class="mb-0 mt-1" style="font-size: 4vh; font-family: Monument;">RT TECH</h1>
       </a>
 
+      <img id="themeToggle" class="btn btn-secondary p-0" src="images/dark.png" style="border: none; background-color: transparent; height: 40px;">
+
 
       <!-- Toggler for mobile -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border: none">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <form id="searchForm" class="d-flex ms-auto my-2 my-lg-0" role="search" style="max-width: 30vw; position: relative;">
-          <input id="searchInput" class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
+          <input id="searchInput" class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search" style="color: black; background: white">
           <button class="btn btn-success" type="submit">Search</button>
 
           <!-- Suggestions Box -->
           <div id="suggestionsBox"
               class="card position-absolute w-100 shadow"
               style="top: 100%; left: 0; z-index: 1000; display: none;
-                      height: 40vh; overflow-y: auto;">
+                      height: 40vh; overflow-y: auto; background: white ">
 
             <!-- Header -->
             <div class="card-header bg-light fw-bold text-success" style="font-size: 14px;">
@@ -43,7 +46,7 @@
             </div>
 
             <!-- Suggestions -->
-            <ul id="suggestionsList" class="list-group list-group-flush"></ul>
+            <ul id="suggestionsList" class="list-group list-group-flush" style="color: black; background: white"></ul>
           </div>
         </form>
 
@@ -81,7 +84,7 @@
     <div id="photoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" >
 
       <!-- Indicators -->
-      <div class="carousel-indicators">
+      <div class="carousel-indicators d-none d-md-flex">
         <button type="button" data-bs-target="#photoCarousel" data-bs-slide-to="0" class="active"></button>
         <button type="button" data-bs-target="#photoCarousel" data-bs-slide-to="1"></button>
         <button type="button" data-bs-target="#photoCarousel" data-bs-slide-to="2"></button>
@@ -111,12 +114,12 @@
   </div>
 
   <!-- Products -->
-  <div class="container pt-3 pb-5">
+  <div class="container pt-3 pb-5 ">
     <div class="pcontainer">
 
       <a href="products/power-supply.html">
-        <div class="card border-1 p-2" style="width: 140px;">
-          <img src="images/powersupply.jpeg" class="card-img-top" alt="">
+        <div class="card border-1 p-2 " style="width: 140px;">
+          <img src="images/powersupply.png" class="card-img-top" alt="">
           <div class="card-body p-2">
             <div class="card-title text-center fw-bold small">Power Supply</div>
           </div>
@@ -125,7 +128,7 @@
 
       <a href="products/memory.html">
         <div class="card border-1 p-2" style="width: 140px;">
-          <img src="images/memory.jpg" class="card-img-top" alt="">
+          <img src="images/memory.png" class="card-img-top" alt="">
           <div class="card-body p-2">
             <div class="card-title text-center fw-bold small">Memory</div>
           </div>
@@ -134,7 +137,7 @@
 
       <a href="products/graphics-card.html">
         <div class="card border-1 p-2" style="width: 140px;">
-          <img src="images/graphics.jpg" class="card-img-top" alt="">
+          <img src="images/graphics.png" class="card-img-top" alt="">
           <div class="card-body p-2">
             <div class="card-title text-center fw-bold small">Graphics Card</div>
           </div>
@@ -152,7 +155,7 @@
 
       <a href="products/pccase.html">
         <div class="card border-1 p-2" style="width: 140px;">
-          <img src="images/pccase.jpg" class="card-img-top" alt="">
+          <img src="images/pccase.png" class="card-img-top" alt="">
           <div class="card-body p-2">
             <div class="card-title text-center fw-bold small">PC Case</div>
           </div>
@@ -170,7 +173,7 @@
 
       <a href="products/keyboards.html">
         <div class="card border-1 p-2" style="width: 140px;">
-          <img src="images/keyboard.webp" class="card-img-top" alt="">
+          <img src="images/keyboard.png" class="card-img-top" alt="">
           <div class="card-body p-2">
             <div class="card-title text-center fw-bold small">Keyboard</div>
           </div>
@@ -179,7 +182,7 @@
 
       <a href="products/monitor.html">
         <div class="card border-1 p-2" style="width: 140px;">
-          <img src="images/monitor.jpg" class="card-img-top" alt="">
+          <img src="images/monitor.png" class="card-img-top" alt="">
           <div class="card-body p-2">
             <div class="card-title text-center fw-bold small">Monitor</div>
           </div>
@@ -188,7 +191,7 @@
 
       <a href="products/headset.html">
         <div class="card border-1 p-2" style="width: 140px;">
-          <img src="images/headset.jpg" class="card-img-top" alt="">
+          <img src="images/headset.png" class="card-img-top" alt="">
           <div class="card-body p-2">
             <div class="card-title text-center fw-bold small">Headset</div>
           </div>
@@ -197,7 +200,7 @@
 
       <a href="products/mouse.html">
         <div class="card border-1 p-2" style="width: 140px;">
-          <img src="images/mouse.jpg" class="card-img-top" alt="">
+          <img src="images/mouse.png" class="card-img-top" alt="">
           <div class="card-body p-2">
             <div class="card-title text-center fw-bold small">Mouse</div>
           </div>
@@ -224,7 +227,7 @@
 
       <a href="products/network.html">
         <div class="card border-1 p-2" style="width: 140px;">
-          <img src="images/router.jpg" class="card-img-top" alt="">
+          <img src="images/router.png" class="card-img-top" alt="">
           <div class="card-body p-2">
             <div class="card-title text-center fw-bold small">Network</div>
           </div>
@@ -233,7 +236,7 @@
 
       <a href="products/chair.html">
         <div class="card border-1 p-2" style="width: 140px;">
-          <img src="images/chair.jpg" class="card-img-top" alt="">
+          <img src="images/chair.png" class="card-img-top" alt="">
           <div class="card-body p-2">
             <div class="card-title text-center fw-bold small">Gaming Chair</div>
           </div>
@@ -242,7 +245,7 @@
 
       <a href="products/processor.html">
         <div class="card border-1 p-2" style="width: 140px;">
-          <img src="images/processor.jpg" class="card-img-top" alt="">
+          <img src="images/processor.png" class="card-img-top" alt="">
           <div class="card-body p-2">
             <div class="card-title text-center fw-bold small">Processor</div>
           </div>
@@ -254,25 +257,25 @@
   </div>
 
   <!-- Top Sellers -->
-  <div class="container-fluid pb-5" style="background: white">
+  <div class="container-fluid pb-5" >
     <h2 style="text-align: center; font-weight: bold">TOP SELLERS</h2>
-    <div class="container tcontainer d-flex" style="height: auto; background: white">
+    <div class="container tcontainer d-flex" style="height: auto" >
       <!-- JS will inject cards here -->
     </div>
   </div>
 
   <!-- New Arrival -->
-  <div class="container-fluid pb-5" style="background: white">
+  <div class="container-fluid pb-5">
     <h2 style="text-align: center; font-weight: bold">NEW ARRIVALS</h2>
-    <div class="container ncontainer d-flex" style="height: auto; background: white">
+    <div class="container ncontainer d-flex" style="height: auto">
       <!-- JS will inject cards here -->
     </div>
   </div>
 
   <!-- RT Tech's Top Pick -->
-  <div class="container-fluid pb-5" style="background: white">
+  <div class="container-fluid pb-5">
     <h2 style="text-align: center; font-weight: bold">RT TECH'S TOP PICKS</h2>
-    <div class="container tpcontainer d-flex" style="height: auto; background: white">
+    <div class="container tpcontainer d-flex" style="height: auto">
       <!-- JS will inject cards here -->
     </div>
   </div>
@@ -521,6 +524,27 @@
 
   <!-- !!!Scripts!!!-->
 
+  <!-- darl/light mode-->
+  <script>
+    const toggle = document.getElementById("themeToggle");
+    const html = document.documentElement;
+
+    // Load saved theme on page load
+    const savedTheme = localStorage.getItem("theme") || "light";
+    html.setAttribute("data-bs-theme", savedTheme);
+
+    toggle.addEventListener("click", () => {
+      const currentTheme = html.getAttribute("data-bs-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+      html.setAttribute("data-bs-theme", newTheme);
+
+      // Save the theme so it works on all pages
+      localStorage.setItem("theme", newTheme);
+    });
+  </script>
+
+
   <!-- Products Dropdown-->
   <script>
     const productsMenu = document.getElementById("productsMenu");
@@ -618,7 +642,7 @@
       `;
       items[cat].forEach(it => {
         megaContent.innerHTML += `
-          <li style="text-decoration: underline;font-size: 2vh; margin: 1vh 0">
+          <li style="text-decoration: underline;font-size: 14px; margin: 1vh 0">
             <a href="${it.link}" class="text-dark text-decoration-none">
               ${it.name}
             </a>

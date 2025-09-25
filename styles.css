@@ -77,10 +77,19 @@ ul {
   }
 }
 
+#suggestionsList,
+#suggestionsList li,
+.dropdown-menu,
+.list-group {
+  background-color: inherit !important;
+  color: #000000 !important; /* make text readable */
+}
+
 .dropdown-mega {
   display: none;
   position: fixed;             /* ✅ fixed to viewport */
-  top: 11vh;                  /* adjust so it sits just under the navbar */
+  top: 11vh;
+  color: black;                  /* adjust so it sits just under the navbar */
   left: 50%;
   transform: translateX(-50%);
   width: 80vw;                 /* 80% of screen width */
@@ -96,7 +105,7 @@ ul {
   align-items: flex-start;
   justify-content: flex-start;
 
-  opacity: 0;
+  opacity: 1;
   visibility: hidden;
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
@@ -195,12 +204,17 @@ ul {
 @media (max-width: 768px) {
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
-    font-size: 1.5rem; /* smaller arrows on mobile */
+    font-size: 0;
   }
   .carousel {
     min-height: 35vh; /* smaller carousel */
   }
 }
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
 
 @media (min-width: 992px) {  /* lg and up */
   .navbar .container-fluid {
@@ -267,10 +281,6 @@ img {
   border-radius: 10px;
 }
 
-.pcontainer::-webkit-scrollbar-track {
-  background: #e9ecef;
-}
-
 @media (max-width: 991px) { 
   .tcontainer::-webkit-scrollbar, .tpcontainer::-webkit-scrollbar, .ncontainer::-webkit-scrollbar, .rcontainer::-webkit-scrollbar, .pcontainer::-webkit-scrollbar {
     visibility: hidden;
@@ -293,8 +303,10 @@ img {
   text-overflow: ellipsis;   /* add "..." at the end */
 }
 
-.pcontainer .card {
+.card {
   flex: 0 0 auto; /* prevents shrinking */
+  background: rgba(255, 255, 255, .95);
+  color: black;
 }
 
 .rcontainer .card {

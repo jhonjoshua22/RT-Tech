@@ -66,11 +66,20 @@ ul {
   }
 }
 
+#suggestionsList,
+#suggestionsList li,
+.dropdown-menu,
+.list-group {
+  background-color: inherit !important;
+  color: #000000 !important; /* make text readable */
+}
+
 .dropdown-mega {
   display: none;
   position: fixed;             /* ✅ fixed to viewport */
   top: 11vh;                  /* adjust so it sits just under the navbar */
   left: 50%;
+  color: black;
   transform: translateX(-50%);
   width: 80vw;                 /* 80% of screen width */
   height: 400px;               /* fixed height */
@@ -85,9 +94,14 @@ ul {
   align-items: flex-start;
   justify-content: flex-start;
 
-  opacity: 0;
+  opacity: 1;
   visibility: hidden;
   transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+#megaContent li {
+
+  font-size: 14px !important;
 }
 
 /* Show when hovering nav item */
@@ -267,6 +281,12 @@ img {
   white-space: nowrap;       /* keep text in a single line */
   overflow: hidden;          /* hide overflow text */
   text-overflow: ellipsis;   /* add "..." at the end */
+}
+
+.card {
+  flex: 0 0 auto; /* prevents shrinking */
+  background: rgba(255, 255, 255, .95);
+  color: black;
 }
 
 .pcontainer .card {

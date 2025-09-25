@@ -20,22 +20,23 @@
         <h1 class="mb-0 mt-1" style="font-size: 4vh; font-family: Monument;">RT TECH</h1>
       </a>
 
+      <img id="themeToggle" class="btn btn-secondary p-0" src="../images/dark.png" style="border: none; background-color: transparent; height: 40px;">
 
       <!-- Toggler for mobile -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"  style="border: none">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <form id="searchForm" class="d-flex ms-auto my-2 my-lg-0" role="search" style="width: 30vw; max-width: 30vw; position: relative;">
-          <input id="searchInput" class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
+          <input id="searchInput" class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search"  style="color: black; background: white">
           <button class="btn btn-success" type="submit">Search</button>
 
           <!-- Suggestions Box -->
           <div id="suggestionsBox"
               class="card position-absolute w-100 shadow"
               style="top: 100%; left: 0; z-index: 1000; display: none;
-                      height: 40vh; overflow-y: auto;">
+                      height: 40vh; overflow-y: auto; background: white ">
 
             <!-- Header -->
             <div class="card-header bg-light fw-bold text-success" style="font-size: 14px;">
@@ -361,6 +362,27 @@
   </div>
 
   <!-- !!!Scripts!!!-->
+
+  <!-- dark/light mode-->
+  <script>
+    const toggle = document.getElementById("themeToggle");
+    const html = document.documentElement;
+
+    // Load saved theme on page load
+    const savedTheme = localStorage.getItem("theme") || "light";
+    html.setAttribute("data-bs-theme", savedTheme);
+
+    toggle.addEventListener("click", () => {
+      const currentTheme = html.getAttribute("data-bs-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+      html.setAttribute("data-bs-theme", newTheme);
+
+      // Save the theme so it works on all pages
+      localStorage.setItem("theme", newTheme);
+    });
+  </script>
+  
   <!-- Products Dropdown-->
   <script>
     const productsMenu = document.getElementById("productsMenu");
