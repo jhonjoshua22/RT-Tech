@@ -19,6 +19,11 @@
   font-style: normal;
 }
 
+:root[data-bs-theme="dark"] {
+  --bs-body-bg: rgb(15, 15, 15);  /* true black background */
+  --bs-body-color: #fff; /* white text */
+}
+
 .form-select:focus, .form-control:focus {
   border-color: green !important;
   box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25) !important;
@@ -289,8 +294,14 @@ img {
 
 .card {
   flex: 0 0 auto; /* prevents shrinking */
-  background: rgba(255, 255, 255, .95);
-  color: black;
+  background: black;
+  color: white;
+  border: 1px solid rgba(200, 200, 200, .3);
+}
+
+[data-bs-theme="light"] .card {
+  background-color: #fff;   /* white card */
+  color: #000;              /* dark text */
 }
 
 .pcontainer .card {
