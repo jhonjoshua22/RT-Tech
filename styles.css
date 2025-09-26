@@ -19,6 +19,11 @@
   font-style: normal;
 }
 
+:root[data-bs-theme="dark"] {
+  --bs-body-bg: rgb(15, 15, 15);  /* true black background */
+  --bs-body-color: #fff; /* white text */
+}
+
 .form-select:focus, .form-control:focus {
   border-color: green !important;
   box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25) !important;
@@ -239,11 +244,7 @@ ul {
 
 
 .card:hover {
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.6)
-}
-
-.rcontainer::-webkit-scrollbar-thumb:hover, .pcontainer::-webkit-scrollbar-thumb:hover {
-  background-color: #218838; /* darker green on hover */
+  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1)
 }
 
 .ncontainer, .tcontainer, .tpcontainer, .rcontainer, .pcontainer {
@@ -263,7 +264,7 @@ img {
 
 @media (max-width: 991px) {
   .slides {
-    height: 40vh;
+    height: 30vh;
   }
 }
 
@@ -272,27 +273,13 @@ img {
   cursor: grabbing;
 }
 
+
 .tcontainer::-webkit-scrollbar, .tpcontainer::-webkit-scrollbar, .ncontainer::-webkit-scrollbar, .rcontainer::-webkit-scrollbar, .pcontainer::-webkit-scrollbar {
-  height: 20px;
+  visibility: hidden;
 }
 
-.tcontainer::-webkit-scrollbar-thumb, .tpcontainer::-webkit-scrollbar-thumb, .ncontainer::-webkit-scrollbar-thumb,.rcontainer::-webkit-scrollbar-thumb, .pcontainer::-webkit-scrollbar-thumb {
-  background: #28a745;
-  border-radius: 10px;
-}
-
-@media (max-width: 991px) { 
-  .tcontainer::-webkit-scrollbar, .tpcontainer::-webkit-scrollbar, .ncontainer::-webkit-scrollbar, .rcontainer::-webkit-scrollbar, .pcontainer::-webkit-scrollbar {
-    visibility: hidden;
-  }
-
-  .tcontainer::-webkit-scrollbar-thumb, .tpcontainer::-webkit-scrollbar-thumb, .ncontainer::-webkit-scrollbar-thumb, .rcontainer::-webkit-scrollbar-thumb, .pcontainer::-webkit-scrollbar-thumb {
-    background: transparent;
-  }
-
-  .tcontainer::-webkit-scrollbar-track, .tpcontainer::-webkit-scrollbar-track, .ncontainer::-webkit-scrollbar-track, .rcontainer::-webkit-scrollbar-track, .pcontainer::-webkit-scrollbar-track {
-    background: transparent;
-  }
+.tcontainer::-webkit-scrollbar-thumb, .tpcontainer::-webkit-scrollbar-thumb, .ncontainer::-webkit-scrollbar-thumb, .rcontainer::-webkit-scrollbar-thumb, .pcontainer::-webkit-scrollbar-thumb {
+  background: #198754;
 }
 
 .card-title {
@@ -305,8 +292,14 @@ img {
 
 .card {
   flex: 0 0 auto; /* prevents shrinking */
-  background: rgba(255, 255, 255, .95);
-  color: black;
+  background: black;
+  color: white;
+  border: 1px solid rgba(200, 200, 200, .3);
+}
+
+[data-bs-theme="light"] .card {
+  background-color: #fff;   /* white card */
+  color: #000;              /* dark text */
 }
 
 .rcontainer .card {
@@ -418,4 +411,49 @@ img {
   background-color: #198754; /* your bg-success color */
   color: #fff;
   box-shadow: none;
+}
+
+.scroll-wrapper {
+  position: relative;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+}
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 0;                        /* center vertically */
+  transform: translateY(-50%);     /* adjust to perfect center */
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  z-index: 5;
+}
+
+.scroll-btn.left {
+  right: 0;
+}
+
+.scroll-btn.right {
+  right: 0;
+}
+
+@media (max-width: 991px) {
+  .scroll-btn.left {
+  display: none;
+}
+
+.scroll-btn.right {
+  display: none;
+}
 }
