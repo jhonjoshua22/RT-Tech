@@ -793,19 +793,19 @@ document.addEventListener("click", (e) => {
   <script>
     const wrappers = document.querySelectorAll('.scroll-wrapper');
 
-wrappers.forEach(wrapper => {
-  const container = wrapper.querySelector('.scroll-container');
-  const leftBtn = wrapper.querySelector('.scroll-btn.left');
-  const rightBtn = wrapper.querySelector('.scroll-btn.right');
+    wrappers.forEach(wrapper => {
+      const container = wrapper.querySelector('.scroll-container');
+      const leftBtn = wrapper.querySelector('.scroll-btn.left');
+      const rightBtn = wrapper.querySelector('.scroll-btn.right');
 
-  leftBtn.addEventListener('click', () => {
-    container.scrollBy({ left: -200, behavior: 'smooth' });
-  });
+      leftBtn.addEventListener('click', () => {
+        container.scrollBy({ left: -200, behavior: 'smooth' });
+      });
 
-  rightBtn.addEventListener('click', () => {
-    container.scrollBy({ left: 200, behavior: 'smooth' });
-  });
-});
+      rightBtn.addEventListener('click', () => {
+        container.scrollBy({ left: 200, behavior: 'smooth' });
+      });
+    });
 
   </script>
 
@@ -830,6 +830,30 @@ wrappers.forEach(wrapper => {
     });
   });
   </script>
+
+  <!-- Modals -->
+  <!-- Product Modal -->
+  <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content rounded-3 shadow">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex flex-column flex-md-row gap-3">
+          <img id="modalProductImg" src="" alt="Product Image" class="img-fluid rounded" style="max-width: 300px;">
+          <div>
+            <h4 id="modalProductTitle"></h4>
+            <p id="modalProductDesc"></p>
+            <h5 class="text-success" id="modalProductPrice"></h5>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </body>

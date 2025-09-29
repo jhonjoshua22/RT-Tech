@@ -154,16 +154,49 @@
     const brandFilter = document.getElementById("brandFilter");
     const ratingFilter = document.getElementById("ratingFilter");
 
-    function createCard(item) {
+    function createCard(item, index) {
+      const modalId = `headset-modal-${index}`;
+
       const card = document.createElement("div");
       card.className = "card p-3 products";
 
       card.innerHTML = `
         <div class="card-subtitle" style="font-weight: bold">${item.brand}</div>
         <div class="card-subtitle" style="font-weight: bold; font-size: 12px">${item.rating}</div>
-        <img class="card-img-top" src="${item.image}">
+        <img class="card-img-top" src="${item.image}" alt="${item.title}">
         <div class="card-title" style="font-size: 12px; font-weight: bold">${item.title}</div>
-        <button class="border border-black" style="border-radius: 5px">${item.buttonText}</button>
+        <button class="border border-black" style="border-radius: 5px" data-bs-toggle="modal" data-bs-target="#${modalId}">
+          ${item.buttonText}
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">${item.title}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="row align-items-center">
+                  <!-- Left: Image -->
+                  <div class="col-md-6 text-center">
+                    <img src="${item.image}" alt="${item.title}" class="img-fluid rounded" />
+                  </div>
+                  <!-- Right: Details -->
+                  <div class="col-md-6">
+                    <p><strong>Brand:</strong> ${item.brand}</p>
+                    <p><strong>Rating:</strong> ${item.rating}</p>
+                    <p><strong>Product:</strong> ${item.title}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       `;
       return card;
     }
@@ -174,7 +207,7 @@
         container.innerHTML = "<p class='text-center'>No item found</p>";
         return;
       }
-      items.forEach(item => container.appendChild(createCard(item)));
+      items.forEach((item, index) => container.appendChild(createCard(item, index)));
     }
 
     function filterProducts() {
@@ -183,9 +216,9 @@
       const brand = brandFilter.value;
       const rating = parseFloat(ratingFilter.value) || 0;
 
-      filtered = filtered.filter(headset => {
-        const matchesBrand = !brand || headset.brand === brand;
-        const matchesRating = headset.rating >= rating;
+      filtered = filtered.filter(m => {
+        const matchesBrand = !brand || m.brand === brand;
+        const matchesRating = m.rating >= rating;
         return matchesBrand && matchesRating;
       });
 
