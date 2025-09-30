@@ -457,3 +457,18 @@ img {
   display: none;
 }
 }
+
+/* Ensure Bootstrap modals always appear above all product containers */
+.modal{
+  z-index: 2000 !important;  /* higher than any container */
+}
+
+/* Optional: make sure product containers don’t create stacking context */
+.tcontainer,
+.ncontainer,
+.tpcontainer,
+.rcontainer,
+.pcontainer {
+  position: static !important; /* removes stacking context */
+  z-index: auto !important;
+}
