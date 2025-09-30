@@ -247,7 +247,7 @@ ul {
   box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1)
 }
 
-.ncontainer, .tcontainer, .tpcontainer, .rcontainer, .pcontainer {
+.econtainer, .ncontainer, .tcontainer, .tpcontainer, .rcontainer, .pcontainer {
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
@@ -274,11 +274,11 @@ img {
 }
 
 
-.tcontainer::-webkit-scrollbar, .tpcontainer::-webkit-scrollbar, .ncontainer::-webkit-scrollbar, .rcontainer::-webkit-scrollbar, .pcontainer::-webkit-scrollbar {
+.tcontainer::-webkit-scrollbar, .econtainer::-webkit-scrollbar, .tpcontainer::-webkit-scrollbar, .ncontainer::-webkit-scrollbar, .rcontainer::-webkit-scrollbar, .pcontainer::-webkit-scrollbar {
   visibility: hidden;
 }
 
-.tcontainer::-webkit-scrollbar-thumb, .tpcontainer::-webkit-scrollbar-thumb, .ncontainer::-webkit-scrollbar-thumb, .rcontainer::-webkit-scrollbar-thumb, .pcontainer::-webkit-scrollbar-thumb {
+.tcontainer::-webkit-scrollbar-thumb, .econtainer::-webkit-scrollbar-thumb, .tpcontainer::-webkit-scrollbar-thumb, .ncontainer::-webkit-scrollbar-thumb, .rcontainer::-webkit-scrollbar-thumb, .pcontainer::-webkit-scrollbar-thumb {
   background: #198754;
 }
 
@@ -326,6 +326,11 @@ img {
   .ncontainer .card {
     flex: 0 0 50%;   /* show 1 card */
     max-width: 50%;
+  }
+
+  .econtainer .card{
+    flex: 0 0 100%;
+    width: 100%;;
   }
 }
 
