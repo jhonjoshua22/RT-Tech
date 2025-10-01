@@ -64,11 +64,11 @@ html, body {
     background: linear-gradient(45deg, blue, #8e2de2, white,  #4a00e0);
     -webkit-background-clip: text; /* clips the background to the text */
     -webkit-text-fill-color: transparent;
-    margin-top: 50vh;
+    margin-top: 60vh;
     animation: h1a 3s infinite;
     background-size: 200% 200%;
     font-weight: bold;
-    font-size: clamp(30px, 3vw, 80px);
+    font-size: clamp(20px, 2.5vw, 80px);
     text-align: center;
 }
 
@@ -136,4 +136,5 @@ html, body {
 input, select {
     margin: 0 1px 10px;
 }
+
 
