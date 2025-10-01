@@ -68,7 +68,7 @@ html, body {
     animation: h1a 3s infinite;
     background-size: 200% 200%;
     font-weight: bold;
-    font-size: clamp(40px, 3vw, 80px);
+    font-size: clamp(30px, 3vw, 80px);
     text-align: center;
 }
 
@@ -136,3 +136,4 @@ html, body {
 input, select {
     margin: 0 1px 10px;
 }
+
