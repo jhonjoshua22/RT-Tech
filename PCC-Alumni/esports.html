@@ -17,7 +17,6 @@
 
     <!-- Start button -->
     <div class="startb container d-flex flex-column align-items-center justify-content-center">
-      <!-- Button that triggers modal -->
       <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#surveyModal">
         Start Survey
       </button>
@@ -26,142 +25,137 @@
 
   <!-- Modal -->
   <div class="modal fade" id="surveyModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content bg-light">
-      <div class="modal-header">
-        <h5 class="modal-title">ML Tournament Survey</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <form class="d-flex flex-wrap justify-content-between"id="surveyForm">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-light">
+        <div class="modal-header">
+          <h5 class="modal-title">ML Tournament Survey</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form class="d-flex flex-wrap justify-content-between" id="surveyForm">
             <div style="width: 75%">
-                <label for="playerName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="playerName" name="playerName" placeholder="Name">
+              <label for="playerName" class="form-label">Name</label>
+              <input type="text" class="form-control" id="playerName" name="playerName" placeholder="Name">
             </div>
             <div style="width: 20%">
-                <label for="batch" class="form-label">Batch</label>
-                <input type="text" class="form-control" id="batch" name="batch" placeholder="Batch">
+              <label for="batch" class="form-label">Batch</label>
+              <input type="text" class="form-control" id="batch" name="batch" placeholder="Batch">
             </div>
             <div style="width: 100%">
-                <label class="form-label">Contact Info</label>
-                <input type="text" class="form-control" id="contact" name="emailphone" placeholder="Email or Mobile Number">
-                <input type="text" class="form-control" id="messenger" name="messenger" placeholder="Facebook/Messenger Name">
+              <label class="form-label">Contact Info</label>
+              <input type="text" class="form-control" id="emailphone" name="emailphone" placeholder="Email or Mobile Number">
+              <input type="text" class="form-control" id="messenger" name="messenger" placeholder="Facebook/Messenger Name">
             </div>
             <div style="width: 100%">
-                <label for="q1" class="form-label">Do you Play Mobile Legends?</label>
-                <select id="q1" name="q1" class="form-select">
-                    <option value="" disabled selected hidden>Yes / No / Rarely</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                    <option value="rarely">Rarely</option>
-                </select>
+              <label for="q1" class="form-label">Do you Play Mobile Legends?</label>
+              <select id="q1" name="q1" class="form-select">
+                <option value="" disabled selected hidden>Yes / No / Rarely</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="rarely">Rarely</option>
+              </select>
             </div>
             <div style="width: 100%">
-                <label for="q2" class="form-label">Would you be interested in joining a MLBB tournament
-                    and be the first E-Sports Inter Alumni Champion?</label>
-                <select id="q2" name="q2" class="form-select">
-                    <option value="" disabled selected hidden>Yes / Maybe / No</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">Maybe</option>
-                    <option value="rarely">No</option>
-                </select>
+              <label for="q2" class="form-label">Would you be interested in joining a MLBB tournament and be the first E-Sports Inter Alumni Champion?</label>
+              <select id="q2" name="q2" class="form-select">
+                <option value="" disabled selected hidden>Yes / Maybe / No</option>
+                <option value="yes">Yes</option>
+                <option value="maybe">Maybe</option>
+                <option value="no">No</option>
+              </select>
             </div>
             <div style="width: 100%">
-                <label for="q3" class="form-label">How would you like to join?</label>
-                <select id="q3" name="q3" class="form-select">
-                    <option value="" disabled selected hidden>Select an option</option>
-                    <option value="yes">Solo Player looking for a team</option>
-                    <option value="no">Already have a full team</option>
-                    <option value="rarely">Just want to watch</option>
-                </select>
+              <label for="q3" class="form-label">How would you like to join?</label>
+              <select id="q3" name="q3" class="form-select">
+                <option value="" disabled selected hidden>Select an option</option>
+                <option value="solo">Solo Player looking for a team</option>
+                <option value="fullteam">Already have a full team</option>
+                <option value="watch">Just want to watch</option>
+              </select>
             </div>
             <div style="width: 100%">
-                <label for="q4" class="form-label">Preferred Game Mode?</label>
-                <select id="q4" name="q4" class="form-select">
-                    <option value="" disabled selected hidden>Select an option</option>
-                    <option value="yes">5v5</option>
-                    <option value="no">fun matches</option>
-                    <option value="rarely">1v1 side event</option>
-                </select>
+              <label for="q4" class="form-label">Preferred Game Mode?</label>
+              <select id="q4" name="q4" class="form-select">
+                <option value="" disabled selected hidden>Select an option</option>
+                <option value="5v5">5v5</option>
+                <option value="fun">Fun matches</option>
+                <option value="1v1">1v1 side event</option>
+              </select>
             </div>
             <div style="width: 100%">
-                <label for="q5" class="form-label">If joining with a team, please list your team name + members</label>
-                <input type="text" class="form-control" name="q5" style="width: 100%">
+              <label for="q5" class="form-label">If joining with a team, please list your team name + members</label>
+              <input type="text" class="form-control" name="q5" style="width: 100%">
             </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="saveSurvey">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="saveSurvey">Submit</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="position-fixed top-50 start-50 translate-middle" style="z-index: 9999">
-  <div id="surveyToast" class="toast align-items-center text-white bg-success border-0" role="alert">
-    <div class="d-flex">
-      <div class="toast-body text-center">
-        🎉 Thank you! Your survey has been submitted.
+  <!-- Toast -->
+  <div class="position-fixed top-50 start-50 translate-middle" style="z-index: 9999">
+    <div id="surveyToast" class="toast align-items-center text-white bg-success border-0" role="alert">
+      <div class="d-flex">
+        <div class="toast-body text-center">
+          🎉 Thank you! Your survey has been submitted.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
       </div>
-      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
     </div>
   </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  const form = document.getElementById('surveyForm');
-  const inputs = form.querySelectorAll('input, select');
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const form = document.getElementById('surveyForm');
+    const inputs = form.querySelectorAll('input, select');
 
-  // Load saved data if exists
-  inputs.forEach(input => {
-    if (localStorage.getItem(input.name)) {
-      input.value = localStorage.getItem(input.name);
-    }
-
-    // Save changes as user types/selects
-    input.addEventListener('input', () => {
-      localStorage.setItem(input.name, input.value);
+    // Load saved data if exists
+    inputs.forEach(input => {
+      if (localStorage.getItem(input.name)) {
+        input.value = localStorage.getItem(input.name);
+      }
+      input.addEventListener('input', () => {
+        localStorage.setItem(input.name, input.value);
+      });
     });
-  });
 
-  // Bootstrap toast instance
-  const toastEl = document.getElementById('surveyToast');
-  const toast = new bootstrap.Toast(toastEl);
+    // Initialize modal and toast
+    const surveyModalEl = document.getElementById('surveyModal');
+    const surveyModal = new bootstrap.Modal(surveyModalEl);
+    const toastEl = document.getElementById('surveyToast');
+    const toast = new bootstrap.Toast(toastEl);
 
-  // When submitted, send + clear storage
-  document.getElementById('saveSurvey').addEventListener('click', () => {
-  const data = {};
-  inputs.forEach(input => data[input.name] = input.value);
+    // Submit handler
+    document.getElementById('saveSurvey').addEventListener('click', () => {
+      const data = {};
+      inputs.forEach(input => data[input.name] = input.value);
 
-  // Send data to Google Apps Script
-  fetch("https://script.google.com/macros/s/AKfycbw2K_Hes09ALFWGytxiLKyzdaaa087tNJnvEviegmznW-Yjk34Ol40ZHK74OBKlutVNCg/exec", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  })
-  .then(response => response.json())
-  .then(result => {
-    console.log("Survey sent:", result);
+      // Send data to Google Apps Script
+      fetch("https://script.google.com/macros/s/AKfycbw2K_Hes09ALFWGytxiLKyzdaaa087tNJnvEviegmznW-Yjk34Ol40ZHK74OBKlutVNCg/exec", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(result => {
+        console.log("Survey sent:", result);
 
-    localStorage.clear();
-    form.reset();
+        localStorage.clear();
+        form.reset();
 
-    // Close modal
-    const modal = bootstrap.Modal.getInstance(document.getElementById('surveyModal'));
-    modal.hide();
+        // Close modal
+        surveyModal.hide();
 
-    // Show toast
-    toast.show();
-  })
-  .catch(error => console.error("Error sending survey:", error));
-});
-
-</script>
-
+        // Show toast
+        toast.show();
+      })
+      .catch(error => console.error("Error sending survey:", error));
+    });
+  </script>
 
 </body>
 </html>
-
-
