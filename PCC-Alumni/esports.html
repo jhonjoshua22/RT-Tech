@@ -110,36 +110,66 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    const form = document.getElementById('surveyForm');
-    const inputs = form.querySelectorAll('input, select');
+  const form = document.getElementById('surveyForm');
+  const inputs = form.querySelectorAll('input, select');
 
-    // Load saved data if exists
-    inputs.forEach(input => {
-      if (localStorage.getItem(input.name)) {
-        input.value = localStorage.getItem(input.name);
-      }
-      input.addEventListener('input', () => {
-        localStorage.setItem(input.name, input.value);
-      });
+  // Load saved data if exists
+  inputs.forEach(input => {
+    if (localStorage.getItem(input.name)) {
+      input.value = localStorage.getItem(input.name);
+    }
+
+    // Save changes as user types/selects
+    input.addEventListener('input', () => {
+      localStorage.setItem(input.name, input.value);
     });
+  });
 
-    // Initialize modal and toast
-    const surveyModalEl = document.getElementById('surveyModal');
-    const surveyModal = new bootstrap.Modal(surveyModalEl);
-    const toastEl = document.getElementById('surveyToast');
-    const toast = new bootstrap.Toast(toastEl);
+  // Initialize modal and toast
+  const surveyModalEl = document.getElementById('surveyModal');
+  const surveyModal = new bootstrap.Modal(surveyModalEl);
+  const toastEl = document.getElementById('surveyToast');
+  const toast = new bootstrap.Toast(toastEl);
 
-    // Submit handler
-    document.getElementById('saveSurvey').addEventListener('click', () => {
-      const data = {};
-      inputs.forEach(input => data[input.name] = input.value);
+  // Submit handler
+  document.getElementById('saveSurvey').addEventListener('click', () => {
+    const data = {};
+    inputs.forEach(input => data[input.name] = input.value);
 
-      // Send data to Google Apps Script
+    // Send data to Google Apps Script
+    fetch("https://script.google.com/macros/s/AKfycbw2K_Hes09ALFWGytxiLKyzdaaa087tNJnvEviegmznW-Yjk34Ol40ZHK74OBKlutVNCg/exec", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json().catch(() => ({}))) // catch JSON parse errors
+    .then(result => {
+      console.log("Survey sent:", result);
 
+      localStorage.clear();
+      form.reset();
+
+      // Close modal
+      surveyModal.hide();
+
+      // Show toast
+      toast.show();
+    })
+    .catch(error => {
+      console.error("Error sending survey:", error);
+
+      // Still clear/reset/close so user can continue
+      localStorage.clear();
+      form.reset();
+      surveyModal.hide();
+      toast.show();
     });
-  </script>
+  });
+</script>
+
 
 </body>
 </html>
+
 
 
