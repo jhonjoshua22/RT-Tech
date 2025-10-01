@@ -137,7 +137,7 @@
     inputs.forEach(input => data[input.name] = input.value);
 
     // Send data to Google Apps Script
-    fetch("https://script.google.com/macros/s/AKfycbzzxjCtgzlkRM06aS0DD9kysV5xtSmMGrs0eUkT_JxZ9-zYRhaCrtcHrbMa6NhFPw5n7Q/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbzRjItJTwfA-lhZ13p9LvZv6AtucfGU0Q9OgLPHGMb41PsmJXaLtsZQnWa7JK-XXHaRCg/exec", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
@@ -170,6 +170,7 @@
 
 </body>
 </html>
+
 
 
 
