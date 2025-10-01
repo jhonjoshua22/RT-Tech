@@ -135,28 +135,11 @@
       inputs.forEach(input => data[input.name] = input.value);
 
       // Send data to Google Apps Script
-      fetch("https://script.google.com/macros/s/AKfycbw2K_Hes09ALFWGytxiLKyzdaaa087tNJnvEviegmznW-Yjk34Ol40ZHK74OBKlutVNCg/exec", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      })
-      .then(response => response.json())
-      .then(result => {
-        console.log("Survey sent:", result);
 
-        localStorage.clear();
-        form.reset();
-
-        // Close modal
-        surveyModal.hide();
-
-        // Show toast
-        toast.show();
-      })
-      .catch(error => console.error("Error sending survey:", error));
     });
   </script>
 
 </body>
 </html>
+
 
