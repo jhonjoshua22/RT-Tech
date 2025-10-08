@@ -2,11 +2,13 @@ import { topsellers, newarrival, topPicks } from "./productlist.js";
 
 function renderProducts(products, containerSelector, cardClass, modalPrefix) {
   const container = document.querySelector(containerSelector);
-  container.innerHTML = ""; // avoid duplicates if re-rendered
+  container.innerHTML = ""; 
+
+  const body = document.body;
 
   products.forEach((item, index) => {
     const card = document.createElement("div");
-    card.classList.add("card", "p-3", cardClass);
+    card.classList.add("card", "p-4","m-2", cardClass);
 
     const modalId = `${modalPrefix}-modal-${index}`;
 
@@ -22,40 +24,44 @@ function renderProducts(products, containerSelector, cardClass, modalPrefix) {
       <button class="border border-black" style="border-radius: 5px" data-bs-toggle="modal" data-bs-target="#${modalId}">
         ${item.buttonText}
       </button>
+    `;
 
-      <!-- Modal -->
-      <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">${item.title}</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="row align-items-center">
-                <!-- Left: Image -->
-                <div class="col-md-6 text-center">
-                  <img src="${item.image}" alt="${item.title}" class="img-fluid rounded" />
-                </div>
-                <!-- Right: Details -->
-                <div class="col-md-6">
-                  <p><strong>Brand:</strong> ${item.brand}</p>
-                  <p><strong>Rating:</strong> ${item.rating}</p>
-                  <p><strong>Product:</strong> ${item.title}</p>
-                </div>
+    container.appendChild(card);
+
+    // Create modal separately and append to body
+    const modal = document.createElement("div");
+    modal.className = "modal fade";
+    modal.id = modalId;
+    modal.tabIndex = -1;
+    modal.innerHTML = `
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">${item.title}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row align-items-center">
+              <div class="col-md-6 text-center">
+                <img src="${item.image}" alt="${item.title}" class="img-fluid rounded" />
+              </div>
+              <div class="col-md-6">
+                <p><strong>Brand:</strong> ${item.brand}</p>
+                <p><strong>Rating:</strong> ${item.rating}</p>
+                <p><strong>Product:</strong> ${item.title}</p>
               </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     `;
-
-    container.appendChild(card);
+    body.appendChild(modal);
   });
 }
+
 
 // Render each category with unique modal prefixes
 renderProducts(topsellers, ".tcontainer", "top-sellers", "topseller");

@@ -239,15 +239,14 @@ ul {
   flex: 0 0 calc(25% - 1rem); /* show 3 per row */
   max-width: calc(25% - 1rem);
   height: auto;
-  padding: 25px;
 }
 
 
 .card:hover {
-  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1)
+  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4)
 }
 
-.ncontainer, .tcontainer, .tpcontainer, .rcontainer, .pcontainer {
+.econtainer, .ncontainer, .tcontainer, .tpcontainer, .rcontainer, .pcontainer {
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
@@ -262,6 +261,10 @@ img {
   user-select: none;
 }
 
+.econtainer a, .ncontainer a, .tcontainer a, .tpcontainer a, .rcontainer a, .pcontainer a {
+  text-decoration: none;                   /* shows draggable cursor */
+}
+
 @media (max-width: 991px) {
   .slides {
     height: 30vh;
@@ -274,11 +277,11 @@ img {
 }
 
 
-.tcontainer::-webkit-scrollbar, .tpcontainer::-webkit-scrollbar, .ncontainer::-webkit-scrollbar, .rcontainer::-webkit-scrollbar, .pcontainer::-webkit-scrollbar {
+.tcontainer::-webkit-scrollbar, .econtainer::-webkit-scrollbar, .tpcontainer::-webkit-scrollbar, .ncontainer::-webkit-scrollbar, .rcontainer::-webkit-scrollbar, .pcontainer::-webkit-scrollbar {
   visibility: hidden;
 }
 
-.tcontainer::-webkit-scrollbar-thumb, .tpcontainer::-webkit-scrollbar-thumb, .ncontainer::-webkit-scrollbar-thumb, .rcontainer::-webkit-scrollbar-thumb, .pcontainer::-webkit-scrollbar-thumb {
+.tcontainer::-webkit-scrollbar-thumb, .econtainer::-webkit-scrollbar-thumb, .tpcontainer::-webkit-scrollbar-thumb, .ncontainer::-webkit-scrollbar-thumb, .rcontainer::-webkit-scrollbar-thumb, .pcontainer::-webkit-scrollbar-thumb {
   background: #198754;
 }
 
@@ -294,7 +297,7 @@ img {
   flex: 0 0 auto; /* prevents shrinking */
   background: black;
   color: white;
-  border: 1px solid rgba(200, 200, 200, .3);
+  border: 1px solid rgba(100, 100, 100, .6);
 }
 
 [data-bs-theme="light"] .card {
@@ -326,6 +329,11 @@ img {
   .ncontainer .card {
     flex: 0 0 50%;   /* show 1 card */
     max-width: 50%;
+  }
+
+  .econtainer .card{
+    flex: 0 0 100%;
+    width: 100%;
   }
 }
 
@@ -429,7 +437,7 @@ img {
 
 .scroll-btn {
   position: absolute;
-  top: 0;                        /* center vertically */
+  top: 10%;                        /* center vertically */
   transform: translateY(-50%);     /* adjust to perfect center */
   background: rgba(0, 0, 0, 0.6);
   color: white;
@@ -441,11 +449,11 @@ img {
 }
 
 .scroll-btn.left {
-  right: 0;
+  right: 1%;
 }
 
 .scroll-btn.right {
-  right: 0;
+  right: 1%;
 }
 
 @media (max-width: 991px) {
@@ -456,4 +464,19 @@ img {
 .scroll-btn.right {
   display: none;
 }
+}
+
+/* Ensure Bootstrap modals always appear above all product containers */
+.modal{
+  z-index: 2000 !important;  /* higher than any container */
+}
+
+/* Optional: make sure product containers don’t create stacking context */
+.tcontainer,
+.ncontainer,
+.tpcontainer,
+.rcontainer,
+.pcontainer {
+  position: static !important; /* removes stacking context */
+  z-index: auto !important;
 }

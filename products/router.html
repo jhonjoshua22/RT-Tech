@@ -62,7 +62,7 @@
                   <li data-category="pc">PC Parts</li>
                   <li data-category="workstation">Workstation</li>
                   <li data-category="accessories">Accessories</li>
-                  <li data-category="networking">Networking</li>
+                  <li data-category="networking">Networking and Security</li>
                 </ul>
               </div>
               <div class="right" id="megaContent">
@@ -134,28 +134,106 @@
   </div>
 
   <script>
-  // Laptop Products
+  // Router Products
     const router = [
-    
+      {
+        brand: "TP-Link",
+        rating: 4.8,
+        image: "../productimage/TPMR100.png",
+        title: "TP Link Wi-Fi Router MR100 300 Mbps Wireless N 4G LTE",
+        buttonText: "Description"
+      },
+      {
+        brand: "TP-Link",
+        rating: 4.8,
+        image: "../productimage/EAP110ACCESS.png",
+        title: "TP Link Wi-Fi Extender EAP110 300Mbps Wireless Outdoor Access Point",
+        buttonText: "Description"
+      },
+      {
+        brand: "TP-Link",
+        rating: 4.8,
+        image: "../productimage/TPAC750.png",
+        title: "TP Link Wi-Fi Router AC750 Dual-Band",
+        buttonText: "Description"
+      },
+      {
+        brand: "TP-Link",
+        rating: 4.8,
+        image: "../productimage/TPRE330.png",
+        title: "TP Link Wi-Fi Extender RE330 Mesh Wi-Fi Extender",
+        buttonText: "Description"
+      },
+      {
+        brand: "TP-Link",
+        rating: 4.8,
+        image: "../productimage/TPWR820N.png",
+        title: "TP Link Wi-Fi Router WR820N 300 Mbps Multi-Mode",
+        buttonText: "Description"
+      },
+      {
+        brand: "TP-Link",
+        rating: 4.8,
+        image: "../productimage/TLWA855RE.png",
+        title: "TP Link Wi-Fi Range Extender WA855RE 300Mbps",
+        buttonText: "Description"
+      },
+      {
+        brand: "TP-Link",
+        rating: 4.8,
+        image: "../productimage/TPM7000.png",
+        title: "TP Link M7000 4G LTE Mobile Wi-Fi",
+        buttonText: "Description"
+      },
     ];
 
     const container = document.getElementById("cards-container");
-    const minPrice = document.getElementById("minPrice");
-    const maxPrice = document.getElementById("maxPrice");
     const brandFilter = document.getElementById("brandFilter");
     const ratingFilter = document.getElementById("ratingFilter");
 
-    function createCard(item) {
+    function createCard(item, index) {
+      const modalId = `router-modal-${index}`;
+
       const card = document.createElement("div");
       card.className = "card p-3 products";
 
       card.innerHTML = `
         <div class="card-subtitle" style="font-weight: bold">${item.brand}</div>
         <div class="card-subtitle" style="font-weight: bold; font-size: 12px">${item.rating}</div>
-        <img class="card-img-top" src="${item.image}">
-        <div class="card-subtitle" style="font-weight: bold; font-size: 16px">₱${item.price.toLocaleString()}</div>
+        <img class="card-img-top" src="${item.image}" alt="${item.title}">
         <div class="card-title" style="font-size: 12px; font-weight: bold">${item.title}</div>
-        <button class="border border-black" style="border-radius: 5px">${item.buttonText}</button>
+        <button class="border border-black" style="border-radius: 5px" data-bs-toggle="modal" data-bs-target="#${modalId}">
+          ${item.buttonText}
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">${item.title}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="row align-items-center">
+                  <!-- Left: Image -->
+                  <div class="col-md-6 text-center">
+                    <img src="${item.image}" alt="${item.title}" class="img-fluid rounded" />
+                  </div>
+                  <!-- Right: Details -->
+                  <div class="col-md-6">
+                    <p><strong>Brand:</strong> ${item.brand}</p>
+                    <p><strong>Rating:</strong> ${item.rating}</p>
+                    <p><strong>Product:</strong> ${item.title}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       `;
       return card;
     }
@@ -166,30 +244,25 @@
         container.innerHTML = "<p class='text-center'>No item found</p>";
         return;
       }
-      items.forEach(item => container.appendChild(createCard(item)));
+      items.forEach((item, index) => container.appendChild(createCard(item, index)));
     }
 
     function filterProducts() {
       let filtered = router;
 
-      const min = parseInt(minPrice.value) || 0;
-      const max = parseInt(maxPrice.value) || Infinity;
       const brand = brandFilter.value;
       const rating = parseFloat(ratingFilter.value) || 0;
 
-      filtered = filtered.filter(laptop => {
-        const matchesPrice = laptop.price >= min && laptop.price <= max;
-        const matchesBrand = !brand || laptop.brand === brand;
-        const matchesRating = laptop.rating >= rating;
-        return matchesPrice && matchesBrand && matchesRating;
+      filtered = filtered.filter(m => {
+        const matchesBrand = !brand || m.brand === brand;
+        const matchesRating = m.rating >= rating;
+        return matchesBrand && matchesRating;
       });
 
       renderCards(filtered);
     }
 
     // Event listeners
-    minPrice.addEventListener("input", filterProducts);
-    maxPrice.addEventListener("input", filterProducts);
     brandFilter.addEventListener("change", filterProducts);
     ratingFilter.addEventListener("change", filterProducts);
 
@@ -389,11 +462,13 @@
         { name: "PC Case", link: "pccase.html" },
         { name: "Graphics Card", link: "graphics-card.html" },
         { name: "Memory", link: "memory.html" },
-        { name: "Power Supply", link: "power-supply.html" }
+        { name: "Power Supply", link: "power-supply.html" },
+        { name: "Fan", link: "fan.html" },
       ],
       networking: [
         { name: "Router", link: "router.html" },
         { name: "Switch", link: "switch.html" },
+        { name: "CCTV/WIFI-Cam", link: "cctv.html" },
         { name: "Cables", link: "cables.html" }
       ],
       laptops: [
