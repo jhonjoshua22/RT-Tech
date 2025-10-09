@@ -8,7 +8,7 @@ function renderProducts(products, containerSelector, cardClass, modalPrefix) {
 
   products.forEach((item, index) => {
     const card = document.createElement("div");
-    card.classList.add("card", "p-4","m-2", cardClass);
+    card.classList.add("card", "p-4","m-0", "m-lg-2", cardClass);
 
     const modalId = `${modalPrefix}-modal-${index}`;
 
