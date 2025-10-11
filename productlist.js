@@ -10,7 +10,7 @@ export const topsellers = [
     brand: "Dell",
     rating: 4.6,
     image: "../productimage/DELL3190.png",
-    title: "Dell latitude 3190 -Brand New- Intel Celeron",
+    title: "Dell Laptop latitude 3190 -Brand New- Intel Celeron",
     buttonText: "Description"
   },
   {
@@ -100,7 +100,7 @@ export const topPicks = [
     brand: "Dell",
     rating: 4.6,
     image: "../productimage/DELL3190.png",
-    title: "Dell latitude 3190 -Brand New- Intel Celeron",
+    title: "Dell Laptop latitude 3190 -Brand New- Intel Celeron",
     buttonText: "Description"
   },
   {
