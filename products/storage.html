@@ -86,15 +86,6 @@
     <div class="container border border-gray py-3" style="border-radius: 10px;">
       <div class="d-flex justify-content-between align-items-center text-center">
 
-        <!-- Price -->
-        <div class="flex-fill px-2">
-          <h6 style="text-align: left;">Price</h6>
-          <div class="d-flex" style="gap: .5rem;">
-            <input id="minPrice" type="number" class="form-control" placeholder="Min" step="1000" min="0">
-            <input id="maxPrice" type="number" class="form-control" placeholder="Max" step="1000" min="0">
-          </div>
-        </div>
-
         <!-- Brand -->
         <div class="flex-fill px-2">
           <h6 style="text-align: left;">Brand</h6>
@@ -134,9 +125,120 @@
   </div>
 
   <script>
-  // powersupply Products
-    const powersupply = [
-      
+  // storage Products
+    const storage = [
+    {
+        brand: "Seagate",
+        rating: 4.8,
+        image: "../productimage/SEAGATE4TBHDD.png",
+        title: "SEAGATE HDD ONE TOUCH WITH PASSWORD 4TB/1TB ",
+        buttonText: "Description"
+      },
+      {
+        brand: "Sandisk",
+        rating: 4.6,
+        image: "../productimage/SANDISKCRUZERBLADE16GB.png",
+        title: "Sandisk USB CRUZER BLADE 16GB ",
+        buttonText: "Description"
+      },
+      {
+        brand: "Western Digital",
+        rating: 4.9,
+        image: "../productimage/WDBLUE1TBHDD.png",
+        title: "Western Digital Blue PC Desktop Hard Drive - 1TB",
+        buttonText: "Description"
+      },
+      {
+        brand: "Kingston",
+        rating: 4.9,
+        image: "../productimage/KINGSTONSA400S37480GB.png",
+        title: "Kingston SSD SA400S37 480GB",
+        buttonText: "Description"
+      },
+      {
+        brand: "Kingston",
+        rating: 4.6,
+        image: "../productimage/SKC600SSD256GB.png",
+        title: "Kingston SKC600 SSD 256GB",
+        buttonText: "Description"
+      },
+      {
+        brand: "Ramsta",
+        rating: 4.8,
+        image: "../productimage/RAMSTAS800256GB.png",
+        title: "Ramsta SATA III SSD S800 256GB/128GB",
+        buttonText: "Description"
+      },
+      {
+        brand: "Kingston",
+        rating: 4.9,
+        image: "../productimage/KINGSTONNV2PCIe 4.01TB.png",
+        title: "KINGSTON NV2 PCIe 4.0 NVME M.2 1TB/500GB/250GB",
+        buttonText: "Description"
+      },
+      {
+        brand: "Adata",
+        rating: 4.7,
+        image: "../productimage/ADATA512GBLEGEND710.png",
+        title: "Adata M.2 512GB LEGEND 710",
+        buttonText: "Description"
+      },
+      {
+        brand: "Transcend",
+        rating: 4.7,
+        image: "../productimage/UHSITS128GUSD350V.png",
+        title: "TRANSCEND UHS-I MICROSD 350V 128GB/64GB TS128GUSD350V",
+        buttonText: "Description"
+      }, 
+      {
+        brand: "Sandisk",
+        rating: 4.9,
+        image: "../productimage/SANDISKULTRA32GB.png",
+        title: "Sandisk Ultra MicroSDHC 32GB",
+        buttonText: "Description"
+      },
+      {
+        brand: "Dahua",
+        rating: 4.7,
+        image: "../productimage/DAHUAMICROSDC10032GB.png",
+        title: "Dahua MicroSD C100 32GB",
+        buttonText: "Description"
+      }, 
+      {
+        brand: "Kingston",
+        rating: 4.7,
+        image: "../productimage/DATATRAVELEREXODIADTX.png",
+        title: "Kingston USB 64GB Data Traveler Exodia DTX ",
+        buttonText: "Description"
+      },
+      {
+        brand: "Sandisk",
+        rating: 4.6,
+        image: "../productimage/SANDISKEXTREMEPROSDXC.png",
+        title: "Sandisk EXTREME PRO SDXC 64GB",
+        buttonText: "Description"
+      },
+      {
+        brand: "Orico",
+        rating: 4.8,
+        image: "../productimage/ORICOM.2NVME+NGFF.png",
+        title: "Orico Enclosure M.2 NVME+NGFF",
+        buttonText: "Description"
+      },
+      {
+        brand: "Orico",
+        rating: 4.7,
+        image: "../productimage/ORICO2.5HARDDRIVEENCLOSURE.png",
+        title: "Orico Hard Drive Enclosure 2.5 inc/3.5 inc",
+        buttonText: "Description"
+      }, 
+      {
+        brand: "Great Wall",
+        rating: 4.9,
+        image: "../productimage/GREATWALL2.5ENCLOSURE.png",
+        title: "Great Wall Hard Drive Enclosure 2.5 inc",
+        buttonText: "Description"
+      },
     ];
 
     const container = document.getElementById("cards-container");
@@ -144,7 +246,7 @@
     const ratingFilter = document.getElementById("ratingFilter");
 
     function createCard(item, index) {
-      const modalId = `powersupply-modal-${index}`;
+      const modalId = `storage-modal-${index}`;
 
       const card = document.createElement("div");
       card.className = "card p-3 products";
@@ -200,7 +302,7 @@
     }
 
     function filterProducts() {
-      let filtered = powersupply;
+      let filtered = storage;
 
       const brand = brandFilter.value;
       const rating = parseFloat(ratingFilter.value) || 0;
@@ -219,7 +321,7 @@
     ratingFilter.addEventListener("change", filterProducts);
 
     // Initial render
-    renderCards(powersupply);
+    renderCards(storage);
   </script>
 
   <!-- Contact Us etc -->
@@ -437,6 +539,7 @@
       accessories: [
         { name: "Earphones", link: "earphones.html" },
         { name: "Powerbank", link: "powerbank.html" },
+        { name: "Adapter", link: "adapter.html" },
       ]
     };
 

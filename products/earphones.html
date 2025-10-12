@@ -86,15 +86,6 @@
     <div class="container border border-gray py-3" style="border-radius: 10px;">
       <div class="d-flex justify-content-between align-items-center text-center">
 
-        <!-- Price -->
-        <div class="flex-fill px-2">
-          <h6 style="text-align: left;">Price</h6>
-          <div class="d-flex" style="gap: .5rem;">
-            <input id="minPrice" type="number" class="form-control" placeholder="Min" step="1000" min="0">
-            <input id="maxPrice" type="number" class="form-control" placeholder="Max" step="1000" min="0">
-          </div>
-        </div>
-
         <!-- Brand -->
         <div class="flex-fill px-2">
           <h6 style="text-align: left;">Brand</h6>
@@ -140,8 +131,6 @@
     ];
 
     const container = document.getElementById("cards-container");
-    const minPrice = document.getElementById("minPrice");
-    const maxPrice = document.getElementById("maxPrice");
     const brandFilter = document.getElementById("brandFilter");
     const ratingFilter = document.getElementById("ratingFilter");
 
@@ -153,7 +142,6 @@
         <div class="card-subtitle" style="font-weight: bold">${item.brand}</div>
         <div class="card-subtitle" style="font-weight: bold; font-size: 12px">${item.rating}</div>
         <img class="card-img-top" src="${item.image}">
-        <div class="card-subtitle" style="font-weight: bold; font-size: 16px">₱${item.price.toLocaleString()}</div>
         <div class="card-title" style="font-size: 12px; font-weight: bold">${item.title}</div>
         <button class="border border-black" style="border-radius: 5px">${item.buttonText}</button>
       `;
@@ -172,24 +160,19 @@
     function filterProducts() {
       let filtered = earphones;
 
-      const min = parseInt(minPrice.value) || 0;
-      const max = parseInt(maxPrice.value) || Infinity;
       const brand = brandFilter.value;
       const rating = parseFloat(ratingFilter.value) || 0;
 
       filtered = filtered.filter(laptop => {
-        const matchesPrice = laptop.price >= min && laptop.price <= max;
         const matchesBrand = !brand || laptop.brand === brand;
         const matchesRating = laptop.rating >= rating;
-        return matchesPrice && matchesBrand && matchesRating;
+        return matchesBrand && matchesRating;
       });
 
       renderCards(filtered);
     }
 
     // Event listeners
-    minPrice.addEventListener("input", filterProducts);
-    maxPrice.addEventListener("input", filterProducts);
     brandFilter.addEventListener("change", filterProducts);
     ratingFilter.addEventListener("change", filterProducts);
 
@@ -412,6 +395,7 @@
       accessories: [
         { name: "Earphones", link: "earphones.html" },
         { name: "Powerbank", link: "powerbank.html" },
+        { name: "Adapter", link: "adapter.html" },
       ]
     };
 
