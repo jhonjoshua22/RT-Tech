@@ -1,69 +1,61 @@
 import { topsellers, newarrival, topPicks } from "./productlist.js";
 
-function renderProducts(products, containerSelector, cardClass, modalPrefix) {
+function renderProducts(products, containerSelector) {
   const container = document.querySelector(containerSelector);
-  container.innerHTML = ""; 
-
-  const body = document.body;
+  container.innerHTML = "";
 
   products.forEach((item, index) => {
     const card = document.createElement("div");
-    card.classList.add("card", "p-4","m-0", "m-lg-2", cardClass);
-
-    const modalId = `${modalPrefix}-modal-${index}`;
+    card.className = "col-md-3 col-sm-4 col-6 mb-4";
 
     card.innerHTML = `
-      <div class="card-subtitle" style="font-weight: bold">${item.brand}</div>
-      <div class="card-subtitle" style="font-weight: bold; font-size: 12px">${item.rating}</div>
-      <div style="height: auto">
-        <img class="card-img-top" src="${item.image}" title="${item.title}" alt="${item.brand}" />
-      </div>
-      <div class="card-title" style="font-size: 12px; font-weight: bold" title="${item.title}">
-        ${item.title}
-      </div>
-      <button class="border border-black" style="border-radius: 5px" data-bs-toggle="modal" data-bs-target="#${modalId}">
-        ${item.buttonText}
-      </button>
-    `;
-
-    container.appendChild(card);
-
-    // Create modal separately and append to body
-    const modal = document.createElement("div");
-    modal.className = "modal fade";
-    modal.id = modalId;
-    modal.tabIndex = -1;
-    modal.innerHTML = `
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">${item.title}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="row align-items-center">
-              <div class="col-md-6 text-center">
-                <img src="${item.image}" alt="${item.title}" class="img-fluid rounded" />
-              </div>
-              <div class="col-md-6">
-                <p><strong>Brand:</strong> ${item.brand}</p>
-                <p><strong>Rating:</strong> ${item.rating}</p>
-                <p><strong>Product:</strong> ${item.title}</p>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
+      <div class="card shadow-sm h-100 text-center border-1 rounded-4">
+        <img src="${item.image}" class="card-img-top p-3" alt="${item.title}" style="height: 250px; object-fit: contain;">
+        <div class="card-body">
+          <h6 class="card-title fw-bold" title="${item.title}">${item.title}</h6>
+          <p class="text-muted mb-1">Brand: ${item.brand}</p>
+          <p class="text-warning">⭐ ${item.rating}</p>
+          <button class="btn btn-success w-100 fw-semibold" onclick="viewProduct(${index}, '${containerSelector}')">
+            ${item.buttonText}
+          </button>
         </div>
       </div>
     `;
-    body.appendChild(modal);
+
+    container.appendChild(card);
   });
 }
 
+// Store selected product and redirect
+function viewProduct(index, containerSelector) {
+  let products;
+  switch (containerSelector) {
+    case ".tcontainer":
+      products = topsellers;
+      break;
+    case ".ncontainer":
+      products = newarrival;
+      break;
+    case ".tpcontainer":
+      products = topPicks;
+      break;
+    default:
+      console.error("Unknown container selector");
+      return;
+  }
 
-// Render each category with unique modal prefixes
-renderProducts(topsellers, ".tcontainer", "top-sellers", "topseller");
-renderProducts(newarrival, ".ncontainer", "new-arrival", "newarrival");
-renderProducts(topPicks, ".tpcontainer", "top-picks", "toppick");
+  // Save selected product to localStorage
+  localStorage.setItem("selectedProduct", JSON.stringify(products[index]));
+
+  // Redirect to single product page
+  window.location.href = "products/singleproductpage.html";
+}
+
+// Make it accessible globally (for inline onclick)
+window.viewProduct = viewProduct;
+
+// Render all categories
+renderProducts(topsellers, ".tcontainer");
+renderProducts(newarrival, ".ncontainer");
+renderProducts(topPicks, ".tpcontainer");
+
