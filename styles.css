@@ -310,6 +310,13 @@ img {
   }
 }
 
+@media (max-width: 918px) { /* mobile & tablets */
+  .rcontainer .card {
+  flex: 0 0 calc(50% - 1rem); /* show 3 per row */
+  width: calc(50% - 1rem);
+}
+}
+
 .maps {
   width: 65%;
   height: 400px;
