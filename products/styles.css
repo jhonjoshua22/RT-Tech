@@ -287,6 +287,10 @@ ul {
   height: 40px;
 }
 
+.container h5 {
+  margin-top: 10vh;
+}
+
 .contacts a{
   margin: 5px 0;
 }
