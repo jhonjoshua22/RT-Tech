@@ -235,6 +235,7 @@ ul {
   }
 }
 
+
 .card:hover {
   box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4)
 }
@@ -300,7 +301,7 @@ img {
 
 .rcontainer .card {
   flex: 0 0 calc(33.333% - 1rem); /* show 3 per row */
-  max-width: calc(33.333% - 1rem);
+  width: calc(33.333% - 1rem);
 }
 
 @media (max-width: 768px) { /* mobile & tablets */
