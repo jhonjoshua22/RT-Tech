@@ -235,13 +235,6 @@ ul {
   }
 }
 
-.tpcontainer .card, .ncontainer .card, .tcontainer .card {
-  flex: 0 0 calc(25% - 1rem); /* show 3 per row */
-  max-width: calc(25% - 1rem);
-  height: auto;
-}
-
-
 .card:hover {
   box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4)
 }
@@ -311,26 +304,6 @@ img {
 }
 
 @media (max-width: 768px) { /* mobile & tablets */
-  .rcontainer .card {
-    flex: 0 0 50%;   /* show 1 card */
-    max-width: 50%;
-  }
-
-  .tcontainer .card {
-    flex: 0 0 50%;   /* show 1 card */
-    max-width: 50%;
-  }
-
-  .tpcontainer .card {
-    flex: 0 0 50%;   /* show 1 card */
-    max-width: 50%;
-  }
-
-  .ncontainer .card {
-    flex: 0 0 50%;   /* show 1 card */
-    max-width: 50%;
-  }
-
   .econtainer .card{
     flex: 0 0 100%;
     width: 100%;
