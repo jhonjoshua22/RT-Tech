@@ -181,6 +181,11 @@ ul {
   /* Center nav links on mobile */
 }
 
+#themeToggle {
+  height: 20px !important;
+  width: 20px !important;
+  margin: 1.5vh 1vw!important;
+}
 
 /* Carousel arrow icons */
 .carousel-control-prev-icon,
