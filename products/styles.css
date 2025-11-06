@@ -177,12 +177,6 @@ ul {
   /* Center nav links on mobile */
 }
 
-#themeToggle {
-  height: 20px !important;
-  width: 20px !important;
-  margin: 1.5vh 1vw!important;
-}
-
 /* Carousel arrow icons */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -293,16 +287,16 @@ ul {
   height: 40px;
 }
 
-.container h5 {
-  margin-top: 10vh;
-}
-
 .contacts a{
   margin: 5px 0;
 }
 
 .contacts a:hover {
   text-decoration: underline !important;
+}
+
+.container h5 {
+  margin-top: 10vh;
 }
 
 #contacts {
@@ -345,4 +339,3 @@ ul {
   color: #fff;
   box-shadow: none;
 }
-
