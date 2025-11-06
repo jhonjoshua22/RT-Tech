@@ -20,7 +20,7 @@
         <img src="images/logo.png" alt="Logo" class="img-fluid" style="height: 7vh;">
         <h1 class="mb-0 mt-1" style="font-size: 4vh; font-family: Monument;">RT TECH</h1>
       </a>
-      
+
       <!-- Toggler for mobile -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"  style="border: none">
         <span class="navbar-toggler-icon"></span>
@@ -113,24 +113,9 @@
   <div class="container" style="padding: 4vh 0 4vh; overflow: hidden" style="height: auto;">
     <div class="container d-block d-lg-flex">
 
-        <div class="maps d-flex justify-content-start">
-          <div id="storelocation" style="width: 100%;"></div><br>
-
-          <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-          <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-          <script>
-            const map = L.map('storelocation').setView([14.341092, 120.852825], 16);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-              attribution: '© OpenStreetMap contributors'
-            }).addTo(map);
-
-            L.marker([14.563526, 121.076469]).addTo(map)
-              .bindPopup('RT Tech Shop<br>44 Dr. Sixto Antonio Ave., Kapasigan, Pasig, 1600 Metro Manila')
-              .openPopup();
-          </script>
-        </div>
+        <iframe class="maps" data-aos="fade-up" data-aos-delay="450"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.6244237796004!2d121.071881485566!3d14.56345734961044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9006ad81c61%3A0x36c8a6b5573f2317!2sRIGTROVE%20COMPUTER%20TRADING!5e0!3m2!1sen!2sph!4v1762403202906!5m2!1sen!2sph"
+        allowfullscreen=""></iframe>
 
         <div class="map-dets d-flex flex-column justify-content-start align-items-center justify-content-center" style="text-align: center;">
             <h2>Store Location</h2><br>
