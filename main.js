@@ -58,4 +58,3 @@ window.viewProduct = viewProduct;
 renderProducts(topsellers, ".tcontainer");
 renderProducts(newarrival, ".ncontainer");
 renderProducts(topPicks, ".tpcontainer");
-
