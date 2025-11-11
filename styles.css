@@ -142,6 +142,7 @@ ul {
     display: none; 
     height: auto;
     top: 0;
+    color: white !important;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -153,6 +154,11 @@ ul {
     box-shadow: none !important;
     border-radius: 0 !important;
     padding: 0;
+  }
+
+  #megaContent li a{
+    color: white !important;
+    font-size: 14px !important;
   }
 
   .dropdown-mega.show {
@@ -180,7 +186,6 @@ ul {
 
   /* Center nav links on mobile */
 }
-
 
 /* Carousel arrow icons */
 .carousel-control-prev-icon,
