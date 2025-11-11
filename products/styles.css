@@ -104,11 +104,6 @@ ul {
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-#megaContent li {
-
-  font-size: 14px !important;
-}
-
 /* Show when hovering nav item */
 .nav-item:hover .dropdown-mega {
   display: flex;
@@ -138,6 +133,7 @@ ul {
     display: none; 
     height: auto;
     top: 0;
+    color: white !important;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -168,8 +164,14 @@ ul {
     overflow-y: auto;
   }
 
+  #megaContent li a{
+  color: white !important;
+  font-size: 14px !important;
+}
+
   .dropdown-mega .right {
     flex: 2;
+    color: white !important;;
     max-height: 300px;
     overflow-y: auto;
   }
